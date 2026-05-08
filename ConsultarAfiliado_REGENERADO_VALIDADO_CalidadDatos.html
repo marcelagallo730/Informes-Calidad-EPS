@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Informe de Calidad de Datos – ConsultarAfiliado_REGENERADO_VALIDADO – EPS Nueva Eps</title>
+<style>
+  :root {
+    --bg:          #0f1117;
+    --surface:     #1a1d27;
+    --surface2:    #22263a;
+    --border:      #2e3250;
+    --accent:      #5b7cfa;
+    --accent2:     #7c5bfa;
+    --good:        #22c55e;
+    --warn:        #f59e0b;
+    --bad:         #ef4444;
+    --info:        #38bdf8;
+    --text:        #e2e8f0;
+    --text2:       #94a3b8;
+    --text3:       #64748b;
+    --radius:      12px;
+    --radius-sm:   7px;
+    --shadow:      0 4px 24px rgba(0,0,0,.45);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #1e2240 0%, #12152b 100%); border-bottom: 1px solid var(--border); padding: 36px 48px 28px; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .badge-file { display: inline-flex; align-items: center; gap: 8px; background: rgba(91,124,250,.15); border: 1px solid rgba(91,124,250,.35); color: var(--accent); border-radius: 20px; padding: 4px 14px; font-size: 12px; margin-bottom: 12px; font-weight: 600; letter-spacing: .5px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 8px; }
+  .header p  { color: var(--text2); font-size: 13.5px; max-width: 640px; }
+  .header-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 20px; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 2px; }
+  .meta-value { font-size: 15px; font-weight: 600; color: var(--text); }
+  .container { max-width: 1380px; margin: 0 auto; padding: 36px 32px; }
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin: 36px 0 16px; display: flex; align-items: center; gap: 10px; }
+  .section-title::after { content:''; flex:1; height:1px; background: var(--border); }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-bottom: 8px; }
+  .kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; position: relative; overflow: hidden; }
+  .kpi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--kpi-color, var(--accent)); }
+  .kpi-label { font-size: 11.5px; color: var(--text3); text-transform: uppercase; letter-spacing:.8px; margin-bottom:8px; }
+  .kpi-value { font-size: 28px; font-weight: 800; color: var(--kpi-color, var(--text)); line-height:1; }
+  .kpi-sub   { font-size: 11.5px; color: var(--text3); margin-top: 4px; }
+  .c-good { color: var(--good); } .c-warn { color: var(--warn); } .c-bad { color: var(--bad); } .c-info { color: var(--info); }
+  .bg-good { background: var(--good); } .bg-warn { background: var(--warn); } .bg-bad { background: var(--bad); } .bg-info { background: var(--info); }
+  .status { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing:.6px; padding: 2px 9px; border-radius: 20px; text-transform: uppercase; }
+  .status-good { background: rgba(34,197,94,.15);  color: var(--good); border: 1px solid rgba(34,197,94,.3); }
+  .status-warn { background: rgba(245,158,11,.15); color: var(--warn); border: 1px solid rgba(245,158,11,.3); }
+  .status-bad  { background: rgba(239,68,68,.15);  color: var(--bad);  border: 1px solid rgba(239,68,68,.3); }
+  .status-info { background: rgba(56,189,248,.15); color: var(--info); border: 1px solid rgba(56,189,248,.3); }
+  .tbl-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--surface2); }
+  th { padding: 12px 16px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .8px; color: var(--text3); white-space: nowrap; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface2); }
+  td { padding: 11px 16px; border-bottom: 1px solid rgba(46,50,80,.5); color: var(--text); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(91,124,250,.05); }
+  .col-name { font-weight: 600; color: #fff; min-width: 210px; }
+  .col-type { color: var(--text3); font-size: 11.5px; font-family: monospace; }
+  .mini-bar-wrap { display:flex; align-items:center; gap:10px; min-width:120px; }
+  .mini-bar-bg   { flex:1; background: var(--surface2); border-radius:4px; height:6px; overflow:hidden; min-width:60px; }
+  .mini-bar-fill { height:100%; border-radius:4px; }
+  .mini-pct      { font-size:12px; font-weight:700; min-width:38px; text-align:right; }
+  .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .issue-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; border-left: 4px solid var(--issue-color, var(--warn)); }
+  .issue-title { font-weight: 700; font-size: 13.5px; margin-bottom: 6px; }
+  .issue-body  { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
+  .issue-tag   { font-size: 10.5px; text-transform: uppercase; letter-spacing:.6px; color: var(--text3); margin-bottom:6px; }
+  .reco-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .reco-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start; }
+  .reco-num { min-width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display:flex; align-items:center; justify-content:center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .reco-text { font-size: 13px; color: var(--text2); line-height:1.6; }
+  .reco-text strong { color: var(--text); }
+  .footer { border-top: 1px solid var(--border); padding: 22px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap:12px; font-size: 12px; color: var(--text3); background: var(--surface); }
+  .footer-logo { font-weight: 800; font-size: 14px; color: var(--accent); }
+  .scroll-top { position: fixed; bottom: 28px; right: 28px; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color:#fff; border:none; cursor:pointer; font-size: 18px; display:flex; align-items:center; justify-content:center; box-shadow: 0 4px 16px rgba(91,124,250,.4); z-index: 999; }
+  [title] { cursor: help; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-top">
+    <div>
+      <div class="badge-file">📄 Archivo 3 de 4</div>
+      <h1>Informe de Calidad de Datos - NUEVA EPS</h1>
+      <p>Análisis por columna aplicando las dimensiones de calidad de la ISO/IEC 25012,
+         DAMA-DMBOK2 y prácticas vigentes de Gobernanza de Datos.</p>
+      <div class="header-meta">
+        <div class="meta-item"><span class="meta-label">Archivo</span><span class="meta-value">ConsultarAfiliado_REGENERADO_VALIDADO.csv</span></div>
+        <div class="meta-item"><span class="meta-label">Total de registros</span><span class="meta-value">46 712</span></div>
+        <div class="meta-item"><span class="meta-label">Columnas</span><span class="meta-value">16</span></div>
+        <div class="meta-item"><span class="meta-label">Fecha de análisis</span><span class="meta-value">07 / 05 / 2026</span></div>
+        <div class="meta-item"><span class="meta-label">Marco de referencia</span><span class="meta-value">ISO 25012 · DAMA-DMBOK2 · DCAM</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="section-title">📊 Indicadores Generales del Dataset</div>
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kpi-color:var(--good)">
+      <div class="kpi-label">Puntaje Global de Calidad</div>
+      <div class="kpi-value c-good">89%</div>
+      <div class="kpi-sub">Promedio Ponderado DAMA</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--info)">
+      <div class="kpi-label">Total Registros</div>
+      <div class="kpi-value c-info">46 712</div>
+      <div class="kpi-sub">Filas en el archivo</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--good)">
+      <div class="kpi-label">Columnas Auditadas</div>
+      <div class="kpi-value c-good">16</div>
+      <div class="kpi-sub">100% analizadas</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--bad)">
+      <div class="kpi-label">Teléfonos inválidos</div>
+      <div class="kpi-value c-bad">23 540</div>
+      <div class="kpi-sub">50.4% ≠ 10 dígitos (CO)</div>
+    </div>
+  </div>
+
+  <div class="section-title">📋 Análisis Detallado por Columna (ISO 25012 / DAMA-DMBOK2)</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Columna</th>
+          <th>Tipo Dato</th>
+          <th>Completitud</th>
+          <th>Nulos</th>
+          <th>Unicidad</th>
+          <th>Validez</th>
+          <th>Hallazgos clave</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>1</td>
+          <td class="col-name">tipoDocumentoIdentificacion</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>6 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Valores: 3 (44 397 = 95%), 2 (1 081), 5 (888), 15 (301), 1 (36), 12 (9).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="col-name">numDocumentoIdentificacion</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>22 728 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>Sin registros nulos. Un registro tiene valor <strong>4</strong> (extremadamente bajo para cualquier documento colombiano). </td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="col-name">nombrePaciente</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>9 839 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Formato en mayúsculas sostenidas, homogéneo.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="col-name">apellidosPaciente</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>17 535 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Alta cardinalidad apropiada.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td class="col-name">telefono</td>
+          <td class="col-type">string (mixto)</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-bad" style="width:49.6%"></div></div><span class="mini-pct c-bad">49.6%</span></div></td>
+          <td>10</td>
+          <td>20 597 únicos</td>
+          <td><span class="status status-bad">Baja</span></td>
+          <td>🔴 23 540 registros (50.4%) con longitud distinta a 10 dígitos. 22 614 de éstos son números de <strong>7 dígitos</strong> — teléfonos fijos locales ingresados sin indicativo de ciudad (la normativa colombiana exige 10 dígitos desde 2012). 16 023 registros con prefijo no válido. 658 con valor literal "0" y 122 con "1" como rellenos ficticios. Solo 10 nulos formales, pero la tasa real de datos contactables se estima en menos del 50%.</td>
+          <td><span class="status status-bad">Crítico</span></td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td class="col-name">direccion</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.9%"></div></div><span class="mini-pct c-good">99.9%</span></div></td>
+          <td>49</td>
+          <td>20 158 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>49 registros nulos. 42 registros con valores de menos de 5 caracteres — algunos son abreviaciones opacas (NT, NS, M, N A, CDA) que no representan direcciones postales válidas. 3 719 registros inician con "BARRIO" y 3 991 con "VDA" (vereda): referencian el sector pero no la dirección física. Sin estandarización de abreviaturas viales.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td class="col-name">codSexo</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>2 únicos (F/M)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio perfectamente controlado: F (30 637 = 65.6%), M (16 075 = 34.4%).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td class="col-name">fechaNacimiento</td>
+          <td class="col-type">string→datetime</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>14 868 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Formato ISO 8601 (YYYY-MM-DD) consistente en todos los registros.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td class="col-name">edad</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>107 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td class="col-name">codEstado</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>4 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio controlado: 1-ACTIVO (46 361 = 99.2%), 4-SUSPENDIDO (126), 5-CANCELADO (198), 6-RETIRADO (27).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td class="col-name">desEstado</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>4 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Valores: ACTIVO, CANCELADO, SUSPENDIDO, RETIRADO. Sin nulos. La presencia de afiliados no activos (351) en el dataset implica que las consultas y procesos deben filtrar por codEstado = 1 para trabajar solo con afiliados vigentes, o documentar explícitamente el alcance del archivo.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <tr>
+          <td>12</td>
+          <td class="col-name">codTipoAfil</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>3 únicos (1, 2, 3)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Distribución: 2 (23 952 = 51.3%), 1 (21 880 = 46.8%), 3 (880 = 1.9%). Sin nulos. Dominio acotado y coherente. Se infiere: 1=Cotizante, 2=Beneficiario, 3=Adicional — verificar con catálogo MSPS. 15 pacientes con duplicados muestran variación de tipo de afiliado entre filas, lo que podría indicar cambios históricos de estado o errores.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <tr>
+          <td>13</td>
+          <td class="col-name">codCategoria</td>
+          <td class="col-type">float64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">≈100%</span></div></td>
+          <td>7</td>
+          <td>5 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>7 registros nulos.  Valores: 1.0 (26 895), 6.0 (13 577), 7.0 (3 082), 2.0 (2 979), 3.0 (172).</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+          <td class="col-name">desCategoria</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">≈100%</span></div></td>
+          <td>7</td>
+          <td>5 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>7 registros nulos. Valores: A (26 895), SISBEN-1 (13 577), SISBEN-2 (3 082), B (2 979), C (172).</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td class="col-name">codDepartamento</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>32 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 32 departamentos representados.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td class="col-name">codMunicipio</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>278 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 278 municipios distintos.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
+  <div class="issues-grid">
+
+    <div class="issue-card" style="--issue-color: var(--bad)">
+      <div class="issue-tag">Validez · Criticidad Alta</div>
+      <div class="issue-title">Campo teléfono con más del 50% de datos inútiles</div>
+      <div class="issue-body">23 540 registros (50.4%) tienen longitud distinta a 10 dígitos. El problema dominante es que 22 614 son números de 7 dígitos — teléfonos fijos locales capturados sin el indicativo de ciudad, formato que quedó obsoleto con la Resolución 1763/2008 de la CRC. Adicionalmente, 658 registros tienen "0" y 122 tienen "1" como rellenos ficticios. La capacidad real de contacto telefónico del padrón se estima por debajo del 50%.</div>
+    </div>
+
+    <div class="issue-card" style="--issue-color: var(--warn)">
+      <div class="issue-tag">Validez · Criticidad Media</div>
+      <div class="issue-title">Direcciones no postales y valores opaco-abreviados</div>
+      <div class="issue-body">7 710 registros (16.5%) usan el nombre del barrio o vereda como dirección en lugar de la dirección postal (ej: "BARRIO JARDIN", "VDA EL LLANO"). 42 registros tienen valores de 1–4 caracteres que no son direcciones reconocibles (NT, BETE, YUTO, NS, M). Esto limita severamente cualquier proceso de geolocalización, envío postal o verificación de domicilio.</div>
+    </div>
+
+  </div>
+
+  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
+  <ul class="reco-list">
+
+    <li class="reco-item">
+      <div class="reco-num">1</div>
+      <div class="reco-text"><strong>Completar el indicativo en teléfonos de 7 dígitos:</strong> Para los 22 614 registros con número de 7 dígitos, cruzar el codDepartamento del afiliado con la tabla de indicativos de ciudad (CRC) y concatenar el prefijo correspondiente para reconstruir el número de 10 dígitos. Implementar validación en el sistema de registro: rechazar cualquier teléfono con longitud distinta a 10 dígitos desde la captura.</div>
+    </li>
+
+    <li class="reco-item">
+      <div class="reco-num">2</div>
+      <div class="reco-text"><strong>Estandarizar direcciones mediante proceso ETL de normalización:</strong> Implementar un paso de estandarización vial que: (a) expanda abreviaturas (VDA→VEREDA, CR→CARRERA, CL→CALLE), (b) rechace valores de menos de 5 caracteres no reconocidos como válidos, (c) distinga entre "dirección física" y "sector/barrio" mediante un campo adicional. Considerar geolocalización con API DIVIPOLA+OpenStreetMap para enriquecer el campo.</div>
+    </li>
+
+  </ul>
+
+</main>
+
+<footer class="footer">
+  <div>
+    <div class="footer-logo">DataQuality Report</div>
+    <div>Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM · Resolución 1552/2013 (Datos en Salud Colombia)</div>
+  </div>
+  <div>Generado el 07/05/2026 · Archivo 2 de 4 · ConsultarAfiliado_REGENERADO_VALIDADO.csv</div>
+</footer>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+</body>
+</html>

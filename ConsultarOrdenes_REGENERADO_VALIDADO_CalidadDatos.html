@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Informe de Calidad de Datos – Método ConsultarCedula_masivo - EPS Salud Total</title>
+<title>Informe de Calidad de Datos – ConsultarOrdenes_REGENERADO_VALIDADO – EPS Salud Total</title>
 <style>
   /* ===== TOKENS ===== */
   :root {
@@ -84,21 +84,6 @@
   .kpi-value { font-size: 28px; font-weight: 800; color: var(--kpi-color, var(--text)); line-height:1; }
   .kpi-sub   { font-size: 11.5px; color: var(--text3); margin-top: 4px; }
 
-  /* ===== DIMENSION OVERVIEW ===== */
-  .dim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
-  .dim-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-  }
-  .dim-name  { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px; display:flex; align-items:center; gap:8px; }
-  .dim-icon  { font-size: 16px; }
-  .dim-bar-wrap { background: var(--surface2); border-radius: 6px; height: 8px; overflow:hidden; }
-  .dim-bar   { height:100%; border-radius:6px; transition: width .5s; }
-  .dim-score { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-  .dim-desc  { font-size: 11.5px; color: var(--text3); margin-top: 6px; }
-
   /* ===== COLOR UTILITIES ===== */
   .c-good { color: var(--good); }
   .c-warn { color: var(--warn); }
@@ -131,7 +116,7 @@
   td { padding: 11px 16px; border-bottom: 1px solid rgba(46,50,80,.5); color: var(--text); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: rgba(91,124,250,.05); }
-  .col-name  { font-weight: 600; color: #fff; min-width: 160px; }
+  .col-name  { font-weight: 600; color: #fff; min-width: 180px; }
   .col-type  { color: var(--text3); font-size: 11.5px; font-family: monospace; }
 
   /* ===== MINI BAR ===== */
@@ -189,6 +174,8 @@
     font-size: 18px; display:flex; align-items:center; justify-content:center;
     box-shadow: 0 4px 16px rgba(91,124,250,.4); z-index: 999;
   }
+
+  [title] { cursor: help; }
 </style>
 </head>
 <body>
@@ -197,15 +184,15 @@
 <header class="header">
   <div class="header-top">
     <div>
-      <div class="badge-file">📄 Archivo 2 de 3</div>
-      <h1>Informe de Calidad de Datos - SALUD TOTAL</h1>
-      <p>Análisis or columna aplicando las dimensiones de calidad de la ISO/IEC 25012,
+      <div class="badge-file">📄 Archivo 1 de 4</div>
+      <h1>Informe de Calidad de Datos - NUEVA EPS</h1>
+      <p>Análisis por columna aplicando las dimensiones de calidad de la ISO/IEC 25012,
          DAMA-DMBOK2 y prácticas vigentes de Gobernanza de Datos.</p>
       <div class="header-meta">
-        <div class="meta-item"><span class="meta-label">Archivo</span><span class="meta-value">ConsultarCedula_masivo.csv</span></div>
-        <div class="meta-item"><span class="meta-label">Total de registros</span><span class="meta-value">100 893</span></div>
-        <div class="meta-item"><span class="meta-label">Columnas</span><span class="meta-value">26</span></div>
-        <div class="meta-item"><span class="meta-label">Fecha de análisis</span><span class="meta-value">04 / 05 / 2026</span></div>
+        <div class="meta-item"><span class="meta-label">Archivo</span><span class="meta-value">ConsultarOrdenes_REGENERADO_VALIDADO.csv</span></div>
+        <div class="meta-item"><span class="meta-label">Total de registros</span><span class="meta-value">282 392</span></div>
+        <div class="meta-item"><span class="meta-label">Columnas</span><span class="meta-value">16</span></div>
+        <div class="meta-item"><span class="meta-label">Fecha de análisis</span><span class="meta-value">07 / 05 / 2026</span></div>
         <div class="meta-item"><span class="meta-label">Marco de referencia</span><span class="meta-value">ISO 25012 · DAMA-DMBOK2 · DCAM</span></div>
       </div>
     </div>
@@ -217,37 +204,36 @@
 
   <!-- ── KPIs Generales ── -->
   <div class="section-title">📊 Indicadores Generales del Dataset</div>
-  <div class="kpi-grid" >
+  <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">92%</div>
+      <div class="kpi-value c-good">97%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
       <div class="kpi-label">Total Registros</div>
-      <div class="kpi-value c-info">100 893</div>
+      <div class="kpi-value c-info">282 392</div>
       <div class="kpi-sub">Filas en el archivo</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--good)">
-      <div class="kpi-label">Columnas Definidas</div>
-      <div class="kpi-value c-good">26</div>
+      <div class="kpi-label">Columnas Auditadas</div>
+      <div class="kpi-value c-good">16</div>
+      <div class="kpi-sub">100% analizadas</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--warn)">
       <div class="kpi-label">Columnas con Nulos</div>
-      <div class="kpi-value c-warn">12 / 26</div>
-      <div class="kpi-sub">41% de columnas afectadas</div>
+      <div class="kpi-value c-warn">4 / 16</div>
+      <div class="kpi-sub">25% de columnas afectadas</div>
     </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">Teléfonos = 0</div>
-      <div class="kpi-value c-bad">49 358</div>
-      <div class="kpi-sub">48.9% inválidos</div>
+    <div class="kpi-card" style="--kpi-color:var(--warn)">
+      <div class="kpi-label">Teléfonos con longitud inválida</div>
+      <div class="kpi-value c-warn">1 038</div>
+      <div class="kpi-sub">≠ 10 dígitos (estándar CO)</div>
     </div>
   </div>
 
-
   <!-- ── Tabla por Columna ── -->
   <div class="section-title">📋 Análisis Detallado por Columna (ISO 25012 / DAMA-DMBOK2)</div>
-  
   <div class="tbl-wrap">
     <table>
       <thead>
@@ -265,10 +251,28 @@
       </thead>
       <tbody>
 
-        <!-- 1 dociden -->
+        <!-- 1 tipoDocumentoIdentificacion -->
         <tr>
           <td>1</td>
-          <td class="col-name">dociden</td>
+          <td class="col-name">tipoDocumentoIdentificacion</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>6 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio: CC (280 769), TI (522), RC (484), PT (426), CE (177), SC (14).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 2 numDocumentoIdentificacion -->
+        <tr>
+          <td>2</td>
+          <td class="col-name">numDocumentoIdentificacion</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -277,16 +281,124 @@
             </div>
           </td>
           <td>0</td>
-          <td>16 573 únicos</td>
+          <td>10 113 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>Sin registros nulos. 282 registros con valor inferior a 100 000 — sospechosamente bajos para una cédula colombiana estándar.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 3 nombrePaciente -->
+        <tr>
+          <td>3</td>
+          <td class="col-name">nombrePaciente</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>10 111 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. Rango coherente con cédulas colombianas.</td>
+          <td>Sin registros nulos. Cardinalidad coherente con el número de documentos únicos (10 113). Nombres en mayúsculas sostenidas — homogéneo. Sin evidencia de registros con caracteres especiales o numéricos.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 2 Tipodoc -->
+        <!-- 4 telefono -->
         <tr>
-          <td>2</td>
-          <td class="col-name">Tipodoc</td>
+          <td>4</td>
+          <td class="col-name">telefono</td>
+          <td class="col-type">object (mixto)</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:97.7%"></div></div>
+              <span class="mini-pct c-warn">97.7%</span>
+            </div>
+          </td>
+          <td>6 377</td>
+          <td>10 695 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>⚠️ 6 377 nulos (2.3%). El campo presenta <strong>tipo mixto</strong> (object con valores numéricos y cadenas) — señal de inconsistencia en el origen. 1 038 registros con longitud distinta a 10 dígitos (inválidos según estándar colombiano). 423 registros con prefijo no reconocido (no inician con 3, 6 o 1). Requiere estandarización y tipado correcto.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 5 regimen -->
+        <tr>
+          <td>5</td>
+          <td class="col-name">regimen</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>2 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio controlado: CONTRIBUTIVO (253 318 = 89.7%) y SUBSIDIADO (29 074 = 10.3%). Sin valores fuera del catálogo. Distribución consistente con la cobertura SGSSS esperada para EPS contributiva.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 6 codSexo -->
+        <tr>
+          <td>6</td>
+          <td class="col-name">codSexo</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>2 únicos (F/M)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio controlado: F (192 567 = 68.2%), M (89 825 = 31.8%). Sin registros nulos ni valores fuera del catálogo. Distribución femenina elevada, coherente con patologías crónicas predominantes en el dataset (HTA, DM, IRC).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 7 fechaNacimiento -->
+        <tr>
+          <td>7</td>
+          <td class="col-name">fechaNacimiento</td>
+          <td class="col-type">string→datetime</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>7 934 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Formato ISO 8601 (YYYY-MM-DD) consistente en todos los registros. Sin fechas futuras ni valores anteriores a 1900. Alta cardinalidad adecuada para el dominio. Se recomienda conversión a tipo datetime en los pipelines de análisis.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 8 categoria -->
+        <tr>
+          <td>8</td>
+          <td class="col-name">categoria</td>
+          <td class="col-type">int64</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>3 únicos (1, 2, 3)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio perfectamente controlado: categoría 1 (241 991 = 85.7%), categoría 2 (39 256 = 13.9%), categoría 3 (1 145 = 0.4%). Sin valores fuera del rango permitido. Distribución consistente con el sistema de copago SGSSS.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 9 valorPagoModerador -->
+        <tr>
+          <td>9</td>
+          <td class="col-name">valorPagoModerador</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -297,141 +409,15 @@
           <td>0</td>
           <td>7 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Dominio controlado: 1 (95 072), 4 (2 443), 2 (2 422), 16 (629), 3 (283), 12 (38), 13 (6).</td>
+          <td>Sin registros nulos. El 88.5% de los registros tiene valor 0 (249 962), lo que indica que la mayoría de los pacientes están exentos de copago (categoría 1) — coherente con la distribución de categoría. Máximo = 52 800. Verificar que los valores no-cero correspondan a las tarifas oficiales de copago vigentes (Acuerdo 260 CNSSS y actualizaciones).</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 3 Nombre -->
-        <tr>
-          <td>3</td>
-          <td class="col-name">Nombre</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>9 423 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. 77 477 registros con doble espacio (nombre compuesto sin separador estándar).</td>
-          <td><span class="status status-good">Bueno</span></td>
-        </tr>
-
-        <!-- 4 Apellidos -->
-        <tr>
-          <td>4</td>
-          <td class="col-name">Apellidos</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>14 828 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. Formato aparentemente consistente.</td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 5 FecNacimiento -->
-        <tr>
-          <td>5</td>
-          <td class="col-name">FecNacimiento</td>
-          <td class="col-type">string→datetime</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>12 460 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>0 fechas inválidas. Formato ISO 8601 consistente.</td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 6 CodCiudad -->
-        <tr>
-          <td>6</td>
-          <td class="col-name">CodCiudad</td>
-          <td class="col-type">int64</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>3 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>3 valores: 68001 (Bucaramanga, 100 855), 17001 (Manizales, 36), 66001 (Pereira, 2).</td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 7 Direccion -->
-        <tr>
-          <td>7</td>
-          <td class="col-name">Direccion</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.9%"></div></div>
-              <span class="mini-pct c-good">99.9%</span>
-            </div>
-          </td>
-          <td>108</td>
-          <td>16 154 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>108 nulos. Sin estandarización de abreviaturas (CL, CRA, CR, CALLE). Sin validación contra base geográfica oficial.</td>
-          <td><span class="status status-warn">Atención</span></td>
-        </tr>
-
-        <!-- 8 Telefono -->
-        <tr>
-          <td>8</td>
-          <td class="col-name">Telefono</td>
-          <td class="col-type">int64</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.2%"></div></div>
-              <span class="mini-pct c-good">99.2%</span>
-            </div>
-          </td>
-          <td>842</td>
-          <td>5 786 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
-          <td>🔴 49 358 registros con valor = 0 (48.9% del campo es inútil). 11 311 teléfonos con más de 10 dígitos (inválidos según estándar colombiano).</td>
-          <td><span class="status status-bad">Crítico</span></td>
-        </tr>
-
-        <!-- 9 sexo -->
-        <tr>
-          <td>9</td>
-          <td class="col-name">sexo</td>
-          <td class="col-type">int64</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>2 únicos (1 y 2)</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Dominio limpio: 2 (63 485) y 1 (37 408). </td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 10 RangoSalarial -->
+        <!-- 10 numAutorizacion -->
         <tr>
           <td>10</td>
-          <td class="col-name">RangoSalarial</td>
-          <td class="col-type">string</td>
+          <td class="col-name">numAutorizacion</td>
+          <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
               <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
@@ -439,34 +425,34 @@
             </div>
           </td>
           <td>0</td>
-          <td>3 únicos (A, B, C)</td>
+          <td>36 679 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Dominio controlado y limpio: A (88 840), B (11 129), C (924).</td>
+          <td> Rango numérico coherente (7 029 642 689 – 7 089 610 924).</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 11 TipoAfiliado -->
+        <!-- 11 codDiagnosticoPrincipal -->
         <tr>
           <td>11</td>
-          <td class="col-name">TipoAfiliado</td>
+          <td class="col-name">codDiagnosticoPrincipal</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
               <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
+              <span class="mini-pct c-good">≈100%</span>
             </div>
           </td>
-          <td>0</td>
-          <td>2 únicos (B/C)</td>
+          <td>8</td>
+          <td>904 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Dominio controlado: C (Cotizante, 54 329) y B (Beneficiario, 46 564). Sin valores fuera del catálogo esperado.</td>
+          <td>Solo 8 nulos. 904 códigos CIE-10 únicos — todos con formato válido (letra + dígitos). Diagnósticos más frecuentes: I10X (HTA, 104 904), E119 (DM tipo 2, 48 010), N189 (IRC, 45 578). Distribución coherente con una EPS de pacientes crónicos.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 12 NumEntregaMed -->
+        <!-- 12 numDocumentoIdentificacionMedico -->
         <tr>
           <td>12</td>
-          <td class="col-name">NumEntregaMed</td>
+          <td class="col-name">numDocumentoIdentificacionMedico</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -475,17 +461,17 @@
             </div>
           </td>
           <td>0</td>
-          <td>60 810 únicos</td>
+          <td>299 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Alta cardinalidad (60 810). Sin duplicados exactos.</td>
+          <td>Sin registros nulos. 299 médicos distintos en el dataset. Rango numérico dentro de lo esperado para cédulas colombianas.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 13 vecesservicio -->
+        <!-- 13 codigoExterno -->
         <tr>
           <td>13</td>
-          <td class="col-name">vecesservicio</td>
-          <td class="col-type">int64</td>
+          <td class="col-name">codigoExterno</td>
+          <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
               <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
@@ -493,17 +479,17 @@
             </div>
           </td>
           <td>0</td>
-          <td>76 únicos</td>
+          <td>1 012 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. 76 valores distintos. Rango aparentemente válido.</td>
+          <td>Sin registros nulos. 1 012 códigos de medicamentos únicos con patrón homogéneo (prefijo "MD" + 6 dígitos). Cardinalidad exactamente igual a la de "Descripción medicamento" — consistencia relacional perfecta entre ambos campos.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 14 codigoIT -->
+        <!-- 14 Descripción medicamento -->
         <tr>
           <td>14</td>
-          <td class="col-name">codigoIT</td>
-          <td class="col-type">int64</td>
+          <td class="col-name">Descripción medicamento</td>
+          <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
               <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
@@ -511,226 +497,46 @@
             </div>
           </td>
           <td>0</td>
-          <td>1 875 únicos</td>
+          <td>1 012 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. 1 875 códigos únicos de servicio/medicamento.</td>
+          <td>Sin registros nulos.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 15 nombreServicio -->
+        <!-- 15 dosis -->
         <tr>
           <td>15</td>
-          <td class="col-name">nombreServicio</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>1 872 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. </td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 16 fecha_uso -->
-        <tr>
-          <td>16</td>
-          <td class="col-name">fecha_uso</td>
-          <td class="col-type">string→datetime</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>13 135 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos.</td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 17 fecha_vto -->
-        <tr>
-          <td>17</td>
-          <td class="col-name">fecha_vto</td>
-          <td class="col-type">string→datetime</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>764 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Formato ISO 8601 con zona horaria Colombia.</td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 18 pago_final -->
-        <tr>
-          <td>18</td>
-          <td class="col-name">pago_final</td>
-          <td class="col-type">int64</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.9%"></div></div>
-              <span class="mini-pct c-good">99.99%</span>
-            </div>
-          </td>
-          <td>6</td>
-          <td>61 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Solo 6 nulos. Media = 781.5, máximo = 224 500. El 75% tiene valor 0 (válido para régimen capitación sin copago). Rango monetario coherente con el sistema de salud colombiano.</td>
-          <td><span class="status status-good">Bueno</span></td>
-        </tr>
-
-        <!-- 19 DocumentoSolicitante -->
-        <tr>
-          <td>19</td>
-          <td class="col-name">DocumentoSolicitante</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:89.5%"></div></div>
-              <span class="mini-pct c-warn">89.5%</span>
-            </div>
-          </td>
-          <td>10 611</td>
-          <td>2 836 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>10 611 nulos (10.5%). Mezcla el literal "Ninguno" con números de documento reales.</td>
-          <td><span class="status status-warn">Atención</span></td>
-        </tr>
-
-        <!-- 20 CantidadDosis -->
-        <tr>
-          <td>20</td>
-          <td class="col-name">CantidadDosis</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
-              <span class="mini-pct c-good">100%</span>
-            </div>
-          </td>
-          <td>0</td>
-          <td>107 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. Valor más frecuente: 1 (67 706 registros). 107 valores distintos.</td>
-          <td><span class="status status-good">Óptimo</span></td>
-        </tr>
-
-        <!-- 21 MedidaDosis -->
-        <tr>
-          <td>21</td>
-          <td class="col-name">MedidaDosis</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:76.4%"></div></div>
-              <span class="mini-pct c-warn">76.4%</span>
-            </div>
-          </td>
-          <td>23 801</td>
-          <td>39 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>23 801 nulos (23.6%). </td>
-          <td><span class="status status-warn">Atención</span></td>
-        </tr>
-
-        <!-- 22 Frecuencia -->
-        <tr>
-          <td>22</td>
-          <td class="col-name">Frecuencia</td>
+          <td class="col-name">dosis</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:88.9%"></div></div>
-              <span class="mini-pct c-warn">88.9%</span>
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.99%"></div></div>
+              <span class="mini-pct c-good">≈100%</span>
             </div>
           </td>
-          <td>11 197</td>
-          <td>48 únicos</td>
+          <td>27</td>
+          <td>41 únicos</td>
           <td><span class="status status-warn">Moderada</span></td>
-          <td>11 197 nulos (11.1%).</td>
+          <td>27 nulos. ⚠️76 registros con dosis = 0.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
-        <!-- 23 MedidaTiempo -->
+        <!-- 16 frecuencia -->
         <tr>
-          <td>23</td>
-          <td class="col-name">MedidaTiempo</td>
+          <td>16</td>
+          <td class="col-name">frecuencia</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:76.4%"></div></div>
-              <span class="mini-pct c-warn">76.4%</span>
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
             </div>
           </td>
-          <td>23 808</td>
-          <td>6 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>23 808 nulos (23.6%).</td>
-          <td><span class="status status-warn">Atención</span></td>
-        </tr>
-
-        <!-- 24 ID_DireccionamientoMipres -->
-        <tr>
-          <td>24</td>
-          <td class="col-name">ID_DireccionamientoMipres</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.98%"></div></div>
-              <span class="mini-pct c-good">99.98%</span>
-            </div>
-          </td>
-          <td>18</td>
-          <td>864 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
-          <td>🔴 99 257 registros tienen valor "0" 98.4% del campo.</td>
-          <td><span class="status status-bad">Crítico</span></td>
-        </tr>
-
-        <!-- 25 TipoUsuario -->
-        <tr>
-          <td>25</td>
-          <td class="col-name">TipoUsuario</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.98%"></div></div>
-              <span class="mini-pct c-good">99.98%</span>
-            </div>
-          </td>
-          <td>18</td>
-          <td>2 únicos</td>
+          <td>0</td>
+          <td>154 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>18 nulos.</td>
+          <td>Sin registros nulos. Sin embargo, <strong>el 100% de los registros</strong> contiene doble espacio interno en el patrón de texto (ej: "1&nbsp;&nbsp;cada 24 Horas"). Aunque legible para humanos, genera inconsistencias en agrupaciones y comparaciones de cadenas. Alta cardinalidad (154 variantes) para un campo de dominio finito — sugiere falta de catálogo controlado en la fuente.</td>
           <td><span class="status status-good">Bueno</span></td>
-        </tr>
-
-        <!-- 26 ModContratacionPago -->
-        <tr>
-          <td>26</td>
-          <td class="col-name">ModContratacionPago</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.97%"></div></div>
-              <span class="mini-pct c-good">99.97%</span>
-            </div>
-          </td>
-          <td>32</td>
-          <td>4 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos.</td>
-          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
       </tbody>
@@ -741,17 +547,10 @@
   <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
   <div class="issues-grid">
 
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Validez · Criticidad Alta</div>
-      <div class="issue-title">Campo Teléfono masivamente inválido</div>
-      <div class="issue-body">49 358 registros (48.9%) tienen Teléfono = 0. Adicionalmente, 11 311 registros superan los 10 dígitos. Patrón idéntico al archivo 1, lo que confirma un problema sistémico en el proceso de extracción desde la fuente de datos.</div>
-    </div>
-
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Consistencia · Criticidad Alta</div>
-      <div class="issue-title">ID_DireccionamientoMipres prácticamente inutilizado</div>
-      <div class="issue-body">El 98.4% de los registros (99 257) tienen el valor "0" en este campo, que debería contener el identificador del direccionamiento MIPRES.</div>
+    <div class="issue-card" style="--issue-color: var(--warn)">
+      <div class="issue-tag">Validez · Criticidad Media</div>
+      <div class="issue-title">Dosis = 0 en registros activos</div>
+      <div class="issue-body">76 registros presentan dosis igual a cero. Una dosis nula en una orden de medicamento activa es clínicamente inválida y representa un error de captura o una omisión en el proceso de prescripción. Estos registros deben ser marcados como erróneos, rechazados en origen o investigados para corrección.</div>
     </div>
 
   </div>
@@ -760,29 +559,15 @@
   <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
   <ul class="reco-list">
 
-
     <li class="reco-item">
       <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Rehabilitar el campo ID_DireccionamientoMipres:</strong> El 98.4% de valores "0" hace este campo inútil. Verificar con el equipo de MIPRES si el ID debe poblarse para todos los registros o solo para algunos tipos de servicio. Si es obligatorio, implementar validación en origen que rechace registros sin ID MIPRES válido cuando aplique.</div>
+      <div class="reco-text"><strong>Implementar regla de validación para dosis:</strong> Dosis = 0 debe ser rechazada en el sistema de prescripción. Establecer regla: <em>dosis &gt; 0 AND dosis IS NOT NULL</em>. Para valores superiores a 100, implementar alerta de revisión clínica con validación cruzada contra el campo codigoExterno y el cuadro de medicamentos del PBS.</div>
     </li>
-
 
     <li class="reco-item">
       <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Estandarizar el campo Teléfono a nivel de sistema:</strong> El patrón de 48-49% de teléfonos = 0 se llena con "0" como placeholder en ausencia del dato real. Implementar NULL en lugar de 0, agregar validación de longitud (7 o 10 dígitos) y formato colombiano (3XX para celular, local de 7 dígitos) en el formulario de ingreso.</div>
+      <div class="reco-text"><strong>Estandarizar y tipar el campo telefono:</strong> Convertir a tipo string (no numérico) para preservar ceros iniciales. Aplicar validación: exactamente 10 dígitos, prefijo 3xx para celular o 6xx/1xx para fijo. Tratar la columna como NULLABLE en el modelo de datos y eliminar el almacenamiento de strings vacíos como nulos implícitos.</div>
     </li>
-
-    <li class="reco-item">
-      <div class="reco-num">3</div>
-      <div class="reco-text"><strong>Estandarizar DocumentoSolicitante:</strong> Reemplazar el literal "Ninguno" por NULL en el campo. Definir si el documento del solicitante es obligatorio o voluntario según el tipo de servicio. Implementar validación de formato (número de cédula válido) para los valores que sí se ingresan.</div>
-    </li>
-
-
-    <li class="reco-item">
-      <div class="reco-num">4</div>
-      <div class="reco-text"><strong>Aumentar la completitud de MedidaDosis y MedidaTiempo:</strong> Con 23.6% de nulos, se requiere revisar si la ausencia es sistemática para ciertos tipos de servicio (ej: insumos sin dosis definida). Si aplica, marcar el campo como obligatorio condicionalmente en el sistema de origen según el tipo de codigoIT.</div>
-    </li>
-
 
   </ul>
 
@@ -794,7 +579,7 @@
     <div class="footer-logo">DataQuality Report</div>
     <div>Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM · Resolución 1552/2013 (Datos en Salud Colombia)</div>
   </div>
-  <div>Generado el 04/05/2026 · Archivo 2 de 3 · ConsultarCedula_masivo.csv</div>
+  <div>Generado el 07/05/2026 · Archivo 1 de 4 · ConsultarOrdenes_REGENERADO_VALIDADO.csv</div>
 </footer>
 
 <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>

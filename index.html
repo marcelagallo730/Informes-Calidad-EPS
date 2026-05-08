@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Informes Calidad Datos EPS</title>
+<title>Informes Calidad EPS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -409,11 +409,11 @@
     <div class="hero-eyebrow">Sistema de Gobernanza de Datos · ISO 25012 · DAMA-DMBOK2</div>
     <h1>
       INFORMES
-      <span>CALIDAD DATOS EPS</span>
+      <span>CALIDAD EPS</span>
     </h1>
     <p class="hero-desc">
       Portal centralizado de informes de calidad de datos por entidad promotora de salud.
-      Análisis de las dimensiones de calidad: completitud, unicidad, validez, consistencia, exactitud y trazabilidad.
+      Análisis exhaustivo de completitud, unicidad, validez, consistencia, exactitud y trazabilidad.
     </p>
     <div class="hero-meta">
       <div class="hero-stat">
@@ -421,12 +421,8 @@
         <span class="hero-stat-label">Clientes EPS</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-val">3</span>
+        <span class="hero-stat-val">8</span>
         <span class="hero-stat-label">Informes activos</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-val">253 K+</span>
-        <span class="hero-stat-label">Registros analizados</span>
       </div>
       <div class="hero-stat">
         <span class="hero-stat-val">2026</span>
@@ -453,8 +449,7 @@
         </div>
         <div class="eps-name">Salud Total</div>
         <p class="eps-desc">
-          3 informes de calidad disponibles — Direccionamientos, Consulta Cédula y Liberación DP.
-          <span class="count-badge">3 informes</span>
+          <span class="count-badge">3 Métodos Analizados</span>
         </p>
         <div class="eps-reports">
           <a class="report-link" href="#" onclick="openModal('ConsultaDireccionamientosxCedula_masivo.html','Salud Total · Direccionamientos x Cédula Masivo'); return false;">
@@ -485,22 +480,52 @@
       </div>
     </div>
 
-    <!-- ─── NUEVA EPS ─── -->
-    <div class="eps-card" style="--card-accent:#f59e0b;">
+<!-- ─── NUEVA EPS ─── -->
+    <div class="eps-card has-reports" style="--card-accent:#00d4ff;">
       <div class="eps-card-inner">
         <div class="eps-card-head">
-          <div class="eps-icon">🏨</div>
-          <span class="eps-status status-pending">
-            <span class="eps-status-dot"></span> Pendiente
+          <div class="eps-icon">🏥</div>
+          <span class="eps-status status-active">
+            <span class="eps-status-dot"></span> Activo
           </span>
         </div>
-        <div class="eps-name">Nueva EPS</div>
+        <div class="eps-name">Nueva Eps</div>
         <p class="eps-desc">
-          Informes de calidad pendientes de carga. Próximamente disponibles para análisis.
+          <span class="count-badge">4 Métodos Analizados</span>
         </p>
-        <div class="eps-empty">
-          <span class="eps-empty-icon">⏳</span>
-          <span>Sin informes cargados aún</span>
+        <div class="eps-reports">
+          <a class="report-link" href="#" onclick="openModal('ConsultarOrdenes_REGENERADO_VALIDADO_CalidadDatos.html','Nueva Eps · Consultar Ordenes'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Ordenes</span>
+              <span class="report-link-sub">Consultar Ordenes · 282 392 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
+          <a class="report-link" href="#" onclick="openModal('LiberarPreautorizacion_REGENERADO_VALIDADO_CalidadDatos.html','Nueva Eps · Liberar Preautorización'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Liberar Preautorización</span>
+              <span class="report-link-sub">Liberar Preautorización · 34 455 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
+          <a class="report-link" href="#" onclick="openModal('ConsultarAfiliado_REGENERADO_VALIDADO_CalidadDatos.html','Nueva Eps · Consultar Afiliado'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Afiliado</span>
+              <span class="report-link-sub">Consultar Afiliado · 46 712 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
+          <a class="report-link" href="#" onclick="openModal('ConsultaPreautorizacion_REGENERADO_VALIDADO_CalidadDatos.html','Nueva Eps · Consultar Preautorización'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Preautorización</span>
+              <span class="report-link-sub">Consultar Preautorización · 34 501 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
         </div>
       </div>
     </div>
@@ -569,7 +594,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-brand">CALIDAD DATOS EPS</div>
+    <div class="footer-brand">CALIDAD EPS</div>
     <div class="footer-meta">Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM &nbsp;·&nbsp; Actualizado 04/05/2026</div>
   </footer>
 
