@@ -411,17 +411,19 @@
       INFORMES
       <span>CALIDAD EPS</span>
     </h1>
-    <p class="hero-desc">
+    <p class="hero-stat-label">
       Portal centralizado de informes de calidad de datos por entidad promotora de salud.
       Análisis exhaustivo de completitud, unicidad, validez, consistencia, exactitud y trazabilidad.
+      Lo anterior se realizó con una muestra de datos para cada uno de los métodos.
     </p>
+    <p class="hero">Análisis por columna aplicando las dimensiones de calidad de la ISO/IEC 25012, DAMA-DMBOK2 y prácticas vigentes de Gobernanza de Datos.</p>
     <div class="hero-meta">
       <div class="hero-stat">
         <span class="hero-stat-val">5</span>
         <span class="hero-stat-label">Clientes EPS</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-val">8</span>
+        <span class="hero-stat-val">10</span>
         <span class="hero-stat-label">Informes activos</span>
       </div>
       <div class="hero-stat">
@@ -530,22 +532,36 @@
       </div>
     </div>
 
-    <!-- ─── SANITAS ─── -->
-    <div class="eps-card" style="--card-accent:#a78bfa;">
+    <!-- ─── MUTUAL SER ─── -->
+    <div class="eps-card has-reports" style="--card-accent:#00d4ff;">
       <div class="eps-card-inner">
         <div class="eps-card-head">
-          <div class="eps-icon">🏦</div>
-          <span class="eps-status status-pending">
-            <span class="eps-status-dot"></span> Pendiente
+          <div class="eps-icon">🏥</div>
+          <span class="eps-status status-active">
+            <span class="eps-status-dot"></span> Activo
           </span>
         </div>
-        <div class="eps-name">Sanitas</div>
+        <div class="eps-name">Mutual Ser</div>
         <p class="eps-desc">
-          Informes de calidad pendientes de carga. Próximamente disponibles para análisis.
+          <span class="count-badge">2 Métodos Analizados</span>
         </p>
-        <div class="eps-empty">
-          <span class="eps-empty-icon">⏳</span>
-          <span>Sin informes cargados aún</span>
+        <div class="eps-reports">
+          <a class="report-link" href="#" onclick="openModal('MutualSer_ConsultarValidacionDerechos_InformeCalidad.html','Mutual Ser · ConsultarValidación Derechos'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">ConsultarValidación Derechos</span>
+              <span class="report-link-sub">ConsultarValidación Derechos · 47 528 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
+          <a class="report-link" href="#" onclick="openModal('MutualSer_consultarAutorizaciones_InformeCalidad.html','Mutual Ser · Consultar Autorización'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Autorización</span>
+              <span class="report-link-sub">Consultar Autorización · 40 011 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
         </div>
       </div>
     </div>
@@ -570,7 +586,7 @@
       </div>
     </div>
 
-    <!-- ─── MUTUAL SER ─── -->
+    <!-- ─── SANITAS ─── -->
     <div class="eps-card" style="--card-accent:#fb7185;">
       <div class="eps-card-inner">
         <div class="eps-card-head">
