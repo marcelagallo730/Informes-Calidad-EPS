@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Informe de Calidad de Datos – ConsultaMedicamentos_masivo_REGENERADO_VALIDADO - EPS Capital Salud</title>
+<style>
+  /* ===== TOKENS ===== */
+  :root {
+    --bg:          #0f1117;
+    --surface:     #1a1d27;
+    --surface2:    #22263a;
+    --border:      #2e3250;
+    --accent:      #5b7cfa;
+    --accent2:     #7c5bfa;
+    --good:        #22c55e;
+    --warn:        #f59e0b;
+    --bad:         #ef4444;
+    --info:        #38bdf8;
+    --text:        #e2e8f0;
+    --text2:       #94a3b8;
+    --text3:       #64748b;
+    --radius:      12px;
+    --radius-sm:   7px;
+    --shadow:      0 4px 24px rgba(0,0,0,.45);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(135deg, #1e2240 0%, #12152b 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 48px 28px;
+  }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .badge-file {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(91,124,250,.15); border: 1px solid rgba(91,124,250,.35);
+    color: var(--accent); border-radius: 20px; padding: 4px 14px; font-size: 12px;
+    margin-bottom: 12px; font-weight: 600; letter-spacing: .5px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 8px; }
+  .header p  { color: var(--text2); font-size: 13.5px; max-width: 640px; }
+  .header-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 20px; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 2px; }
+  .meta-value { font-size: 15px; font-weight: 600; color: var(--text); }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 1380px; margin: 0 auto; padding: 36px 32px; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--accent); margin: 36px 0 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background: var(--border); }
+
+  /* ===== KPI CARDS ===== */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-bottom: 8px; }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background: var(--kpi-color, var(--accent));
+  }
+  .kpi-label { font-size: 11.5px; color: var(--text3); text-transform: uppercase; letter-spacing:.8px; margin-bottom:8px; }
+  .kpi-value { font-size: 28px; font-weight: 800; color: var(--kpi-color, var(--text)); line-height:1; }
+  .kpi-sub   { font-size: 11.5px; color: var(--text3); margin-top: 4px; }
+
+  /* ===== COLOR UTILITIES ===== */
+  .c-good { color: var(--good); }
+  .c-warn { color: var(--warn); }
+  .c-bad  { color: var(--bad);  }
+  .c-info { color: var(--info); }
+  .bg-good { background: var(--good); }
+  .bg-warn { background: var(--warn); }
+  .bg-bad  { background: var(--bad);  }
+  .bg-info { background: var(--info); }
+
+  /* ===== STATUS BADGE ===== */
+  .status {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing:.6px;
+    padding: 2px 9px; border-radius: 20px; text-transform: uppercase;
+  }
+  .status-good { background: rgba(34,197,94,.15);  color: var(--good); border: 1px solid rgba(34,197,94,.3); }
+  .status-warn { background: rgba(245,158,11,.15); color: var(--warn); border: 1px solid rgba(245,158,11,.3); }
+  .status-bad  { background: rgba(239,68,68,.15);  color: var(--bad);  border: 1px solid rgba(239,68,68,.3);  }
+  .status-info { background: rgba(56,189,248,.15); color: var(--info); border: 1px solid rgba(56,189,248,.3); }
+
+  /* ===== TABLE ===== */
+  .tbl-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--surface2); }
+  th {
+    padding: 12px 16px; text-align: left; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .8px; color: var(--text3); white-space: nowrap; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--surface2);
+  }
+  td { padding: 11px 16px; border-bottom: 1px solid rgba(46,50,80,.5); color: var(--text); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(91,124,250,.05); }
+  .col-name  { font-weight: 600; color: #fff; min-width: 200px; }
+  .col-type  { color: var(--text3); font-size: 11.5px; font-family: monospace; }
+
+  /* ===== MINI BAR ===== */
+  .mini-bar-wrap { display:flex; align-items:center; gap:10px; min-width:120px; }
+  .mini-bar-bg   { flex:1; background: var(--surface2); border-radius:4px; height:6px; overflow:hidden; min-width:60px; }
+  .mini-bar-fill { height:100%; border-radius:4px; }
+  .mini-pct      { font-size:12px; font-weight:700; min-width:38px; text-align:right; }
+
+  /* ===== ISSUES ===== */
+  .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .issue-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    border-left: 4px solid var(--issue-color, var(--warn));
+  }
+  .issue-title { font-weight: 700; font-size: 13.5px; margin-bottom: 6px; }
+  .issue-body  { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
+  .issue-tag   { font-size: 10.5px; text-transform: uppercase; letter-spacing:.6px; color: var(--text3); margin-bottom:6px; }
+
+  /* ===== RECOMMENDATIONS ===== */
+  .reco-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .reco-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .reco-num {
+    min-width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display:flex; align-items:center; justify-content:center;
+    font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .reco-text { font-size: 13px; color: var(--text2); line-height:1.6; }
+  .reco-text strong { color: var(--text); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 22px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap:12px;
+    font-size: 12px; color: var(--text3);
+    background: var(--surface);
+  }
+  .footer-logo { font-weight: 800; font-size: 14px; color: var(--accent); }
+
+  /* ===== SCROLL TOP ===== */
+  .scroll-top {
+    position: fixed; bottom: 28px; right: 28px;
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--accent); color:#fff; border:none; cursor:pointer;
+    font-size: 18px; display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 4px 16px rgba(91,124,250,.4); z-index: 999;
+  }
+
+  [title] { cursor: help; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="header">
+  <div class="header-top">
+    <div>
+      <div class="badge-file">📄 Archivo 1 de 2</div>
+      <h1>Informe de Calidad de Datos – Consulta Medicamentos - CAPITAL SALUD</h1>
+      <p>Análisis por columna aplicando las dimensiones de calidad de la ISO/IEC 25012,
+         DAMA-DMBOK2 y prácticas vigentes de Gobernanza de Datos.</p>
+      <div class="header-meta">
+        <div class="meta-item"><span class="meta-label">Archivo</span><span class="meta-value">ConsultaMedicamentos_masivo_REGENERADO_VALIDADO.csv</span></div>
+        <div class="meta-item"><span class="meta-label">Total de registros</span><span class="meta-value">49 614</span></div>
+        <div class="meta-item"><span class="meta-label">Columnas</span><span class="meta-value">12</span></div>
+        <div class="meta-item"><span class="meta-label">Fecha de análisis</span><span class="meta-value">11 / 05 / 2026</span></div>
+        <div class="meta-item"><span class="meta-label">Marco de referencia</span><span class="meta-value">ISO 25012 · DAMA-DMBOK2 · DCAM</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════ MAIN ═══════════════════════ -->
+<main class="container">
+
+  <!-- ── KPIs Generales ── -->
+  <div class="section-title">📊 Indicadores Generales del Dataset</div>
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kpi-color:var(--good)">
+      <div class="kpi-label">Puntaje Global de Calidad</div>
+      <div class="kpi-value c-good">89%</div>
+      <div class="kpi-sub">Promedio Ponderado DAMA</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--info)">
+      <div class="kpi-label">Total Registros</div>
+      <div class="kpi-value c-info">49 614</div>
+      <div class="kpi-sub">Filas en el archivo</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--good)">
+      <div class="kpi-label">Columnas Auditadas</div>
+      <div class="kpi-value c-good">12</div>
+      <div class="kpi-sub">Completitud 100% en todas</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--bad)">
+      <div class="kpi-label">NombrePaciente Truncado</div>
+      <div class="kpi-value c-bad">26 917</div>
+      <div class="kpi-sub">54.2% limitados a 25 caracteres</div>
+    </div>
+  </div>
+
+  <!-- ── Tabla por Columna ── -->
+  <div class="section-title">📋 Análisis Detallado por Columna (ISO 25012 / DAMA-DMBOK2)</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Columna</th>
+          <th>Tipo Dato</th>
+          <th>Completitud</th>
+          <th>Nulos</th>
+          <th>Unicidad</th>
+          <th>Validez</th>
+          <th>Hallazgos clave</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- 1 IDRemitente -->
+        <tr>
+          <td>1</td>
+          <td class="col-name">IDRemitente</td>
+          <td class="col-type">int64 (NIT)</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>80 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin nulos. Todos los valores cumplen el formato NIT colombiano (9–10 dígitos). 80 prestadores distintos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 2 TIDPaciente -->
+        <tr>
+          <td>2</td>
+          <td class="col-name">TIDPaciente</td>
+          <td class="col-type">int64 (código)</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>8 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio de 8 valores: 1 (CC, 93.6%), 14 (1 514 registros, 3.0%), 3 (TI, 2.1%), 7 (CE, 0.9%), 10 (0.2%), 4 (RC, 0.1%), 13 y 12 (&lt;0.1%).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 3 IDPaciente -->
+        <tr>
+          <td>3</td>
+          <td class="col-name">IDPaciente</td>
+          <td class="col-type">mixed (int/str)</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>28 434 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>23 registros (0.05%) presentan valores alfanuméricos (ej. '11001P000632', '11001A000419') en lugar del formato numérico estándar de documento de identidad colombiano.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 4 NombrePaciente -->
+        <tr>
+          <td>4</td>
+          <td class="col-name">NombrePaciente</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>28 277 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>⚠️ 26 917 registros (54.2%) tienen exactamente 25 caracteres, que corresponde al límite máximo observado en el campo, evidenciando truncamiento sistemático del nombre completo. Ningún registro supera 25 caracteres, lo que indica una restricción técnica impuesta en origen.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 5 Programa -->
+        <tr>
+          <td>5</td>
+          <td class="col-name">Programa</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>2 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Dominio controlado: RS – Régimen Subsidiado (48 078, 96.9%) y PC – Programa Complementario (1 536, 3.1%). Sin nulos ni valores fuera de catálogo.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 6 CuotaModeradora -->
+        <tr>
+          <td>6</td>
+          <td class="col-name">CuotaModeradora</td>
+          <td class="col-type">int64</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>1 único (0)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>El campo contiene el valor 0 en la totalidad de los 49 614 registros. Aunque esto es coherente para afiliados del régimen subsidiado (exentos de cuota moderadora). Se recomienda confirmar con el área fuente.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 7 NumeroAutorizacion -->
+        <tr>
+          <td>7</td>
+          <td class="col-name">NumeroAutorizacion</td>
+          <td class="col-type">int64</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>36 831 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 8 FechaProgramacionCita -->
+        <tr>
+          <td>8</td>
+          <td class="col-name">FechaProgramacionCita</td>
+          <td class="col-type">int64 (YYYYMMDD)</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>62 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin nulos ni errores de parseo.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 9 IDDiagnostico -->
+        <tr>
+          <td>9</td>
+          <td class="col-name">IDDiagnostico</td>
+          <td class="col-type">string (CIE-10)</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>1 760 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin nulos. Dos patrones válidos y complementarios: códigos CIE-10 estándar de 4 dígitos (A000, ej. E119: 41 391 registros, 83.4%) y códigos con sufijo X como carácter de relleno RIPS (A00X, ej. I10X: 8 223 registros, 16.6%), ambos reconocidos por la normativa colombiana de intercambio de información en salud (Res. 3374/2000).</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 10 CodigoMedicamento -->
+        <tr>
+          <td>10</td>
+          <td class="col-name">CodigoMedicamento</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>990 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>Se detectaron 6 códigos MDAUDI con 2 nombres de medicamento distintos, indicando inconsistencia código–descripción menor.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 11 Medicamento -->
+        <tr>
+          <td>11</td>
+          <td class="col-name">Medicamento</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>958 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 958 nombres únicos de medicamentos con descripción incluida (principio activo + concentración + forma farmacéutica + presentación), formato estándar farmacéutico.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 12 CantidadMedicamento -->
+        <tr>
+          <td>12</td>
+          <td class="col-name">CantidadMedicamento</td>
+          <td class="col-type">int64</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>60 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos, ceros ni valores negativos. Rango 1–606 unidades; media 35, mediana 30. El 95% de los registros no supera 90 unidades (coherente con formulación mensual/trimestral).</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Hallazgos Críticos ── -->
+  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
+  <div class="issues-grid">
+
+
+    <div class="issue-card" style="--issue-color: var(--bad)">
+      <div class="issue-tag">Integridad · Criticidad Alta</div>
+      <div class="issue-title">NombrePaciente truncado al 54.2% de los registros</div>
+      <div class="issue-body">26 917 registros presentan el nombre del paciente limitado a exactamente 25 caracteres, evidenciando un truncamiento sistemático impuesto por una restricción de longitud en el sistema fuente o en el proceso de extracción. Esto impide la identificación inequívoca de pacientes con nombres largos, genera colisiones de identidad en cruces nominativos y viola el principio de exactitud (accuracy) de la ISO 25012. Se debe ampliar el campo a un mínimo de 80 caracteres en el sistema origen.</div>
+    </div>
+
+    <div class="issue-card" style="--issue-color: var(--warn)">
+      <div class="issue-tag">Consistencia · Criticidad Media</div>
+      <div class="issue-title">Múltiples prefijos en CodigoMedicamento sin catálogo unificado</div>
+      <div class="issue-body">6 códigos tienen 2 nombres distintos y 37 nombres apuntan a más de un código, rompiendo la relación biunívoca esperada entre código y medicamento.</div>
+    </div>
+
+  </div>
+
+  <!-- ── Recomendaciones ── -->
+  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
+  <ul class="reco-list">
+
+    <li class="reco-item">
+      <div class="reco-num">1</div>
+      <div class="reco-text"><strong>Ampliar el campo NombrePaciente en el sistema fuente:</strong> Coordinar con el área de TI para aumentar la longitud máxima del campo NombrePaciente de 25 a mínimo 80 caracteres (o VARCHAR ilimitado), de modo que el nombre completo del paciente se transmita sin truncamiento. Mientras tanto, complementar la identificación del paciente usando el par IDPaciente + TIDPaciente como clave principal en los cruces, evitando depender del nombre como campo de identificación.</div>
+    </li>
+
+    <li class="reco-item">
+      <div class="reco-num">2</div>
+      <div class="reco-text"><strong>Homogeneizar el tipo de dato de IDPaciente:</strong> Definir el campo como VARCHAR(20) en el modelo de datos para soportar tanto los valores numéricos como los 23 valores alfanuméricos detectados (ej. '11001P000632'). Investigar el origen de estos identificadores especiales con el área fuente para determinar si son códigos NUIP, identificadores provisionales o errores de ingreso, y documentar el resultado en el diccionario de datos.</div>
+    </li>
+
+  </ul>
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div>
+    <div class="footer-logo">DataQuality Report</div>
+    <div>Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM · Resolución 3374/2000 · Resolución 1552/2013 (Datos en Salud Colombia)</div>
+  </div>
+  <div>Generado el 11/05/2026 · Archivo 1 de 2 · ConsultaMedicamentos_masivo_REGENERADO_VALIDADO.csv</div>
+</footer>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+</body>
+</html>
