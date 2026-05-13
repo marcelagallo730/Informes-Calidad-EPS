@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Informe de Calidad de Datos – LiberarDPV2_masivo - EPS Salud Total</title>
+<title>Informe de Calidad de Datos – Sanitas_AutorizacionBH_REGENERADO_VALIDADO</title>
 <style>
   /* ===== TOKENS ===== */
   :root {
@@ -84,21 +84,6 @@
   .kpi-value { font-size: 28px; font-weight: 800; color: var(--kpi-color, var(--text)); line-height:1; }
   .kpi-sub   { font-size: 11.5px; color: var(--text3); margin-top: 4px; }
 
-  /* ===== DIMENSION OVERVIEW ===== */
-  .dim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
-  .dim-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-  }
-  .dim-name  { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px; display:flex; align-items:center; gap:8px; }
-  .dim-icon  { font-size: 16px; }
-  .dim-bar-wrap { background: var(--surface2); border-radius: 6px; height: 8px; overflow:hidden; }
-  .dim-bar   { height:100%; border-radius:6px; transition: width .5s; }
-  .dim-score { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-  .dim-desc  { font-size: 11.5px; color: var(--text3); margin-top: 6px; }
-
   /* ===== COLOR UTILITIES ===== */
   .c-good { color: var(--good); }
   .c-warn { color: var(--warn); }
@@ -131,7 +116,7 @@
   td { padding: 11px 16px; border-bottom: 1px solid rgba(46,50,80,.5); color: var(--text); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: rgba(91,124,250,.05); }
-  .col-name  { font-weight: 600; color: #fff; min-width: 160px; }
+  .col-name  { font-weight: 600; color: #fff; min-width: 210px; }
   .col-type  { color: var(--text3); font-size: 11.5px; font-family: monospace; }
 
   /* ===== MINI BAR ===== */
@@ -139,16 +124,6 @@
   .mini-bar-bg   { flex:1; background: var(--surface2); border-radius:4px; height:6px; overflow:hidden; min-width:60px; }
   .mini-bar-fill { height:100%; border-radius:4px; }
   .mini-pct      { font-size:12px; font-weight:700; min-width:38px; text-align:right; }
-
-  /* ===== DISTRIBUTION CHART ===== */
-  .dist-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 4px; }
-  .dist-title { font-size: 12px; font-weight: 700; color: var(--text2); margin-bottom: 14px; text-transform: uppercase; letter-spacing: .8px; }
-  .dist-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  .dist-label { font-size: 11.5px; color: var(--text3); min-width: 90px; text-align: right; font-family: monospace; }
-  .dist-bar-bg { flex: 1; background: var(--surface2); border-radius: 4px; height: 18px; overflow: hidden; }
-  .dist-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); display: flex; align-items: center; padding-left: 8px; }
-  .dist-count { font-size: 11px; color: #fff; font-weight: 700; white-space: nowrap; }
-  .dist-pct { font-size: 11px; color: var(--text3); min-width: 46px; text-align: right; }
 
   /* ===== ISSUES ===== */
   .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
@@ -181,18 +156,6 @@
   .reco-text { font-size: 13px; color: var(--text2); line-height:1.6; }
   .reco-text strong { color: var(--text); }
 
-  /* ===== TWO COL ===== */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
-
-  /* ===== STAT ROW ===== */
-  .stat-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 22px; }
-  .stat-block-title { font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--text3); margin-bottom: 12px; font-weight: 700; }
-  .stat-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(46,50,80,.4); font-size: 13px; }
-  .stat-row:last-child { border-bottom: none; }
-  .stat-key { color: var(--text2); }
-  .stat-val { font-weight: 700; color: var(--text); }
-
   /* ===== FOOTER ===== */
   .footer {
     border-top: 1px solid var(--border);
@@ -211,6 +174,8 @@
     font-size: 18px; display:flex; align-items:center; justify-content:center;
     box-shadow: 0 4px 16px rgba(91,124,250,.4); z-index: 999;
   }
+
+  [title] { cursor: help; }
 </style>
 </head>
 <body>
@@ -219,15 +184,15 @@
 <header class="header">
   <div class="header-top">
     <div>
-      <div class="badge-file">📄 Archivo 3 de 3</div>
-      <h1>Informe de Calidad de Datos - SALUD TOTAL</h1>
-      <p>Análisis exhaustivo por columna aplicando las dimensiones de calidad de la ISO/IEC 25012,
+      <div class="badge-file">📄 Archivo 2 de 4</div>
+      <h1>Informe de Calidad de Datos – Autorización BH - SANITAS</h1>
+      <p>Análisis por columna aplicando las dimensiones de calidad de la ISO/IEC 25012,
          DAMA-DMBOK2 y prácticas vigentes de Gobernanza de Datos.</p>
       <div class="header-meta">
-        <div class="meta-item"><span class="meta-label">Archivo</span><span class="meta-value">LiberarDPV2_masivo.csv</span></div>
-        <div class="meta-item"><span class="meta-label">Total de registros</span><span class="meta-value">38 229</span></div>
-        <div class="meta-item"><span class="meta-label">Columnas</span><span class="meta-value">3</span></div>
-        <div class="meta-item"><span class="meta-label">Fecha de análisis</span><span class="meta-value">04 / 05 / 2026</span></div>
+        <div class="meta-item"><span class="meta-label">Archivo</span><span class="meta-value">Sanitas_AutorizacionBH_REGENERADO_VALIDADO.csv</span></div>
+        <div class="meta-item"><span class="meta-label">Total de registros</span><span class="meta-value">51 076</span></div>
+        <div class="meta-item"><span class="meta-label">Columnas</span><span class="meta-value">5</span></div>
+        <div class="meta-item"><span class="meta-label">Fecha de análisis</span><span class="meta-value">12 / 05 / 2026</span></div>
         <div class="meta-item"><span class="meta-label">Marco de referencia</span><span class="meta-value">ISO 25012 · DAMA-DMBOK2 · DCAM</span></div>
       </div>
     </div>
@@ -242,29 +207,20 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">93%</div>
+      <div class="kpi-value c-good">97%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
       <div class="kpi-label">Total Registros</div>
-      <div class="kpi-value c-info">38 229</div>
+      <div class="kpi-value c-info">51 076</div>
       <div class="kpi-sub">Filas en el archivo</div>
     </div>
-    <div class="kpi-card" style="--kpi-color:var(--info)">
-      <div class="kpi-label">Columnas</div>
-      <div class="kpi-value c-info">3</div>
-      <div class="kpi-sub">Dataset de estructura mínima</div>
-    </div>
-   
-    <div class="kpi-card" style="--kpi-color:var(--warn)">
-      <div class="kpi-label">DP Nulos</div>
-      <div class="kpi-value c-warn">6 422</div>
-      <div class="kpi-sub">16.8% sin Documento de Pago</div>
+    <div class="kpi-card" style="--kpi-color:var(--good)">
+      <div class="kpi-label">Columnas Auditadas</div>
+      <div class="kpi-value c-good">5</div>
     </div>
   </div>
 
-
-  
   <!-- ── Tabla por Columna ── -->
   <div class="section-title">📋 Análisis Detallado por Columna (ISO 25012 / DAMA-DMBOK2)</div>
   <div class="tbl-wrap">
@@ -284,10 +240,10 @@
       </thead>
       <tbody>
 
-        <!-- 1 NumEntrega -->
+        <!-- 1 NUMERO_AUTORIZACION -->
         <tr>
           <td>1</td>
-          <td class="col-name">NumEntrega</td>
+          <td class="col-name">NUMERO_AUTORIZACION</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -296,39 +252,17 @@
             </div>
           </td>
           <td>0</td>
-          <td>21 088 únicos</td>
+          <td>19 397 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>
-            Sin nulos.
-          </td>
+          <td>Sin registros nulos.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
-        <!-- 2 DP -->
+        <!-- 2 costToBeneficiary -->
         <tr>
           <td>2</td>
-          <td class="col-name">DP</td>
-          <td class="col-type">string</td>
-          <td>
-            <div class="mini-bar-wrap">
-              <div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:83.2%"></div></div>
-              <span class="mini-pct c-warn">83.2%</span>
-            </div>
-          </td>
-          <td>6 422</td>
-          <td>31 807 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>
-            6 422 nulos (16.8%) — ausencia de Documento de Pago en una proporción significativa. Todos los valores presentes (31 807) cumplen estrictamente el formato <code>XXXXX-XXXXXXXXXX</code> (5 dígitos, guion, 10 dígitos). Sin un solo valor fuera del patrón. Sin duplicados en DP (cada código de pago es único). 
-          </td>
-          <td><span class="status status-warn">Atención</span></td>
-        </tr>
-
-        <!-- 3 Valor -->
-        <tr>
-          <td>3</td>
-          <td class="col-name">Valor</td>
-          <td class="col-type">float64</td>
+          <td class="col-name">costToBeneficiary</td>
+          <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
               <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
@@ -336,11 +270,63 @@
             </div>
           </td>
           <td>0</td>
-          <td>30 987 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td>4 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. El campo presenta solo 4 valores distintos: 0 (48 200, 94.4%), 5 000 (2 044, 4.0%), 20 100 (666, 1.3%) y 52 800 (166, 0.3%). El 94.4% con valor 0 es coherente con el régimen subsidiado (costo cero) y con autorizaciones sin copago del régimen contributivo.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 3 MOTIVO_NO_PAGO -->
+        <tr>
+          <td>3</td>
+          <td class="col-name">MOTIVO_NO_PAGO</td>
+          <td class="col-type">float64</td>
           <td>
-            Sin nulos, sin valores negativos. 9 registros con Valor = 0. 9 registros superan $1 000 000 (máximo: $2 136 882.25). 
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:94.37%"></div></div>
+              <span class="mini-pct c-warn">94.4%</span>
+            </div>
           </td>
+          <td>2 876</td>
+          <td>3 únicos (no nulos)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>2 876 registros nulos (5.63%). Los 2 876 nulos coinciden exactamente con los registros que tienen costToBeneficiary=0 confirma que los nulos son estructuralmente válidos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 4 REGIMEN -->
+        <tr>
+          <td>4</td>
+          <td class="col-name">REGIMEN</td>
+          <td class="col-type">string</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div>
+              <span class="mini-pct c-good">100%</span>
+            </div>
+          </td>
+          <td>0</td>
+          <td>2 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Dominio binario perfectamente controlado: CONTRIBUTIVO (45 180, 88.5%) y SUBSIDIADO (5 896, 11.5%).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 5 CATEGORIA -->
+        <tr>
+          <td>5</td>
+          <td class="col-name">CATEGORIA</td>
+          <td class="col-type">string (mixto)</td>
+          <td>
+            <div class="mini-bar-wrap">
+              <div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.86%"></div></div>
+              <span class="mini-pct c-good">99.9%</span>
+            </div>
+          </td>
+          <td>71</td>
+          <td>5 únicos (no nulos)</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>71 registros nulos (0.14%), distribuidos entre SUBSIDIADO (53) y CONTRIBUTIVO (18); todos tienen costToBeneficiary = 0. El campo contiene 5 valores distintos que corresponden a dos esquemas de codificación paralelos según el régimen: para CONTRIBUTIVO, los valores son 'GRUPO A' (31 803), 'GRUPO B' (10 346) y 'GRUPO C' (3 013); para SUBSIDIADO, los valores son '1' (5 095) y '2' (748). Esta dualidad es estructuralmente coherente (cada esquema se aplica a un solo régimen, sin mezclas entre regímenes), pero semánticamente inconsistente: el mismo campo usa un sistema descriptivo para contributivo y un sistema numérico para subsidiado, lo que requiere lógica condicional en cualquier análisis comparativo entre regímenes. Los valores de CATEGORIA están directamente correlacionados con los topes de costToBeneficiary: GRUPO A → 5 000, GRUPO B → 20 100, GRUPO C → 52 800, mientras que CATEGORIA 1 y 2 (subsidiado) siempre tienen costo 0.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
@@ -352,19 +338,13 @@
   <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
   <div class="issues-grid">
 
+ 
 
     <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Completitud · Criticidad Alta</div>
-      <div class="issue-title">6 422 registros sin Documento de Pago (DP)</div>
-      <div class="issue-body">El 16.8% de las filas no tiene asociado un Documento de Pago. De estos, 4 867 corresponden a NumEntrega que también tienen otras filas con DP válido — lo que sugiere que la liberación del DP está incompleta o fallida para esos folios, no que el dato sea naturalmente ausente.</div>
+      <div class="issue-tag">Consistencia · Semántica · Criticidad Alta</div>
+      <div class="issue-title">CATEGORIA usa dos esquemas de codificación paralelos según REGIMEN</div>
+      <div class="issue-body">El campo CATEGORIA combina en la misma columna dos sistemas distintos de categorización: 'GRUPO A/B/C' para el régimen CONTRIBUTIVO (45 162 registros) y valores numéricos '1' y '2' para el régimen SUBSIDIADO (5 843 registros). Aunque no existe mezcla cruzada entre regímenes (cada valor pertenece exclusivamente a uno de los dos sistemas), la dualidad semántica impide tratar el campo como un catálogo único y obliga a lógica condicional en consultas, dashboards y modelos analíticos. Este patrón indica que el campo fue diseñado para el régimen contributivo y se extendió al subsidiado con un catálogo diferente sin unificación del esquema. La solución es normalizar a un único catálogo o separar en dos campos especializados por régimen.</div>
     </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Exactitud · Criticidad Media</div>
-      <div class="issue-title">9 registros con Valor superior a $1 000 000</div>
-      <div class="issue-body">El valor máximo es $2 136 882.25 COP. En el contexto de liberación de documentos de pago de salud, un valor de esta magnitud debe verificarse contra la factura o reclamación original. 383 registros adicionales superan el P99 ($112 227) y también requieren revisión.</div>
-    </div>
-
 
   </div>
 
@@ -375,9 +355,8 @@
 
     <li class="reco-item">
       <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Auditar los 9 registros con Valor = 0 y los 9 con Valor &gt; $1M:</strong> Cruzar estos registros con la tabla de reclamaciones o facturas origen para verificar si los montos son correctos. Implementar una regla de validación que marque para revisión manual cualquier registro con Valor = 0 o con Valor por encima de un umbral configurable (ej: P99.5).</div>
+      <div class="reco-text"><strong>Unificar el esquema de codificación de CATEGORIA en un catálogo único:</strong> Definir con el área funcional un catálogo único de categorías que cubra ambos regímenes (ej. CONTRIBUTIVO_A, CONTRIBUTIVO_B, CONTRIBUTIVO_C, SUBSIDIADO_1, SUBSIDIADO_2) o mantener los dos sistemas pero separándolos en campos distintos: <em>categoria_contributivo</em> y <em>categoria_subsidiado</em>, con nulos mutuamente exclusivos según el régimen. Documentar la equivalencia entre los sistemas en el diccionario de datos y en el glosario de negocio.</div>
     </li>
-
 
   </ul>
 
@@ -387,9 +366,9 @@
 <footer class="footer">
   <div>
     <div class="footer-logo">DataQuality Report</div>
-    <div>Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM · Resolución 3512/2019 (MSPS Colombia)</div>
+    <div>Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM · Resolución 3374/2000 · Resolución 1552/2013 (Datos en Salud Colombia)</div>
   </div>
-  <div>Generado el 04/05/2026 · Archivo 3 de 3 · LiberarDPV2_masivo.csv</div>
+  <div>Generado el 12/05/2026 · Archivo 2 de 4 · Sanitas_AutorizacionBH_REGENERADO_VALIDADO.csv</div>
 </footer>
 
 <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>

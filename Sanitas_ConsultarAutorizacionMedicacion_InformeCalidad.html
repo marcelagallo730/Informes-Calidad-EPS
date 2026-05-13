@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Informe de Calidad de Datos – Sanitas_ConsultarAutorizacionMedicacion_REGENERADO_VALIDADO</title>
+<style>
+  :root {
+    --bg:          #0f1117;
+    --surface:     #1a1d27;
+    --surface2:    #22263a;
+    --border:      #2e3250;
+    --accent:      #5b7cfa;
+    --accent2:     #7c5bfa;
+    --good:        #22c55e;
+    --warn:        #f59e0b;
+    --bad:         #ef4444;
+    --info:        #38bdf8;
+    --text:        #e2e8f0;
+    --text2:       #94a3b8;
+    --text3:       #64748b;
+    --radius:      12px;
+    --radius-sm:   7px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #1e2240 0%, #12152b 100%); border-bottom: 1px solid var(--border); padding: 36px 48px 28px; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .badge-file { display: inline-flex; align-items: center; gap: 8px; background: rgba(91,124,250,.15); border: 1px solid rgba(91,124,250,.35); color: var(--accent); border-radius: 20px; padding: 4px 14px; font-size: 12px; margin-bottom: 12px; font-weight: 600; letter-spacing: .5px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 8px; }
+  .header p  { color: var(--text2); font-size: 13.5px; max-width: 640px; }
+  .header-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 20px; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 2px; }
+  .meta-value { font-size: 15px; font-weight: 600; color: var(--text); }
+
+  .container { max-width: 1380px; margin: 0 auto; padding: 36px 32px; }
+
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin: 36px 0 16px; display: flex; align-items: center; gap: 10px; }
+  .section-title::after { content:''; flex:1; height:1px; background: var(--border); }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-bottom: 8px; }
+  .kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; position: relative; overflow: hidden; }
+  .kpi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--kpi-color, var(--accent)); }
+  .kpi-label { font-size: 11.5px; color: var(--text3); text-transform: uppercase; letter-spacing:.8px; margin-bottom:8px; }
+  .kpi-value { font-size: 28px; font-weight: 800; color: var(--kpi-color, var(--text)); line-height:1; }
+  .kpi-sub   { font-size: 11.5px; color: var(--text3); margin-top: 4px; }
+
+  .c-good { color: var(--good); } .c-warn { color: var(--warn); } .c-bad { color: var(--bad); } .c-info { color: var(--info); }
+  .bg-good { background: var(--good); } .bg-warn { background: var(--warn); } .bg-bad { background: var(--bad); } .bg-info { background: var(--info); }
+
+  .status { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing:.6px; padding: 2px 9px; border-radius: 20px; text-transform: uppercase; }
+  .status-good { background: rgba(34,197,94,.15); color: var(--good); border: 1px solid rgba(34,197,94,.3); }
+  .status-warn { background: rgba(245,158,11,.15); color: var(--warn); border: 1px solid rgba(245,158,11,.3); }
+  .status-bad  { background: rgba(239,68,68,.15);  color: var(--bad);  border: 1px solid rgba(239,68,68,.3); }
+  .status-info { background: rgba(56,189,248,.15); color: var(--info); border: 1px solid rgba(56,189,248,.3); }
+
+  .tbl-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--surface2); }
+  th { padding: 12px 16px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .8px; color: var(--text3); white-space: nowrap; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface2); }
+  td { padding: 11px 16px; border-bottom: 1px solid rgba(46,50,80,.5); color: var(--text); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(91,124,250,.05); }
+  .col-name { font-weight: 600; color: #fff; min-width: 210px; }
+  .col-type { color: var(--text3); font-size: 11.5px; font-family: monospace; }
+
+  .mini-bar-wrap { display:flex; align-items:center; gap:10px; min-width:120px; }
+  .mini-bar-bg   { flex:1; background: var(--surface2); border-radius:4px; height:6px; overflow:hidden; min-width:60px; }
+  .mini-bar-fill { height:100%; border-radius:4px; }
+  .mini-pct      { font-size:12px; font-weight:700; min-width:38px; text-align:right; }
+
+  .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .issue-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; border-left: 4px solid var(--issue-color, var(--warn)); }
+  .issue-title { font-weight: 700; font-size: 13.5px; margin-bottom: 6px; }
+  .issue-body  { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
+  .issue-tag   { font-size: 10.5px; text-transform: uppercase; letter-spacing:.6px; color: var(--text3); margin-bottom:6px; }
+
+  .reco-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .reco-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start; }
+  .reco-num { min-width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display:flex; align-items:center; justify-content:center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .reco-text { font-size: 13px; color: var(--text2); line-height:1.6; }
+  .reco-text strong { color: var(--text); }
+
+  .footer { border-top: 1px solid var(--border); padding: 22px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap:12px; font-size: 12px; color: var(--text3); background: var(--surface); }
+  .footer-logo { font-weight: 800; font-size: 14px; color: var(--accent); }
+
+  .scroll-top { position: fixed; bottom: 28px; right: 28px; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color:#fff; border:none; cursor:pointer; font-size: 18px; display:flex; align-items:center; justify-content:center; box-shadow: 0 4px 16px rgba(91,124,250,.4); z-index: 999; }
+  [title] { cursor: help; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-top">
+    <div>
+      <div class="badge-file">📄 Archivo 4 de 4</div>
+      <h1>Informe de Calidad de Datos – Consultar Autorización Medicación - SANITAS</h1>
+      <p>Análisis por columna aplicando las dimensiones de calidad de la ISO/IEC 25012,
+         DAMA-DMBOK2 y prácticas vigentes de Gobernanza de Datos.</p>
+      <div class="header-meta">
+        <div class="meta-item"><span class="meta-label">Archivo</span><span class="meta-value">Sanitas_ConsultarAutorizacionMedicacion_REGENERADO_VALIDADO.csv</span></div>
+        <div class="meta-item"><span class="meta-label">Total de registros</span><span class="meta-value">31 892</span></div>
+        <div class="meta-item"><span class="meta-label">Columnas</span><span class="meta-value">32</span></div>
+        <div class="meta-item"><span class="meta-label">Fecha de análisis</span><span class="meta-value">12 / 05 / 2026</span></div>
+        <div class="meta-item"><span class="meta-label">Marco de referencia</span><span class="meta-value">ISO 25012 · DAMA-DMBOK2 · DCAM</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="section-title">📊 Indicadores Generales del Dataset</div>
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kpi-color:var(--good)">
+      <div class="kpi-label">Puntaje Global de Calidad</div>
+      <div class="kpi-value c-good">98%</div>
+      <div class="kpi-sub">Promedio Ponderado DAMA</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--info)">
+      <div class="kpi-label">Total Registros</div>
+      <div class="kpi-value c-info">31 892</div>
+      <div class="kpi-sub">Filas en el archivo</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:var(--good)">
+      <div class="kpi-label">Columnas Auditadas</div>
+      <div class="kpi-value c-good">32</div>
+    </div>
+  </div>
+
+  <div class="section-title">📋 Análisis Detallado por Columna (ISO 25012 / DAMA-DMBOK2)</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Columna</th>
+          <th>Tipo Dato</th>
+          <th>Completitud</th>
+          <th>Nulos</th>
+          <th>Unicidad</th>
+          <th>Validez</th>
+          <th>Hallazgos clave</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- 1 IdTrazador -->
+        <tr>
+          <td>1</td>
+          <td class="col-name">IdTrazador</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>21 020 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 2 TipoIDPaciente -->
+        <tr>
+          <td>2</td>
+          <td class="col-name">TipoIDPaciente</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>5 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Dominio controlado según catálogo ADRES/RIPS: CC (28 542, 89.5%), RC (1 574, 4.9%), TI (1 523, 4.8%), CE (145, 0.5%), PT (108, 0.3%).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 3 NroIDPaciente -->
+        <tr>
+          <td>3</td>
+          <td class="col-name">NroIDPaciente</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>17 253 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 17 253 pacientes únicos.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 4 NombreAfiliado -->
+        <tr>
+          <td>4</td>
+          <td class="col-name">NombreAfiliado</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>17 248 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 17 248 nombres únicos. Todos en mayúsculas sin inconsistencias de capitalización ni dobles espacios.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 5 NumAutorización -->
+        <tr>
+          <td>5</td>
+          <td class="col-name">NumAutorización</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>20 925 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Todos los valores tienen exactamente 9 dígitos (rango 306 768 257 a 344 985 600), formato uniforme.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 6 CUM -->
+        <tr>
+          <td>6</td>
+          <td class="col-name">CUM</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>294 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 294 Códigos Únicos de Medicamento distintos. Alta variabilidad de longitudes: 3 caracteres (18 001, 56.4%), 11 caracteres (8 479, 26.6%), 6 caracteres (4 912, 15.4%) y otros (500 registros). Los CUM de 3 dígitos (ej. '139', '140') corresponden a insumos o dispositivos médicos del catálogo SOGCS/INVIMA, no a medicamentos farmacos stricto sensu; los de 11 caracteres siguen el formato NNNNNNN-NNN del INVIMA.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 7 Descripcion -->
+        <tr>
+          <td>7</td>
+          <td class="col-name">Descripcion</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.86%"></div></div><span class="mini-pct c-good">99.9%</span></div></td>
+          <td>45</td>
+          <td>4 778 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>45 registros nulos (0.14%). 4 778 descripciones únicas de medicamentos e insumos, con texto libre descriptivo en formato estándar (ej. '[LIRAGLUTIDA] 6mg/1ml', 'PAÑAL ADULTO TALLA L').</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 8 Dosis -->
+        <tr>
+          <td>8</td>
+          <td class="col-name">Dosis</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>56 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>Sin registros nulos. Se tiene un valor máximo de 175 000 es un extremo atípico que infla la media. El valor 175 000 debe verificarse contra el CUM correspondiente.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 9 CodFreAdmonNom -->
+        <tr>
+          <td>9</td>
+          <td class="col-name">CodFreAdmonNom</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.98%"></div></div><span class="mini-pct c-good">99.98%</span></div></td>
+          <td>6</td>
+          <td>5 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Solo 6 registros nulos (0.02%). Dominio controlado: Hora(s) (29 456, 92.4%), Día(s) (1 622, 5.1%), Mes(es) (794, 2.5%), Semana(s) (13, 0.04%), Minuto(s) (1, &lt;0.01%).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 10 CodDxPpal -->
+        <tr>
+          <td>10</td>
+          <td class="col-name">CodDxPpal</td>
+          <td class="col-type">string (CIE-10)</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-warn" style="width:97.42%"></div></div><span class="mini-pct c-warn">97.4%</span></div></td>
+          <td>823</td>
+          <td>629 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>823 registros nulos (2.58%). De los 31 069 con valor, el 100% corresponde a uno de dos formatos CIE-10 válidos para el sistema RIPS colombiano.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 11 CodigoDaneMunicipio -->
+        <tr>
+          <td>11</td>
+          <td class="col-name">CodigoDaneMunicipio</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>33 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos..</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 12 TipoIdProfesional -->
+        <tr>
+          <td>12</td>
+          <td class="col-name">TipoIdProfesional</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>3 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Dominio controlado: CC (31 446, 98.6%), CE (412, 1.3%), PT (34, 0.1%).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 13 IdProfesional -->
+        <tr>
+          <td>13</td>
+          <td class="col-name">IdProfesional</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>2 569 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 2 569 profesionales únicos prescriptores.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 14 NombreProfesional -->
+        <tr>
+          <td>14</td>
+          <td class="col-name">NombreProfesional</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>2 567 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 15 NoPrescripcion -->
+        <tr>
+          <td>15</td>
+          <td class="col-name">NoPrescripcion</td>
+          <td class="col-type">object (str)</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>19 005 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 16 FechaAutorizacion -->
+        <tr>
+          <td>16</td>
+          <td class="col-name">FechaAutorizacion</td>
+          <td class="col-type">string (YYYY-MM-DD)</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>— (continua)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 100% de los registros cumplen el formato YYYY-MM-DD.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 17 FechaPres -->
+        <tr>
+          <td>17</td>
+          <td class="col-name">FechaPres</td>
+          <td class="col-type">string (DD/MM/YYYY)</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>— (continua)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 100% de los registros cumplen el formato DD/MM/YYYY.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 18 FecMaxEnt -->
+        <tr>
+          <td>18</td>
+          <td class="col-name">FecMaxEnt</td>
+          <td class="col-type">string (YYYY-MM-DD)</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>— (continua)</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. 100% en formato YYYY-MM-DD.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 19 NoEntrega -->
+        <tr>
+          <td>19</td>
+          <td class="col-name">NoEntrega</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>12 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 20 IDDireccionamiento -->
+        <tr>
+          <td>20</td>
+          <td class="col-name">IDDireccionamiento</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>21 020 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 21 CodDireccionado -->
+        <tr>
+          <td>21</td>
+          <td class="col-name">CodDireccionado</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>294 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 22 CodSerComp -->
+        <tr>
+          <td>22</td>
+          <td class="col-name">CodSerComp</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>294 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 23 TipoServicio -->
+        <tr>
+          <td>23</td>
+          <td class="col-name">TipoServicio</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>3 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. Dominio controlado: S (18 001, 56.4%), M (8 554, 26.8%), N (5 337, 16.7%).</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 24 Cant -->
+        <tr>
+          <td>24</td>
+          <td class="col-name">Cant</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>127 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 25 CantTotal -->
+        <tr>
+          <td>25</td>
+          <td class="col-name">CantTotal</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>134 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 26 CantTotalF -->
+        <tr>
+          <td>26</td>
+          <td class="col-name">CantTotalF</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>109 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 27 CantidadesDireccionadas -->
+        <tr>
+          <td>27</td>
+          <td class="col-name">CantidadesDireccionadas</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>134 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
+        </tr>
+
+        <!-- 28 CanTrat -->
+        <tr>
+          <td>28</td>
+          <td class="col-name">CanTrat</td>
+          <td class="col-type">float64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-bad" style="width:43.59%"></div></div><span class="mini-pct c-bad">43.6%</span></div></td>
+          <td>17 989</td>
+          <td>— (ver hallazgos)</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>17 989 registros nulos (56.4%), el campo con más nulos del dataset.</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 29 ConOrden -->
+        <tr>
+          <td>29</td>
+          <td class="col-name">ConOrden</td>
+          <td class="col-type">int64</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>4 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros  nulos. 4 valores: 1 (31 637, 99.2%), 2 (237, 0.7%), 4 (10, 0.03%) y 3 (8, 0.03%).</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 30 ESTADO_ENTREGA -->
+        <tr>
+          <td>30</td>
+          <td class="col-name">ESTADO_ENTREGA</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
+          <td>0</td>
+          <td>2 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros  nulos. Dos valores: 'Procesado' (30 742, 96.4%) y 'Activo' (1 150, 3.6%).</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+        <!-- 31 PUNTO_ENTREGA -->
+        <tr>
+          <td>31</td>
+          <td class="col-name">PUNTO_ENTREGA</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.99%"></div></div><span class="mini-pct c-good">99.99%</span></div></td>
+          <td>2</td>
+          <td>44 únicos</td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>Solo 2 registros nulos (0.01%), coordinados con los mismos 2 nulos de NOMBRE CIUDAD O MUNICIPIO. 44 puntos de entrega únicos, todos en mayúsculas excepto 1 registro con 'bogota' en minúsculas (anomalía de capitalización aislada). Distribución coherente con las ciudades de mayor concentración de afiliados: Bogotá D.C. (13 254, 41.6%), Bucaramanga (4 870, 15.3%), Cali (2 994, 9.4%).</td>
+          <td><span class="status status-warn">Atención</span></td>
+        </tr>
+
+        <!-- 32 NOMBRE CIUDAD O MUNICIPIO -->
+        <tr>
+          <td>32</td>
+          <td class="col-name">NOMBRE CIUDAD O MUNICIPIO</td>
+          <td class="col-type">string</td>
+          <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.99%"></div></div><span class="mini-pct c-good">99.99%</span></div></td>
+          <td>2</td>
+          <td>44 únicos</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Solo 2 registros nulos (0.01%).</td>
+          <td><span class="status status-good">Bueno</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Hallazgos ── -->
+  <div class="section-title">🚨 Hallazgos </div>
+  <div class="issues-grid">
+
+    <div class="issue-card" style="--issue-color: var(--bad)">
+      <div class="issue-tag">Redundancia · Conformidad · Criticidad Alta</div>
+      <div class="issue-title">CUM, CodDireccionado y CodSerComp son idénticos en el 100% de los registros</div>
+      <div class="issue-body">Los tres campos contienen exactamente el mismo valor en cada una de las 31 892 filas. En el modelo MIPRES estos son campos conceptualmente distintos: CUM identifica el medicamento en el catálogo INVIMA, CodDireccionado identifica el producto en el proceso de direccionamiento a un dispensador específico, y CodSerComp identifica el servicio complementario. La identidad total de los tres indica que el ETL asignó la misma fuente (CUM) a los tres campos sin aplicar la lógica diferenciadora del modelo. Dos de los tres campos son prescindibles en el estado actual, generando un 66% de redundancia en este grupo de columnas.</div>
+    </div>
+
+    <div class="issue-card" style="--issue-color: var(--bad)">
+      <div class="issue-tag">Redundancia · Criticidad Alta</div>
+      <div class="issue-title">CantTotal y CantidadesDireccionadas son idénticos en el 100% de los registros</div>
+      <div class="issue-body">Al igual que la trinidad CUM/CodDireccionado/CodSerComp, CantTotal y CantidadesDireccionadas son numéricamente iguales en cada fila. En MIPRES, CantTotal es la cantidad total autorizada por el médico y CantidadesDireccionadas es la cantidad efectivamente asignada al dispensador, que puede ser menor si hay entregas parciales. La igualdad total entre ambos impide detectar brechas de direccionamiento y sugiere que el proceso ETL no capturó la dimensión de cantidades parcialmente direccionadas. Sumado a la redundancia CUM/CodDireccionado/CodSerComp, el dataset contiene al menos 4 columnas completamente redundantes de las 32 totales (12.5%).</div>
+    </div>
+
+  </div>
+  
+
+
+  </ul>
+
+</main>
+
+<footer class="footer">
+  <div>
+    <div class="footer-logo">DataQuality Report</div>
+    <div>Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM · Resolución 3374/2000 · Resolución 1552/2013 (Datos en Salud Colombia)</div>
+  </div>
+  <div>Generado el 12/05/2026 · Archivo 4 de 4 · Sanitas_ConsultarAutorizacionMedicacion_REGENERADO_VALIDADO.csv</div>
+</footer>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+</body>
+</html>

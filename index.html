@@ -423,7 +423,7 @@
         <span class="hero-stat-label">Clientes EPS</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-val">11</span>
+        <span class="hero-stat-val">15</span>
         <span class="hero-stat-label">Informes activos</span>
       </div>
       <div class="hero-stat">
@@ -602,21 +602,51 @@
 
 
     <!-- ─── SANITAS ─── -->
-    <div class="eps-card" style="--card-accent:#fb7185;">
+    <div class="eps-card has-reports" style="--card-accent:#00d4ff;">
       <div class="eps-card-inner">
         <div class="eps-card-head">
-          <div class="eps-icon">🤝</div>
-          <span class="eps-status status-pending">
-            <span class="eps-status-dot"></span> Pendiente
+          <div class="eps-icon">🏥</div>
+          <span class="eps-status status-active">
+            <span class="eps-status-dot"></span> Activo
           </span>
         </div>
-        <div class="eps-name">Mutual Ser</div>
+        <div class="eps-name">Sanitas</div>
         <p class="eps-desc">
-          Informes de calidad pendientes de carga. Próximamente disponibles para análisis.
+          <span class="count-badge">4 Métodos Analizados</span>
         </p>
-        <div class="eps-empty">
-          <span class="eps-empty-icon">⏳</span>
-          <span>Sin informes cargados aún</span>
+        <div class="eps-reports">
+          <a class="report-link" href="#" onclick="openModal('Sanitas_ConsultarInformacionRips_InformeCalidad.html','Sanitas · Consultar Información Rips'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Información Rips</span>
+              <span class="report-link-sub">Consultar Información Rips · 48 296 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
+          <a class="report-link" href="#" onclick="openModal('Sanitas_AutorizacionBH_InformeCalidad.html','Sanitas · Consultar Autorización'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Autorización</span>
+              <span class="report-link-sub">Consultar Autorización · 51 076 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
+          <a class="report-link" href="#" onclick="openModal('Sanitas_Afiliado_InformeCalidad.html','Sanitas · Consultar Afiliado'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Afiliado</span>
+              <span class="report-link-sub">Consultar Afiliado · 47 394 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
+          <a class="report-link" href="#" onclick="openModal('Sanitas_ConsultarAutorizacionMedicacion_InformeCalidad.html','Sanitas · Consultar Autorización Medicación'); return false;">
+            <span class="report-link-icon">📋</span>
+            <span class="report-link-text">
+              <span class="report-link-name">Consultar Autorización Medicación</span>
+              <span class="report-link-sub">Consultar Autorización Medicación · 34 501 registros</span>
+            </span>
+            <span class="report-link-arrow">→</span>
+          </a>
         </div>
       </div>
     </div>
