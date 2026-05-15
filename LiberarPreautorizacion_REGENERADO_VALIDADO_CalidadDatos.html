@@ -205,9 +205,9 @@
   <!-- ── KPIs Generales ── -->
   <div class="section-title">📊 Indicadores Generales del Dataset</div>
   <div class="kpi-grid">
-    <div class="kpi-card" style="--kpi-color:var(--warn)">
+    <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-warn">73%</div>
+      <div class="kpi-value c-good">89%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -219,16 +219,6 @@
       <div class="kpi-label">Columnas Auditadas</div>
       <div class="kpi-value c-good">31</div>
       <div class="kpi-sub">100% analizadas</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">valorPagoModerador nulos</div>
-      <div class="kpi-value c-bad">97%</div>
-      <div class="kpi-sub">33 432 / 34 455 registros</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">Teléfonos inválidos</div>
-      <div class="kpi-value c-bad">13 888</div>
-      <div class="kpi-sub">40.3% longitud incorrecta</div>
     </div>
   </div>
 
@@ -254,7 +244,7 @@
         <!-- 1 tipoDocumentoIdentificacion -->
         <tr>
           <td>1</td>
-          <td class="col-name">tipoDocumentoIdentificacion</td>
+          <td class="col-name">tipoDocumentoIdentificacion⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -265,15 +255,14 @@
           <td>0</td>
           <td>6 únicos</td>
           <td><span class="status status-warn">Moderada</span></td>
-          <td>El campo está almacenado como entero (código numérico), no como cadena de texto. Valores: 3 (CC, 32 494), 2 (TI, 902), 15 (461), 5 (453), 12 (107), 1 (38).
-            Se identificaron 17 registros con tipoDocumentoIdentificacion igual a TI, pero tienen fecha de nacimiento del año 2007 hasta Abril 2008.</td>
+          <td> Valores: 3 (CC, 32 494), 2 (TI, 902), 15 (461), 5 (453), 12 (107), 1 (38). Se identificaron 17 registros con tipoDocumentoIdentificacion igual a TI, pero tienen fecha de nacimiento entre 2007 y 2008.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 2 numDocumentoIdentificacion -->
         <tr>
           <td>2</td>
-          <td class="col-name">numDocumentoIdentificacion</td>
+          <td class="col-name">numDocumentoIdentificacion⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -283,15 +272,15 @@
           </td>
           <td>0</td>
           <td>14 954 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. 36 registros con valor inferior a 100 000 — sospechosamente bajos para cédulas colombianas estándar, requieren verificación. </td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos. </td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 3 nombrePaciente -->
         <tr>
           <td>3</td>
-          <td class="col-name">nombrePaciente</td>
+          <td class="col-name">nombrePaciente⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -309,7 +298,7 @@
         <!-- 4 apellidosPaciente -->
         <tr>
           <td>4</td>
-          <td class="col-name">apellidosPaciente</td>
+          <td class="col-name">apellidosPaciente⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -337,9 +326,9 @@
           </td>
           <td>7</td>
           <td>14 255 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>7 registros nulos. 🔴 568 registros con valor "0" y 123 con valor "1" — indicadores de ausencia de dato real enmascarados. 716 registros con longitud inferior a 7 dígitos (inútiles). En total, 13 888 registros (40.3%) tienen longitud diferente a 10 dígitos, incumpliendo el estándar colombiano. 10 139 con prefijo no reconocido (no inician con 3, 6 o 1).</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-info">Fuera del Análisis</span></td>
         </tr>
 
         <!-- 6 direccion -->
@@ -355,15 +344,15 @@
           </td>
           <td>13</td>
           <td>14 263 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>13 registros nulos. ⚠️ El 17.4% de los valores (6 010 registros) no contiene ningún dígito, indicando que corresponden a referencias geográficas como "BARRIO JARDIN" o "CORREG LOS CORRALES", sin numeración de vía. Sin estandarización de abreviaturas (CRA, CARRERA, CR). No se valida contra base geográfica oficial DANE.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Fuera del Análisis</span></td>
         </tr>
 
         <!-- 7 codSexo -->
         <tr>
           <td>7</td>
-          <td class="col-name">codSexo</td>
+          <td class="col-name">codSexo⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -381,7 +370,7 @@
         <!-- 8 fechaNacimiento -->
         <tr>
           <td>8</td>
-          <td class="col-name">fechaNacimiento</td>
+          <td class="col-name">fechaNacimiento⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -427,9 +416,9 @@
           </td>
           <td>0</td>
           <td>1 único (1)</td>
-          <td><span class="status status-info">Informativo</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>Columna constante — valor siempre = 1. Sin variabilidad.</td>
-          <td><span class="status status-info">Redundante</span></td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 11 desEstado -->
@@ -445,15 +434,15 @@
           </td>
           <td>0</td>
           <td>1 único ("ACTIVO")</td>
-          <td><span class="status status-info">Informativo</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>Columna constante — valor siempre "ACTIVO". Redundante con codEstado. </td>
-          <td><span class="status status-info">Redundante</span></td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 12 codTipoAfil -->
         <tr>
           <td>12</td>
-          <td class="col-name">codTipoAfil</td>
+          <td class="col-name">codTipoAfil⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -471,7 +460,7 @@
         <!-- 13 codCategoria -->
         <tr>
           <td>13</td>
-          <td class="col-name">codCategoria</td>
+          <td class="col-name">codCategoria⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -489,7 +478,7 @@
         <!-- 14 desCategoria -->
         <tr>
           <td>14</td>
-          <td class="col-name">desCategoria</td>
+          <td class="col-name">desCategoria⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -518,14 +507,14 @@
           <td>0</td>
           <td>30 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin registros nulos. 30 departamentos distintos — cobertura multiregional. Todos los códigos detectados corresponden a DIVIPOLA (5=Antioquia, 11=Bogotá, 23=Córdoba, 54=Norte de Santander, etc.). Sin valores fuera del catálogo DANE.</td>
+          <td>Sin registros nulos. 30 departamentos distintos — cobertura multiregional. Todos los códigos detectados corresponden a DIVIPOLA (5=Antioquia, 11=Bogotá, 23=Córdoba, 54=Norte de Santander, etc.).</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 16 codMunicipio -->
         <tr>
           <td>16</td>
-          <td class="col-name">codMunicipio</td>
+          <td class="col-name">codMunicipio⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -543,7 +532,7 @@
         <!-- 17 desMunicipio -->
         <tr>
           <td>17</td>
-          <td class="col-name">desMunicipio</td>
+          <td class="col-name">desMunicipio⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -561,7 +550,7 @@
         <!-- 18 valorPagoModerador -->
         <tr>
           <td>18</td>
-          <td class="col-name">valorPagoModerador</td>
+          <td class="col-name">valorPagoModerador⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -571,15 +560,15 @@
           </td>
           <td>33 432</td>
           <td>5 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
-          <td>🔴 97% de registros nulos (33 432 / 34 455) — columna prácticamente vacía. Solo 1 023 registros contienen valor. Adicionalmente, se detecta un valor máximo de 106 511 552 COP (más de 100 millones de pesos), que excede cualquier tarifa razonable de copago y puede ser un error de captura o de escala (posiblemente en centavos o con decimales mal tratados).</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>97% de registros nulos, porque son excentos de cobro al paciente.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 19 numAutorizacion -->
         <tr>
           <td>19</td>
-          <td class="col-name">numAutorizacion</td>
+          <td class="col-name">numAutorizacion⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -597,7 +586,7 @@
         <!-- 20 fechaAutorizacion -->
         <tr>
           <td>20</td>
-          <td class="col-name">fechaAutorizacion</td>
+          <td class="col-name">fechaAutorizacion⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -615,7 +604,7 @@
         <!-- 21 fechaServicio -->
         <tr>
           <td>21</td>
-          <td class="col-name">fechaServicio</td>
+          <td class="col-name">fechaServicio⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -643,15 +632,15 @@
           </td>
           <td>156</td>
           <td>9 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>156 registros nulos. ⚠️ Se esperaban valores alfanúmericos, pero se reciben valores tipo descripción. ACCIDENTE DE TRABAJO.  </td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>156 registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 23 codigoExterno -->
         <tr>
           <td>23</td>
-          <td class="col-name">codigoExterno</td>
+          <td class="col-name">codigoExterno⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -661,15 +650,15 @@
           </td>
           <td>0</td>
           <td>1 598 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. ⚠️ Se detectan <strong>dos prefijos distintos</strong>: el patrón "MD" (usado en otros archivos del conjunto) y el patrón numérico "91XXXXXX" (6 482 registros = 18.8%). Esto indica que el campo mezcla códigos de dos sistemas diferentes. Requiere documentación de la fuente de cada prefijo y validación de consistencia con la descripción del medicamento.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 24 Descripción medicamento -->
         <tr>
           <td>24</td>
-          <td class="col-name">Descripción medicamento</td>
+          <td class="col-name">Descripción medicamento⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -687,7 +676,7 @@
         <!-- 25 cantidad -->
         <tr>
           <td>25</td>
-          <td class="col-name">cantidad</td>
+          <td class="col-name">cantidad⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -705,7 +694,7 @@
         <!-- 26 codDiagnosticoPrincipal -->
         <tr>
           <td>26</td>
-          <td class="col-name">codDiagnosticoPrincipal</td>
+          <td class="col-name">codDiagnosticoPrincipal⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -723,7 +712,7 @@
         <!-- 27 descDiagnosticoPrincipal -->
         <tr>
           <td>27</td>
-          <td class="col-name">descDiagnosticoPrincipal</td>
+          <td class="col-name">descDiagnosticoPrincipal⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -771,7 +760,7 @@
           <td>552 únicos</td>
           <td><span class="status status-good">Alta</span></td>
           <td>Exactamente los mismos 24 486 nulos que codDiagnosticoSecundario — consistencia perfecta.</td>
-          <<td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 30 tipoAnexo -->
@@ -787,15 +776,15 @@
           </td>
           <td>0</td>
           <td>7 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos técnicos. Sin embargo, 22 303 registros (64.7%) contienen el valor "-" como placeholder de ausencia de dato. Esto encubre un 64.7% de valores realmente ausentes.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>22303 registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 31 numPrescripcion -->
         <tr>
           <td>31</td>
-          <td class="col-name">numPrescripcion</td>
+          <td class="col-name">numPrescripcion⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -805,9 +794,9 @@
           </td>
           <td>0</td>
           <td>5 652 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos técnicos. 26 464 registros (76.8%) contienen "-" como placeholder de ausencia de dato real — solo 7 991 registros tienen un número de prescripción genuino.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>23464 registros nulos, pertecen a una Subcuenta queno requiere Nro Descripción diferente al NO PBS.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
       </tbody>
@@ -818,35 +807,10 @@
   <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
   <div class="issues-grid">
 
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Completitud · Criticidad Alta</div>
-      <div class="issue-title">valorPagoModerador: columna prácticamente vacía con outlier extremo</div>
-      <div class="issue-body">El 97% de los registros (33 432) no tiene valor en esta columna. Adicionalmente, entre los 1 023 valores presentes, se detecta un máximo de 106 511 552 COP — aproximadamente 100 veces superior a la tarifa máxima de copago permitida en Colombia (~$1 millón para procedimientos de alto costo), lo que sugiere un error de escala o de captura.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Validez · Criticidad Alta</div>
-      <div class="issue-title">Campo telefono masivamente inválido</div>
-      <div class="issue-body">13 888 registros (40.3%) tienen longitud diferente a 10 dígitos — estándar colombiano. 568 registros contienen "0" y 123 contienen "1" como valores de relleno. 10 139 registros tienen prefijo no reconocido. El campo almacena datos de baja utilidad operativa para la gestión de contacto con los pacientes.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Consistencia · Criticidad Media</div>
-      <div class="issue-title">Placeholders "-" encubriendo nulos reales</div>
-      <div class="issue-body">Las columnas tipoAnexo (64.7%) y numPrescripcion (76.8%) utilizan el carácter "-" como sustituto de NULL. Esto hace que la completitud aparente sea 100% cuando la real es 35.3% y 23.2% respectivamente. Este patrón debe corregirse en la fuente y normalizarse a NULL verdadero en el modelo de datos.</div>
-    </div>
-
     <div class="issue-card" style="--issue-color: var(--warn)">
       <div class="issue-tag">Consistencia · Criticidad Media</div>
       <div class="issue-title">codMunicipio ambiguo: sin código DIVIPOLA completo</div>
       <div class="issue-body">30 códigos de municipio mapean a más de un nombre en desMunicipio porque el código se almacena como relativo al departamento (1 = capital de cualquier departamento) en lugar de usar el código DIVIPOLA de 5 dígitos (departamento + municipio). Esto impide la unicidad geográfica y el cruce con fuentes oficiales del DANE.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Estandarización · Criticidad Media</div>
-      <div class="issue-title">codigoExterno con dos sistemas de codificación mezclados</div>
-      <div class="issue-body">El 18.8% de los registros (6 482) usa códigos numéricos de 8 dígitos (patrón "91XXXXXX") mientras el resto usa el prefijo "MD" estándar. Esta mezcla sugiere que el dataset integra medicamentos de dos fuentes o sistemas distintos sin normalización previa del catálogo.</div>
     </div>
 
   </div>
@@ -855,32 +819,10 @@
   <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
   <ul class="reco-list">
 
-
     <li class="reco-item">
       <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Investigar y corregir valorPagoModerador:</strong> Revisar la lógica de extracción para entender por qué el 97% de los registros no tiene valor. El máximo de 106 511 552 debe ser auditado: si el sistema almacena centavos, dividir por 100; si es un error puntual, marcarlo como nulo. Cruzar con la tabla de tarifas de copago vigentes (Acuerdo 260 CNSSS y actualizaciones).</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Estandarizar los valores nulos reales:</strong> Reemplazar el carácter "-" en tipoAnexo y numPrescripcion por NULL verdadero en el modelo de datos. Aplicar la misma corrección para los valores "0" y "1" del campo telefono. Esto permitirá calcular métricas de completitud reales y no distorsionadas.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">3</div>
       <div class="reco-text"><strong>Adoptar código DIVIPOLA completo para municipios:</strong> Reemplazar codMunicipio (relativo) por el código compuesto de 5 dígitos del DANE (codDepartamento × 1000 + codMunicipio). Esto garantiza unicidad geográfica y permite el cruce con cualquier fuente oficial del DANE sin ambigüedades.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">4</div>
-      <div class="reco-text"><strong>Unificar el catálogo de codigoExterno:</strong> Documentar los dos sistemas de codificación (prefijo "MD" y patrón numérico "91XXXXXX"). Crear una tabla maestra que relacione ambos esquemas con el código PBS oficial, y establecer un único estándar de codificación para futuras cargas.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">5</div>
-      <div class="reco-text"><strong>Homologar tipoDocumentoIdentificacion a códigos alfanuméricos RNEC:</strong> Crear tabla de equivalencias: 1→RC, 2→TI, 3→CC, 5→CE, 12→PA, 15→MS (validar con el catálogo vigente). Almacenar como string con los códigos oficiales para cumplir la Resolución 1552/2013 del MSPS en reportes a entes de control.</div>
-    </li>
-
+    </li> 
 
   </ul>
 

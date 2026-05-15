@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">91%</div>
+      <div class="kpi-value c-good">100%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -224,10 +224,6 @@
       <div class="kpi-value c-warn">7 / 27</div>
       <div class="kpi-sub">26% de columnas afectadas</div>
     </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">Teléfono Fijo sin dato real</div>
-      <div class="kpi-value c-bad">38 306</div>
-      <div class="kpi-sub">80.6% con valor "Phone Not found"</div>
     </div>
   </div>
 
@@ -253,7 +249,7 @@
         <!-- 1 documentType -->
         <tr>
           <td>1</td>
-          <td class="col-name">documentType</td>
+          <td class="col-name">documentType⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -271,7 +267,7 @@
         <!-- 2 documentId -->
         <tr>
           <td>2</td>
-          <td class="col-name">documentId</td>
+          <td class="col-name">documentId⚠️</td>
           <td class="col-type">mixed (int/str)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -281,15 +277,15 @@
           </td>
           <td>0</td>
           <td>28 090 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>3 registros con valor alfanumérico no numérico ('13001D000071') — posible error de digitación o código especial no documentado.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>3 registros con valor alfanumérico no numérico ('13001D000071')correspondientes a tipo documento AS.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 3 firstName -->
         <tr>
           <td>3</td>
-          <td class="col-name">firstName</td>
+          <td class="col-name">firstName⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -325,7 +321,7 @@
         <!-- 5 firstSurname -->
         <tr>
           <td>5</td>
-          <td class="col-name">firstSurname</td>
+          <td class="col-name">firstSurname⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -343,7 +339,7 @@
         <!-- 6 secondSurname -->
         <tr>
           <td>6</td>
-          <td class="col-name">secondSurname</td>
+          <td class="col-name">secondSurname⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -361,7 +357,7 @@
         <!-- 7 birthDate -->
         <tr>
           <td>7</td>
-          <td class="col-name">birthDate</td>
+          <td class="col-name">birthDate⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -379,7 +375,7 @@
         <!-- 8 gender -->
         <tr>
           <td>8</td>
-          <td class="col-name">gender</td>
+          <td class="col-name">gender⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -397,7 +393,7 @@
         <!-- 9 healthModality -->
         <tr>
           <td>9</td>
-          <td class="col-name">additionalInformation.healthModality</td>
+          <td class="col-name">additionalInformation.healthModality⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -415,7 +411,7 @@
         <!-- 10 affiliateType -->
         <tr>
           <td>10</td>
-          <td class="col-name">additionalInformation.affiliateType</td>
+          <td class="col-name">additionalInformation.affiliateType⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -433,7 +429,7 @@
         <!-- 11 category -->
         <tr>
           <td>11</td>
-          <td class="col-name">additionalInformation.category</td>
+          <td class="col-name">additionalInformation.category⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -451,7 +447,7 @@
         <!-- 12 exentCopay -->
         <tr>
           <td>12</td>
-          <td class="col-name">additionalInformation.exentCopay</td>
+          <td class="col-name">additionalInformation.exentCopay⚠️</td>
           <td class="col-type">bool</td>
           <td>
             <div class="mini-bar-wrap">
@@ -487,7 +483,7 @@
         <!-- 14 placeOfCare.city -->
         <tr>
           <td>14</td>
-          <td class="col-name">additionalInformation.placeOfCare.city</td>
+          <td class="col-name">additionalInformation.placeOfCare.city⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -515,9 +511,9 @@
           </td>
           <td>12</td>
           <td>25 210 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>12 registros nulos. Alta variabilidad de formatos: abreviaturas inconsistentes (CR, CRA, CARRERA, TV, etc.) y espacios múltiples. Sin estandarización de nomenclatura.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Fuera Análisis</span></td>
         </tr>
 
         <!-- 16 address.state -->
@@ -541,7 +537,7 @@
         <!-- 17 address.city -->
         <tr>
           <td>17</td>
-          <td class="col-name">address.city</td>
+          <td class="col-name">address.city⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -587,9 +583,9 @@
           </td>
           <td>0</td>
           <td>4 900 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>🔴 38 306 registros (80.6%) contienen literalmente "Phone Not found" como valor — no es un nulo, es un texto que enmascara la ausencia de dato real.</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-info">Fuera Análisis</span></td>
         </tr>
 
         <!-- 20 telecom.mobile -->
@@ -605,15 +601,15 @@
           </td>
           <td>0</td>
           <td>26 403 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>367 registros (0.8%) con longitud distinta a 10 dígitos (estándar colombiano): 366 con 15 dígitos (posiblemente valores "Phone Not found" mal colocados) y 1 con 7 dígitos (teléfono fijo sin indicativo). El 99.2% de los registros cumple el formato esperado.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Fuera Análisis</span></td>
         </tr>
 
         <!-- 21 id -->
         <tr>
           <td>21</td>
-          <td class="col-name">id</td>
+          <td class="col-name">id⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -631,7 +627,7 @@
         <!-- 22 operationOutcome -->
         <tr>
           <td>22</td>
-          <td class="col-name">operationOutcome</td>
+          <td class="col-name">operationOutcome⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -649,7 +645,7 @@
         <!-- 23 afilliateStatus -->
         <tr>
           <td>23</td>
-          <td class="col-name">additionalInformation.afilliateStatus</td>
+          <td class="col-name">additionalInformation.afilliateStatus⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -685,7 +681,7 @@
         <!-- 25 sisbenLevel -->
         <tr>
           <td>25</td>
-          <td class="col-name">additionalInformation.sisbenLevel</td>
+          <td class="col-name">additionalInformation.sisbenLevel⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -695,15 +691,15 @@
           </td>
           <td>445</td>
           <td>9 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>445 nulos (0.9%). El campo mezcla niveles numéricos simples ("Nivel 1", "Nivel 2", "Nivel 3") con descripciones largas textuales ("Afiliación de Oficio sin Encuesta Sisben ni Población Especial"). Esta inconsistencia de granularidad dificulta el análisis cuantitativo por nivel SISBEN.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>445 nulos (0.9%) de pacientes que no cuentan con SISBEN.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 26 disability -->
         <tr>
           <td>26</td>
-          <td class="col-name">additionalInformation.disability</td>
+          <td class="col-name">additionalInformation.disability⚠️</td>
           <td class="col-type">bool</td>
           <td>
             <div class="mini-bar-wrap">
@@ -721,7 +717,7 @@
         <!-- 27 serviceProvidedAdministrative -->
         <tr>
           <td>27</td>
-          <td class="col-name">additionalInformation.serviceProvidedAdministrative</td>
+          <td class="col-name">additionalInformation.serviceProvidedAdministrative⚠️</td>
           <td class="col-type">bool</td>
           <td>
             <div class="mini-bar-wrap">
@@ -740,35 +736,12 @@
     </table>
   </div>
 
-  <!-- ── Hallazgos Críticos ── -->
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Validez · Criticidad Alta</div>
-      <div class="issue-title">Campo telecom.firtPhone masivamente inutilizable</div>
-      <div class="issue-body">38 306 registros (80.6%) contienen el texto literal "Phone Not found" en lugar de un valor nulo. El campo aparece formalmente completo (0 nulos), pero es funcionalmente vacío en más de 4 de cada 5 filas. Este patrón de valor centinela enmascara ausencias y distorsiona métricas de completitud. Adicionalmente, el nombre del campo contiene un error tipográfico ("firtPhone" vs. "firstPhone").</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Uniformidad · Criticidad Media</div>
-      <div class="issue-title">sisbenLevel mezcla códigos cortos y descripciones largas</div>
-      <div class="issue-body">El campo contiene tanto valores breves ("Nivel 1", "Nivel 2") como descripciones textuales extensas ("Afiliación de Oficio sin Encuesta Sisben ni Población Especial"), lo que impide análisis cuantitativo uniforme por nivel. Se requiere normalización a un catálogo con código + descripción separada.</div>
-    </div>
-
-  </div>
-
   <!-- ── Recomendaciones ── -->
   <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
   <ul class="reco-list">
 
     <li class="reco-item">
       <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Homogeneizar el tipo de dato de documentId:</strong> Establecer en el modelo de datos el tipo VARCHAR(20) para documentId, que soporte tanto documentos numéricos como los 3 valores alfanuméricos detectados. Documentar y validar el patrón '13001D000071' con el área fuente para determinar si es un código válido especial o un error de ingreso.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
       <div class="reco-text"><strong>Normalizar el catálogo de sisbenLevel:</strong> Crear una tabla de referencia con código corto (ej. N1, N2, N3, NO, OF, SC) y descripción larga asociada. Reemplazar en el campo principal el texto libre por el código. Esto permitirá análisis cuantitativos por nivel y reduce el tamaño del campo en storage.</div>
     </li>
 

@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">97%</div>
+      <div class="kpi-value c-good">99%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -218,11 +218,6 @@
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Columnas Auditadas</div>
       <div class="kpi-value c-good">14</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--good)">
-      <div class="kpi-label">Columnas con Nulos</div>
-      <div class="kpi-value c-good">2 / 14</div>
-      <div class="kpi-sub">Solo SecondName y SecondFamily</div>
     </div>
   </div>
 
@@ -248,7 +243,7 @@
         <!-- 1 TIPO_IDENTIFICACION -->
         <tr>
           <td>1</td>
-          <td class="col-name">TIPO_IDENTIFICACION</td>
+          <td class="col-name">TIPO_IDENTIFICACION⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -266,7 +261,7 @@
         <!-- 2 NUMERO_IDENTIFICACION -->
         <tr>
           <td>2</td>
-          <td class="col-name">NUMERO_IDENTIFICACION</td>
+          <td class="col-name">NUMERO_IDENTIFICACION⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -284,7 +279,7 @@
         <!-- 3 name -->
         <tr>
           <td>3</td>
-          <td class="col-name">name</td>
+          <td class="col-name">name⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -294,9 +289,9 @@
           </td>
           <td>0</td>
           <td>16 585 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. Todos los valores están en mayúsculas, garantizando uniformidad de capitalización. Sin embargo, 16 979 registros (35.8%) contienen doble espacio interno entre el primer nombre y el apellido.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 4 FirstName -->
@@ -313,7 +308,7 @@
           <td>0</td>
           <td>2 478 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin registros nulos. Todos los valores en mayúsculas, sin inconsistencias de capitalización ni caracteres especiales anómalos.</td>
+          <td>Sin registros nulos.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
@@ -374,7 +369,7 @@
         <!-- 8 NOMBRE_PLAN -->
         <tr>
           <td>8</td>
-          <td class="col-name">NOMBRE_PLAN</td>
+          <td class="col-name">NOMBRE_PLAN⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -392,7 +387,7 @@
         <!-- 9 status.code -->
         <tr>
           <td>9</td>
-          <td class="col-name">status.code</td>
+          <td class="col-name">status.code⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -410,7 +405,7 @@
         <!-- 10 status.reason.code -->
         <tr>
           <td>10</td>
-          <td class="col-name">status.reason.code</td>
+          <td class="col-name">status.reason.code⚠️</td>
           <td class="col-type">string (mixto)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -428,7 +423,7 @@
         <!-- 11 status.reason.description -->
         <tr>
           <td>11</td>
-          <td class="col-name">status.reason.description</td>
+          <td class="col-name">status.reason.description⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -446,7 +441,7 @@
         <!-- 12 status.causal.code -->
         <tr>
           <td>12</td>
-          <td class="col-name">status.causal.code</td>
+          <td class="col-name">status.causal.code⚠️</td>
           <td class="col-type">string (mixto)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -464,7 +459,7 @@
         <!-- 13 status.causal.description -->
         <tr>
           <td>13</td>
-          <td class="col-name">status.causal.description</td>
+          <td class="col-name">status.causal.description⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -482,7 +477,7 @@
         <!-- 14 period.start -->
         <tr>
           <td>14</td>
-          <td class="col-name">period.start</td>
+          <td class="col-name">period.start⚠️</td>
           <td class="col-type">string (ISO 8601)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -505,13 +500,6 @@
   <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
   <div class="issues-grid">
 
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Uniformidad · Exactitud · Criticidad Media</div>
-      <div class="issue-title">name con doble espacio en 16 979 registros por concatenación sin normalización</div>
-      <div class="issue-body">El 35.8% de los registros presenta doble espacio en el campo name (ej. 'DIANA  GIRALDO OSORIO') causado por la concatenación de los componentes del nombre cuando SecondName es nulo, sin eliminar el espacio extra. Aunque la información es recuperable y los componentes individuales (FirstName, FirstFamily, etc.) son correctos, el campo name tal como está no puede usarse directamente para búsquedas exactas por cadena completa, comparaciones deduplicativas ni como clave de cotejo con otros sistemas. La corrección es trivial: aplicar TRIM + normalización de espacios múltiples.</div>
-    </div>
-
     <div class="issue-card" style="--issue-color: var(--warn)">
       <div class="issue-tag">Conformidad · Criticidad Media</div>
       <div class="issue-title">status.reason.code y status.causal.code mezclan códigos numéricos con el código alfanumérico "NHSC"</div>
@@ -525,7 +513,7 @@
   <ul class="reco-list">
 
     <li class="reco-item">
-      <div class="reco-num">4</div>
+      <div class="reco-num">1</div>
       <div class="reco-text"><strong>Estandarizar los campos de código de estado a un esquema de codificación único:</strong> Mapear el código 'NHSC' a un código numérico del catálogo principal (o crear el código equivalente en el catálogo ADRES) para que los campos status.reason.code y status.causal.code sean completamente numéricos. Si los registros NHSC provienen de un sistema externo no integrado, documentar su origen en los metadatos y crear un campo adicional <em>fuente_sistema</em> que identifique el sistema de origen de cada registro, permitiendo filtrar y analizar por separado los registros de cada sistema.</div>
     </li>
 

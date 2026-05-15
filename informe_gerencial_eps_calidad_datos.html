@@ -1,0 +1,224 @@
+
+<h2 class="sr-only">Informe gerencial de calidad de datos – 5 EPS, 15 archivos auditados, mayo 2026</h2>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.wrap{padding:1.5rem 0}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.75rem}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
+.kpi{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem 1rem}
+.kpi-val{font-size:26px;font-weight:500;color:var(--color-text-primary);line-height:1.1}
+.kpi-lbl{font-size:12px;color:var(--color-text-secondary);margin-top:3px}
+.eps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-bottom:1.5rem}
+.eps-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem}
+.eps-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem}
+.eps-name{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.eps-files{font-size:11px;color:var(--color-text-tertiary);margin-top:2px}
+.score-badge{font-size:13px;font-weight:500;padding:4px 10px;border-radius:var(--border-radius-md)}
+.s-good{background:var(--color-background-success);color:var(--color-text-success)}
+.s-warn{background:var(--color-background-warning);color:var(--color-text-warning)}
+.s-bad{background:var(--color-background-danger);color:var(--color-text-danger)}
+.score-bar-wrap{height:5px;background:var(--color-border-tertiary);border-radius:4px;margin-bottom:.85rem}
+.score-bar{height:5px;border-radius:4px}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ins{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:var(--color-text-secondary);line-height:1.5}
+.ins-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.dot-r{background:#E24B4A}
+.dot-a{background:#BA7517}
+.dot-g{background:#639922}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.25rem 0}
+.hallazgos-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:.75rem}
+.hall-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-bottom:1.5rem}
+.hall-card{border-left:3px solid #ccc;padding:.7rem 1rem;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.hall-card.critico{border-color:#E24B4A}
+.hall-card.medio{border-color:#BA7517}
+.hall-eps{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:2px}
+.hall-text{font-size:12.5px;color:var(--color-text-secondary);line-height:1.5}
+.reco-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.reco{display:flex;gap:12px;align-items:flex-start;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.7rem 1rem}
+.reco-num{width:22px;height:22px;border-radius:50%;background:var(--color-text-tertiary);color:var(--color-background-primary);font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.reco-txt{font-size:12.5px;color:var(--color-text-secondary);line-height:1.55}
+.reco-txt strong{color:var(--color-text-primary);font-weight:500}
+.chart-wrap{position:relative;width:100%;height:180px;margin-bottom:1.5rem}
+.footer-note{font-size:11px;color:var(--color-text-tertiary);text-align:right;margin-top:.5rem}
+</style>
+
+<div class="wrap">
+
+<div class="section-label">Resumen ejecutivo · mayo 2026</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="kpi-val">5</div><div class="kpi-lbl">EPS auditadas</div></div>
+  <div class="kpi"><div class="kpi-val">15</div><div class="kpi-lbl">Archivos analizados</div></div>
+  <div class="kpi"><div class="kpi-val">862 K</div><div class="kpi-lbl">Registros evaluados</div></div>
+  <div class="kpi"><div class="kpi-val">87%</div><div class="kpi-lbl">Puntaje promedio global</div></div>
+  <div class="kpi"><div class="kpi-val">24</div><div class="kpi-lbl">Hallazgos críticos</div></div>
+</div>
+
+<div class="section-label">Puntaje de calidad por EPS y método</div>
+
+<div style="position:relative;width:100%;height:220px;margin-bottom:1.5rem">
+<canvas id="barEps" role="img" aria-label="Puntajes de calidad por archivo: van de 69% a 98%">Puntajes: Sanitas RIPS 91%, Sanitas AutorizBH 97%, Sanitas Afiliado 97%, Sanitas Medicación 98%, Nueva EPS Órdenes 97%, Nueva EPS Preautorización 73%, Nueva EPS Afiliado 89%, Nueva EPS Preauth Consulta 79%, Mutual Ser Derechos 91%, Mutual Ser Autorizaciones 92%, Capital Salud Medicamentos 89%, Capital Salud Autorización 69%, Salud Total Direccionamientos 86%, Salud Total Cédula 92%, Salud Total LiberarDP 93%.</canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+(function(){
+const labels=['Sanitas\nRIPS','Sanitas\nAutorizBH','Sanitas\nAfiliado','Sanitas\nMedicación','NvaEPS\nÓrdenes','NvaEPS\nLiberar','NvaEPS\nAfiliado','NvaEPS\nPreautorización','MutualSer\nDerechos','MutualSer\nAutorizac.','CapSalud\nMedic.','CapSalud\nAutorizac.','SaludTotal\nDirecc.','SaludTotal\nCédula','SaludTotal\nLiberarDP'];
+const scores=[91,97,97,98,97,73,89,79,91,92,89,69,86,92,93];
+const colors=scores.map(s=>s>=90?'#639922':s>=80?'#BA7517':'#E24B4A');
+new Chart(document.getElementById('barEps'),{
+  type:'bar',
+  data:{labels,datasets:[{label:'Puntaje calidad (%)',data:scores,backgroundColor:colors,borderRadius:4,borderSkipped:false}]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'%'}}},
+    scales:{
+      x:{ticks:{font:{size:9},color:'#888',maxRotation:0},grid:{display:false}},
+      y:{min:60,max:100,ticks:{callback:v=>v+'%',font:{size:10}},grid:{color:'rgba(130,130,130,.15)'}}
+    }
+  }
+});
+})();
+</script>
+
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:1.5rem;font-size:11px;color:var(--color-text-secondary)">
+  <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#639922;display:inline-block"></span>≥ 90% — bueno</span>
+  <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#BA7517;display:inline-block"></span>80–89% — atención</span>
+  <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#E24B4A;display:inline-block"></span>&lt; 80% — crítico</span>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Ficha por entidad</div>
+<div class="eps-grid">
+
+  <div class="eps-card">
+    <div class="eps-head">
+      <div><div class="eps-name">Sanitas</div><div class="eps-files">4 archivos · 178 K registros</div></div>
+      <span class="score-badge s-good">96% prom.</span>
+    </div>
+    <div class="score-bar-wrap"><div class="score-bar" style="width:96%;background:#639922"></div></div>
+    <ul class="insight-list">
+      <li class="ins"><span class="ins-dot dot-r"></span>Autorización Medicación: CUM, CodDireccionado y CodSerComp son idénticos en 100% de registros — 3 columnas redundantes. Igual ocurre con CantTotal y CantidadesDireccionadas (12.5% del dataset es redundante).</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>AutorizaciónBH: campo CATEGORIA usa dos esquemas paralelos (GRUPO A/B/C para contributivo; 1/2 para subsidiado) en la misma columna.</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>Afiliado: 35.8% de registros en campo <em>name</em> tienen doble espacio por concatenación sin normalizar. Códigos de estado mezclan numéricos y alfanuméricos (NHSC).</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>RIPS: campo descDispensacion combina régimen de afiliación y tipo de beneficiario en una sola columna — ambigüedad semántica estructural.</li>
+      <li class="ins"><span class="ins-dot dot-g"></span>Datas de fecha, tipos de documento y diagnósticos CIE-10 con validez muy alta en todos los archivos.</li>
+    </ul>
+  </div>
+
+  <div class="eps-card">
+    <div class="eps-head">
+      <div><div class="eps-name">Nueva EPS</div><div class="eps-files">4 archivos · 398 K registros</div></div>
+      <span class="score-badge s-warn">85% prom.</span>
+    </div>
+    <div class="score-bar-wrap"><div class="score-bar" style="width:85%;background:#BA7517"></div></div>
+    <ul class="insight-list">
+      <li class="ins"><span class="ins-dot dot-r"></span>LiberarPreautorización: valorPagoModerador vacío en 97% de registros; outlier de $106M COP. Campo teléfono inválido en 40.3% de registros. valorPagoModerador es columna crítica para conciliación financiera.</li>
+      <li class="ins"><span class="ins-dot dot-r"></span>ConsultarAfiliado y ConsultaPreautorización: 50%+ de teléfonos con longitud errónea (mayoría son fijos de 7 dígitos sin indicativo).</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>Placeholders "-" en tipoAnexo (62–65%) y numPrescripcion (74–77%) encubren nulos reales, distorsionando métricas de completitud.</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>codMunicipio relativo al departamento — no usa código DIVIPOLA completo de 5 dígitos, genera 30 ambigüedades geográficas.</li>
+      <li class="ins"><span class="ins-dot dot-g"></span>ConsultarOrdenes (282 K registros): 97% de calidad, excelente validez en diagnósticos, régimen y categoría.</li>
+    </ul>
+  </div>
+
+  <div class="eps-card">
+    <div class="eps-head">
+      <div><div class="eps-name">Mutual Ser</div><div class="eps-files">2 archivos · 87 K registros</div></div>
+      <span class="score-badge s-good">92% prom.</span>
+    </div>
+    <div class="score-bar-wrap"><div class="score-bar" style="width:92%;background:#639922"></div></div>
+    <ul class="insight-list">
+      <li class="ins"><span class="ins-dot dot-r"></span>ValidaciónDerechos: telecom.firtPhone contiene "Phone Not found" en 80.6% de registros — valor centinela que enmascara ausencia masiva. Además contiene error tipográfico en el nombre del campo.</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>sisbenLevel mezcla códigos cortos ("Nivel 1") y descripciones largas en la misma columna, impidiendo análisis cuantitativo.</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>consultarAutorizaciones: COPAGO y AUTORIZACION constantes en 0 para 40 K registros — sin valor analítico. NUMENTREGAMED y NOENTREGA son idénticos (redundancia).</li>
+      <li class="ins"><span class="ins-dot dot-g"></span>Fechas, diagnósticos CIE-10, dominios de régimen y tipo de tecnología con alta validez en ambos archivos.</li>
+    </ul>
+  </div>
+
+  <div class="eps-card">
+    <div class="eps-head">
+      <div><div class="eps-name">Capital Salud</div><div class="eps-files">2 archivos · 144 K registros</div></div>
+      <span class="score-badge s-warn">79% prom.</span>
+    </div>
+    <div class="score-bar-wrap"><div class="score-bar" style="width:79%;background:#BA7517"></div></div>
+    <ul class="insight-list">
+      <li class="ins"><span class="ins-dot dot-r"></span>ConsultarAutorización (69%): cuotaModeradora y categoria contienen los textos 'APICAPITALCUOTA' / 'APICAPITALCATEGORIA' en 3 663 registros — fallo no resuelto del pipeline de integración. Ambos campos son prácticamente inutilizables.</li>
+      <li class="ins"><span class="ins-dot dot-r"></span>descripcionTecnologia poblada con el código numérico en vez de la descripción textual en 68.2% de registros — JOIN fallido en el ETL.</li>
+      <li class="ins"><span class="ins-dot dot-r"></span>telefonoPaciente ausente en 55.9%; 656 registros con valor 0 como sustituto de nulo.</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>ConsultaMedicamentos: NombrePaciente truncado a 25 caracteres en 54.2% de registros por límite técnico en sistema origen.</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>campo regimen con capitalización inconsistente (4 variantes textuales para 2 valores semánticos).</li>
+    </ul>
+  </div>
+
+  <div class="eps-card">
+    <div class="eps-head">
+      <div><div class="eps-name">Salud Total</div><div class="eps-files">3 archivos · 254 K registros</div></div>
+      <span class="score-badge s-good">90% prom.</span>
+    </div>
+    <div class="score-bar-wrap"><div class="score-bar" style="width:90%;background:#639922"></div></div>
+    <ul class="insight-list">
+      <li class="ins"><span class="ins-dot dot-r"></span>Teléfono inválido en 48–49% de registros en ConsultaDireccionamientos y ConsultarCédula (valores 0 como placeholder, y números con 12+ dígitos hasta 7.88×10¹⁴).</li>
+      <li class="ins"><span class="ins-dot dot-r"></span>DxPrincipal (97.1% nulos) y TipoDocMedico (98.5% nulos) en Direccionamientos — columnas casi completamente vacías sin valor analítico.</li>
+      <li class="ins"><span class="ins-dot dot-r"></span>ID_DireccionamientoMipres con valor "0" en 98.4% de registros en ConsultarCédula.</li>
+      <li class="ins"><span class="ins-dot dot-a"></span>LiberarDPV2: 16.8% de registros sin Documento de Pago (6 422); 9 registros con Valor = 0 y 9 que superan $1M COP.</li>
+      <li class="ins"><span class="ins-dot dot-g"></span>Estructura de datos, tipos de documento, fechas y montos de pago con alta consistencia en los tres archivos.</li>
+    </ul>
+  </div>
+
+</div>
+
+<hr class="divider">
+
+<div class="hallazgos-title">Hallazgos transversales críticos</div>
+<div class="hall-grid">
+
+  <div class="hall-card critico">
+    <div class="hall-eps">Todas las EPS</div>
+    <div class="hall-text">Datos de contacto (teléfono) con tasas de invalidez entre 40% y 80%, limitando gestión de pacientes y seguimiento farmacoterapéutico.</div>
+  </div>
+
+  <div class="hall-card critico">
+    <div class="hall-eps">Capital Salud</div>
+    <div class="hall-text">Placeholders de integración ('APICAPITALCUOTA', 'APICAPITALCATEGORIA') sin resolver en pipeline ETL — campos financieros inutilizables.</div>
+  </div>
+
+  <div class="hall-card critico">
+    <div class="hall-eps">Nueva EPS · Salud Total</div>
+    <div class="hall-text">Columnas críticas con 97–99% de nulos o valores constantes cero (valorPagoModerador, DxPrincipal, ID MIPRES), sin valor operativo.</div>
+  </div>
+
+  <div class="hall-card medio">
+    <div class="hall-eps">Sanitas · Mutual Ser · Capital Salud</div>
+    <div class="hall-text">Redundancia estructural: columnas duplicadas o tripladas con contenido idéntico (CUM/CodDireccionado/CodSerComp; NUMENTREGAMED/NOENTREGA).</div>
+  </div>
+
+  <div class="hall-card medio">
+    <div class="hall-eps">Nueva EPS · Mutual Ser</div>
+    <div class="hall-text">Antipatrón de valores centinela ("-", "0", "Phone Not found") enmascarando nulos reales y distorsionando métricas de completitud.</div>
+  </div>
+
+  <div class="hall-card medio">
+    <div class="hall-eps">Capital Salud · Sanitas · Nueva EPS</div>
+    <div class="hall-text">Esquemas de codificación mixtos en un mismo campo (GRUPO A/B/C + 1/2; MD + 91xxxxxxxx; numérico + alfanumérico) sin catálogo unificado.</div>
+  </div>
+
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Recomendaciones prioritarias</div>
+<ul class="reco-list">
+  <li class="reco"><div class="reco-num">1</div><div class="reco-txt"><strong>Sanear datos de contacto de forma transversal.</strong> Implementar validación de 10 dígitos y prefijo válido (3xx/6xx/1) en todos los sistemas fuente. Reemplazar valores 0, "1" y centinelas por NULL. Para teléfonos de 7 dígitos, reconstruir con indicativo departamental cruzando DIVIPOLA.</div></li>
+  <li class="reco"><div class="reco-num">2</div><div class="reco-txt"><strong>Resolver la integración APICAPITAL en Capital Salud.</strong> Diagnosticar por qué los parámetros no se resuelven a valores reales. Hasta la corrección, tratar cuotaModeradora y categoria como nulos efectivos en todos los análisis financieros.</div></li>
+  <li class="reco"><div class="reco-num">3</div><div class="reco-txt"><strong>Eliminar redundancias estructurales en ETL.</strong> Revisar la lógica que asigna el mismo campo fuente a múltiples columnas destino. Documentar diferencias conceptuales (CUM vs. CodDireccionado vs. CodSerComp; CantTotal vs. CantidadesDireccionadas) y poblarlas con datos diferenciados o eliminar las redundantes.</div></li>
+  <li class="reco"><div class="reco-num">4</div><div class="reco-txt"><strong>Estandarizar valores nulos a NULL nativo.</strong> Reemplazar todos los placeholders ("-", "0", "Phone Not found", "Ninguno") por NULL en modelos de datos y sistemas fuente. Esto permitirá calcular métricas reales de completitud sin distorsión.</div></li>
+  <li class="reco"><div class="reco-num">5</div><div class="reco-txt"><strong>Unificar catálogos de codificación mixtos.</strong> Para CATEGORIA (Sanitas), codigoExterno (Nueva EPS) y sisbenLevel (Mutual Ser), definir un catálogo único con código canónico + descripción separada. Documentar en el diccionario de datos y aplicar control en ingesta.</div></li>
+  <li class="reco"><div class="reco-num">6</div><div class="reco-txt"><strong>Auditar y reactivar columnas prácticamente vacías.</strong> Columnas con &gt;90% nulos (DxPrincipal, TipoDocMedico, valorPagoModerador, ID_DireccionamientoMipres): determinar si tienen caso de uso válido. Si no, eliminar del pipeline. Si sí, corregir la lógica de captura en origen e implementar control de completitud mínima (&gt;80%) antes de aceptar cargas.</div></li>
+</ul>
+
+<div class="footer-note">Marco: ISO/IEC 25012 · DAMA-DMBOK2 · DCAM · Res. 3374/2000 · Res. 1552/2013 · Generado 13/05/2026</div>
+
+</div>

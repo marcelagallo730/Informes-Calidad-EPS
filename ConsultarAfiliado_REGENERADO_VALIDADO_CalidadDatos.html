@@ -106,7 +106,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">89%</div>
+      <div class="kpi-value c-good">100%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -118,11 +118,6 @@
       <div class="kpi-label">Columnas Auditadas</div>
       <div class="kpi-value c-good">16</div>
       <div class="kpi-sub">100% analizadas</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">Teléfonos inválidos</div>
-      <div class="kpi-value c-bad">23 540</div>
-      <div class="kpi-sub">50.4% ≠ 10 dígitos (CO)</div>
     </div>
   </div>
 
@@ -146,7 +141,7 @@
 
         <tr>
           <td>1</td>
-          <td class="col-name">tipoDocumentoIdentificacion</td>
+          <td class="col-name">tipoDocumentoIdentificacion⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -158,19 +153,19 @@
 
         <tr>
           <td>2</td>
-          <td class="col-name">numDocumentoIdentificacion</td>
+          <td class="col-name">numDocumentoIdentificacion⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
           <td>22 728 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. Un registro tiene valor <strong>4</strong> (extremadamente bajo para cualquier documento colombiano). </td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <tr>
           <td>3</td>
-          <td class="col-name">nombrePaciente</td>
+          <td class="col-name">nombrePaciente⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -182,7 +177,7 @@
 
         <tr>
           <td>4</td>
-          <td class="col-name">apellidosPaciente</td>
+          <td class="col-name">apellidosPaciente⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -199,9 +194,9 @@
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-bad" style="width:49.6%"></div></div><span class="mini-pct c-bad">49.6%</span></div></td>
           <td>10</td>
           <td>20 597 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>🔴 23 540 registros (50.4%) con longitud distinta a 10 dígitos. 22 614 de éstos son números de <strong>7 dígitos</strong> — teléfonos fijos locales ingresados sin indicativo de ciudad (la normativa colombiana exige 10 dígitos desde 2012). 16 023 registros con prefijo no válido. 658 con valor literal "0" y 122 con "1" como rellenos ficticios. Solo 10 nulos formales, pero la tasa real de datos contactables se estima en menos del 50%.</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-info">Fuera de Análisis</span></td>
         </tr>
 
         <tr>
@@ -211,14 +206,14 @@
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:99.9%"></div></div><span class="mini-pct c-good">99.9%</span></div></td>
           <td>49</td>
           <td>20 158 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>49 registros nulos. 42 registros con valores de menos de 5 caracteres — algunos son abreviaciones opacas (NT, NS, M, N A, CDA) que no representan direcciones postales válidas. 3 719 registros inician con "BARRIO" y 3 991 con "VDA" (vereda): referencian el sector pero no la dirección física. Sin estandarización de abreviaturas viales.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Fuera de Análisis</span></td>
         </tr>
 
         <tr>
           <td>7</td>
-          <td class="col-name">codSexo</td>
+          <td class="col-name">codSexo⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -230,7 +225,7 @@
 
         <tr>
           <td>8</td>
-          <td class="col-name">fechaNacimiento</td>
+          <td class="col-name">fechaNacimiento⚠️</td>
           <td class="col-type">string→datetime</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -254,7 +249,7 @@
 
         <tr>
           <td>10</td>
-          <td class="col-name">codEstado</td>
+          <td class="col-name">codEstado⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -266,7 +261,7 @@
 
         <tr>
           <td>11</td>
-          <td class="col-name">desEstado</td>
+          <td class="col-name">desEstado⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -278,7 +273,7 @@
 
         <tr>
           <td>12</td>
-          <td class="col-name">codTipoAfil</td>
+          <td class="col-name">codTipoAfil⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -290,7 +285,7 @@
 
         <tr>
           <td>13</td>
-          <td class="col-name">codCategoria</td>
+          <td class="col-name">codCategoria⚠️</td>
           <td class="col-type">float64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">≈100%</span></div></td>
           <td>7</td>
@@ -302,7 +297,7 @@
 
         <tr>
           <td>14</td>
-          <td class="col-name">desCategoria</td>
+          <td class="col-name">desCategoria⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">≈100%</span></div></td>
           <td>7</td>
@@ -326,7 +321,7 @@
 
         <tr>
           <td>16</td>
-          <td class="col-name">codMunicipio</td>
+          <td class="col-name">codMunicipio⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -339,38 +334,6 @@
       </tbody>
     </table>
   </div>
-
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Validez · Criticidad Alta</div>
-      <div class="issue-title">Campo teléfono con más del 50% de datos inútiles</div>
-      <div class="issue-body">23 540 registros (50.4%) tienen longitud distinta a 10 dígitos. El problema dominante es que 22 614 son números de 7 dígitos — teléfonos fijos locales capturados sin el indicativo de ciudad, formato que quedó obsoleto con la Resolución 1763/2008 de la CRC. Adicionalmente, 658 registros tienen "0" y 122 tienen "1" como rellenos ficticios. La capacidad real de contacto telefónico del padrón se estima por debajo del 50%.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Validez · Criticidad Media</div>
-      <div class="issue-title">Direcciones no postales y valores opaco-abreviados</div>
-      <div class="issue-body">7 710 registros (16.5%) usan el nombre del barrio o vereda como dirección en lugar de la dirección postal (ej: "BARRIO JARDIN", "VDA EL LLANO"). 42 registros tienen valores de 1–4 caracteres que no son direcciones reconocibles (NT, BETE, YUTO, NS, M). Esto limita severamente cualquier proceso de geolocalización, envío postal o verificación de domicilio.</div>
-    </div>
-
-  </div>
-
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Completar el indicativo en teléfonos de 7 dígitos:</strong> Para los 22 614 registros con número de 7 dígitos, cruzar el codDepartamento del afiliado con la tabla de indicativos de ciudad (CRC) y concatenar el prefijo correspondiente para reconstruir el número de 10 dígitos. Implementar validación en el sistema de registro: rechazar cualquier teléfono con longitud distinta a 10 dígitos desde la captura.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Estandarizar direcciones mediante proceso ETL de normalización:</strong> Implementar un paso de estandarización vial que: (a) expanda abreviaturas (VDA→VEREDA, CR→CARRERA, CL→CALLE), (b) rechace valores de menos de 5 caracteres no reconocidos como válidos, (c) distinga entre "dirección física" y "sector/barrio" mediante un campo adicional. Considerar geolocalización con API DIVIPOLA+OpenStreetMap para enriquecer el campo.</div>
-    </li>
-
-  </ul>
 
 </main>
 

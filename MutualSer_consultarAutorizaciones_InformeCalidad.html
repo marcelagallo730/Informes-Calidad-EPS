@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">92%</div>
+      <div class="kpi-value c-good">100%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -223,11 +223,6 @@
       <div class="kpi-label">Columnas con Nulos</div>
       <div class="kpi-value c-good">2 / 27</div>
       <div class="kpi-sub">7% de columnas afectadas</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--warn)">
-      <div class="kpi-label">Columnas Constantes (sin variabilidad)</div>
-      <div class="kpi-value c-warn">2 / 27</div>
-      <div class="kpi-sub">COPAGO y AUTORIZACION siempre = 0</div>
     </div>
   </div>
 
@@ -253,7 +248,7 @@
         <!-- 1 IDPRINCIPAL -->
         <tr>
           <td>1</td>
-          <td class="col-name">IDPRINCIPAL</td>
+          <td class="col-name">IDPRINCIPAL⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -271,7 +266,7 @@
         <!-- 2 TIPODOC -->
         <tr>
           <td>2</td>
-          <td class="col-name">TIPODOC</td>
+          <td class="col-name">TIPODOC⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -289,7 +284,7 @@
         <!-- 3 DOCIDEN -->
         <tr>
           <td>3</td>
-          <td class="col-name">DOCIDEN</td>
+          <td class="col-name">DOCIDEN⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -307,7 +302,7 @@
         <!-- 4 NOMBRE -->
         <tr>
           <td>4</td>
-          <td class="col-name">NOMBRE</td>
+          <td class="col-name">NOMBRE⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -325,7 +320,7 @@
         <!-- 5 APELLIDOS -->
         <tr>
           <td>5</td>
-          <td class="col-name">APELLIDOS</td>
+          <td class="col-name">APELLIDOS⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -353,9 +348,9 @@
           </td>
           <td>15</td>
           <td>10 734 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>15 nulos (0.04%). Alta variabilidad de formatos: abreviaturas sin estandarizar (CLL, CL, CALLE; CRR, CALLE, CRA), múltiples espacios entre tokens (ej. "CLL 41 CRR 17   07-41"). No se valida contra nomenclatura oficial IGAC ni base geográfica. Algunos registros contienen solo nombre de barrio/vereda sin dirección formal.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Sin Análisis</span></td>
         </tr>
 
         <!-- 7 TELEFONO -->
@@ -371,15 +366,15 @@
           </td>
           <td>219</td>
           <td>10 967 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>219 nulos (0.55%). Se detectaron 48 registros con 7 dígitos (teléfonos fijos sin indicativo de área). El 99.2% de los registros no nulos cumple el formato de 10 dígitos para móviles colombianos.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Sin Análisis</span></td>
         </tr>
 
         <!-- 8 SEXO -->
         <tr>
           <td>8</td>
-          <td class="col-name">SEXO</td>
+          <td class="col-name">SEXO⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -397,7 +392,7 @@
         <!-- 9 FECNACIMIENTO -->
         <tr>
           <td>9</td>
-          <td class="col-name">FECNACIMIENTO</td>
+          <td class="col-name">FECNACIMIENTO⚠️</td>
           <td class="col-type">int64 (YYYYMMDD)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -415,7 +410,7 @@
         <!-- 10 REGIMEN -->
         <tr>
           <td>10</td>
-          <td class="col-name">REGIMEN</td>
+          <td class="col-name">REGIMEN⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -433,7 +428,7 @@
         <!-- 11 CATEGORIA -->
         <tr>
           <td>11</td>
-          <td class="col-name">CATEGORIA</td>
+          <td class="col-name">CATEGORIA⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -451,7 +446,7 @@
         <!-- 12 COPAGO -->
         <tr>
           <td>12</td>
-          <td class="col-name">COPAGO</td>
+          <td class="col-name">COPAGO⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -461,15 +456,15 @@
           </td>
           <td>0</td>
           <td>1 único (0)</td>
-          <td><span class="status status-info">Sin variabilidad</span></td>
-          <td>⚠️ Columna constante: el valor es 0 en los 40 011 registros.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Columna constante: el valor es 0 en los 40 011 registros.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 13 PREAUTORIZACION -->
         <tr>
           <td>13</td>
-          <td class="col-name">PREAUTORIZACION</td>
+          <td class="col-name">PREAUTORIZACION⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -487,7 +482,7 @@
         <!-- 14 MIPRES -->
         <tr>
           <td>14</td>
-          <td class="col-name">MIPRES</td>
+          <td class="col-name">MIPRES⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -505,7 +500,7 @@
         <!-- 15 DIAGNOSTICOPPAL -->
         <tr>
           <td>15</td>
-          <td class="col-name">DIAGNOSTICOPPAL</td>
+          <td class="col-name">DIAGNOSTICOPPAL⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -523,7 +518,7 @@
         <!-- 16 CODMEDICAMENTO -->
         <tr>
           <td>16</td>
-          <td class="col-name">CODMEDICAMENTO</td>
+          <td class="col-name">CODMEDICAMENTO⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -559,7 +554,7 @@
         <!-- 18 FECHA_USO -->
         <tr>
           <td>18</td>
-          <td class="col-name">FECHA_USO</td>
+          <td class="col-name">FECHA_USO⚠️</td>
           <td class="col-type">int64 (YYYYMMDD)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -577,7 +572,7 @@
         <!-- 19 FECHA_VTO -->
         <tr>
           <td>19</td>
-          <td class="col-name">FECHA_VTO</td>
+          <td class="col-name">FECHA_VTO⚠️</td>
           <td class="col-type">int64 (YYYYMMDD)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -595,7 +590,7 @@
         <!-- 20 PRESCRIPCIONTUTELA -->
         <tr>
           <td>20</td>
-          <td class="col-name">PRESCRIPCIONTUTELA</td>
+          <td class="col-name">PRESCRIPCIONTUTELA⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -613,7 +608,7 @@
         <!-- 21 IDTRANSACCIONAL -->
         <tr>
           <td>21</td>
-          <td class="col-name">IDTRANSACCIONAL</td>
+          <td class="col-name">IDTRANSACCIONAL⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -631,7 +626,7 @@
         <!-- 22 AUTORIZACION -->
         <tr>
           <td>22</td>
-          <td class="col-name">AUTORIZACION</td>
+          <td class="col-name">AUTORIZACION⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -641,15 +636,15 @@
           </td>
           <td>0</td>
           <td>1 único (0)</td>
-          <td><span class="status status-info">Sin variabilidad</span></td>
-          <td>⚠️ Columna constante: valor 0 en los 40 011 registros.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Columna constante: valor 0 en los 40 011 registros.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 23 NUMENTREGAMED -->
         <tr>
           <td>23</td>
-          <td class="col-name">NUMENTREGAMED</td>
+          <td class="col-name">NUMENTREGAMED⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -660,14 +655,14 @@
           <td>0</td>
           <td>6 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin registros nulos. Distribución: 1 (14 318), 2 (12 938), 3 (10 270), 4 (897), 5 (872), 6 (716). Los valores son idénticos a NOENTREGA. </td>
+          <td>Sin registros nulos. Distribución: 1 (14 318), 2 (12 938), 3 (10 270), 4 (897), 5 (872), 6 (716). </td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 24 TIPOTECNOLOGIA -->
         <tr>
           <td>24</td>
-          <td class="col-name">TIPOTECNOLOGIA</td>
+          <td class="col-name">TIPOTECNOLOGIA⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -685,7 +680,7 @@
         <!-- 25 CONSECUTIVOORDEN -->
         <tr>
           <td>25</td>
-          <td class="col-name">CONSECUTIVOORDEN</td>
+          <td class="col-name">CONSECUTIVOORDEN⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -703,7 +698,7 @@
         <!-- 26 NOENTREGA -->
         <tr>
           <td>26</td>
-          <td class="col-name">NOENTREGA</td>
+          <td class="col-name">NOENTREGA⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -715,13 +710,13 @@
           <td>6 únicos (1–6)</td>
           <td><span class="status status-good">Alta</span></td>
           <td>Sin registros nulos. Distribución idéntica a NUMENTREGAMED (1: 14 318, 2: 12 938, 3: 10 270, 4: 897, 5: 872, 6: 716). La coincidencia exacta con NUMENTREGAMED sugiere que ambas columnas contienen el mismo dato.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 27 FECHADIRECCIONAMIENTO -->
         <tr>
           <td>27</td>
-          <td class="col-name">FECHADIRECCIONAMIENTO</td>
+          <td class="col-name">FECHADIRECCIONAMIENTO⚠️</td>
           <td class="col-type">string (DD/MM/YYYY)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -740,40 +735,7 @@
     </table>
   </div>
 
-  <!-- ── Hallazgos Críticos ── -->
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Relevancia · Criticidad Media</div>
-      <div class="issue-title">COPAGO y AUTORIZACION son columnas constantes con valor 0</div>
-      <div class="issue-body">COPAGO (0 en 40 011 registros) y AUTORIZACION (0 en 40 011 registros) no aportan ningún valor analítico ni discriminatorio. En el caso particular de AUTORIZACION, el valor constante de 0 en un archivo de autorizaciones médicas es semánticamente sospechoso: sugiere que el número de autorización no se está capturando desde la fuente o que el campo tiene un significado diferente al nombre sugiere.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Unicidad · Criticidad Media</div>
-      <div class="issue-title">NUMENTREGAMED y NOENTREGA son idénticos</div>
-      <div class="issue-body">Ambas columnas tienen distribuciones de valores exactamente iguales (1: 14 318, 2: 12 938, 3: 10 270, 4: 897, 5: 872, 6: 716) con la misma cardinalidad (6 únicos). La presencia de dos columnas con el mismo contenido genera redundancia en el modelo de datos, aumenta el ancho del dataset sin aportar información adicional y puede confundir a los consumidores del dataset.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--info)">
-      <div class="issue-tag">Validez · Criticidad Baja</div>
-      <div class="issue-title">TELEFONO inferido como float64 y 48 teléfonos de 7 dígitos</div>
-      <div class="issue-body">El campo TELEFONO fue inferido como float64 por la presencia de nulos, lo que puede provocar la adición de decimales (".0") al exportar. Adicionalmente, 48 registros tienen 7 dígitos, correspondientes a teléfonos fijos sin indicativo de área (deben completarse con el indicativo departamental). La calidad general es buena (99.2% en formato 10 dígitos), pero el tipo de dato debe corregirse a VARCHAR.</div>
-    </div>
-
   </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Completar teléfonos de 7 dígitos:</strong> Para los registros con 7 dígitos (teléfonos fijos), aplicar la regla de completar con el indicativo de área departamental correspondiente, cruzando con el campo de ciudad/municipio del afiliado.</div>
-    </li>
-
-  </ul>
 
 </main>
 

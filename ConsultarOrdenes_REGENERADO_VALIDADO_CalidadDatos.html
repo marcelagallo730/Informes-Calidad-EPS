@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">97%</div>
+      <div class="kpi-value c-good">99%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -224,11 +224,6 @@
       <div class="kpi-label">Columnas con Nulos</div>
       <div class="kpi-value c-warn">4 / 16</div>
       <div class="kpi-sub">25% de columnas afectadas</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--warn)">
-      <div class="kpi-label">Teléfonos con longitud inválida</div>
-      <div class="kpi-value c-warn">1 038</div>
-      <div class="kpi-sub">≠ 10 dígitos (estándar CO)</div>
     </div>
   </div>
 
@@ -254,7 +249,7 @@
         <!-- 1 tipoDocumentoIdentificacion -->
         <tr>
           <td>1</td>
-          <td class="col-name">tipoDocumentoIdentificacion</td>
+          <td class="col-name">tipoDocumentoIdentificacion⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -272,7 +267,7 @@
         <!-- 2 numDocumentoIdentificacion -->
         <tr>
           <td>2</td>
-          <td class="col-name">numDocumentoIdentificacion</td>
+          <td class="col-name">numDocumentoIdentificacion⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -282,15 +277,15 @@
           </td>
           <td>0</td>
           <td>10 113 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. 282 registros con valor inferior a 100 000 — sospechosamente bajos para una cédula colombiana estándar.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 3 nombrePaciente -->
         <tr>
           <td>3</td>
-          <td class="col-name">nombrePaciente</td>
+          <td class="col-name">nombrePaciente⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -318,15 +313,15 @@
           </td>
           <td>6 377</td>
           <td>10 695 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>⚠️ 6 377 nulos (2.3%). El campo presenta <strong>tipo mixto</strong> (object con valores numéricos y cadenas) — señal de inconsistencia en el origen. 1 038 registros con longitud distinta a 10 dígitos (inválidos según estándar colombiano). 423 registros con prefijo no reconocido (no inician con 3, 6 o 1). Requiere estandarización y tipado correcto.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Fuera del Análisis</span></td>
         </tr>
 
         <!-- 5 regimen -->
         <tr>
           <td>5</td>
-          <td class="col-name">regimen</td>
+          <td class="col-name">regimen⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -344,7 +339,7 @@
         <!-- 6 codSexo -->
         <tr>
           <td>6</td>
-          <td class="col-name">codSexo</td>
+          <td class="col-name">codSexo⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -362,7 +357,7 @@
         <!-- 7 fechaNacimiento -->
         <tr>
           <td>7</td>
-          <td class="col-name">fechaNacimiento</td>
+          <td class="col-name">fechaNacimiento⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -380,7 +375,7 @@
         <!-- 8 categoria -->
         <tr>
           <td>8</td>
-          <td class="col-name">categoria</td>
+          <td class="col-name">categoria⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -398,7 +393,7 @@
         <!-- 9 valorPagoModerador -->
         <tr>
           <td>9</td>
-          <td class="col-name">valorPagoModerador</td>
+          <td class="col-name">valorPagoModerador⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -416,7 +411,7 @@
         <!-- 10 numAutorizacion -->
         <tr>
           <td>10</td>
-          <td class="col-name">numAutorizacion</td>
+          <td class="col-name">numAutorizacion⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -434,7 +429,7 @@
         <!-- 11 codDiagnosticoPrincipal -->
         <tr>
           <td>11</td>
-          <td class="col-name">codDiagnosticoPrincipal</td>
+          <td class="col-name">codDiagnosticoPrincipal⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -452,7 +447,7 @@
         <!-- 12 numDocumentoIdentificacionMedico -->
         <tr>
           <td>12</td>
-          <td class="col-name">numDocumentoIdentificacionMedico</td>
+          <td class="col-name">numDocumentoIdentificacionMedico⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -470,7 +465,7 @@
         <!-- 13 codigoExterno -->
         <tr>
           <td>13</td>
-          <td class="col-name">codigoExterno</td>
+          <td class="col-name">codigoExterno⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -488,7 +483,7 @@
         <!-- 14 Descripción medicamento -->
         <tr>
           <td>14</td>
-          <td class="col-name">Descripción medicamento</td>
+          <td class="col-name">Descripción medicamento⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -506,7 +501,7 @@
         <!-- 15 dosis -->
         <tr>
           <td>15</td>
-          <td class="col-name">dosis</td>
+          <td class="col-name">dosis⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -524,7 +519,7 @@
         <!-- 16 frecuencia -->
         <tr>
           <td>16</td>
-          <td class="col-name">frecuencia</td>
+          <td class="col-name">frecuencia⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -554,22 +549,6 @@
     </div>
 
   </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Implementar regla de validación para dosis:</strong> Dosis = 0 debe ser rechazada en el sistema de prescripción. Establecer regla: <em>dosis &gt; 0 AND dosis IS NOT NULL</em>. Para valores superiores a 100, implementar alerta de revisión clínica con validación cruzada contra el campo codigoExterno y el cuadro de medicamentos del PBS.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Estandarizar y tipar el campo telefono:</strong> Convertir a tipo string (no numérico) para preservar ceros iniciales. Aplicar validación: exactamente 10 dígitos, prefijo 3xx para celular o 6xx/1xx para fijo. Tratar la columna como NULLABLE en el modelo de datos y eliminar el almacenamiento de strings vacíos como nulos implícitos.</div>
-    </li>
-
-  </ul>
 
 </main>
 

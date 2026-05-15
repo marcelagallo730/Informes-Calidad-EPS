@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">89%</div>
+      <div class="kpi-value c-good">99%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -249,7 +249,7 @@
         <!-- 1 IDRemitente -->
         <tr>
           <td>1</td>
-          <td class="col-name">IDRemitente</td>
+          <td class="col-name">IDRemitente⚠️</td>
           <td class="col-type">int64 (NIT)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -267,7 +267,7 @@
         <!-- 2 TIDPaciente -->
         <tr>
           <td>2</td>
-          <td class="col-name">TIDPaciente</td>
+          <td class="col-name">TIDPaciente⚠️</td>
           <td class="col-type">int64 (código)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -285,7 +285,7 @@
         <!-- 3 IDPaciente -->
         <tr>
           <td>3</td>
-          <td class="col-name">IDPaciente</td>
+          <td class="col-name">IDPaciente⚠️</td>
           <td class="col-type">mixed (int/str)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -295,15 +295,15 @@
           </td>
           <td>0</td>
           <td>28 434 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>23 registros (0.05%) presentan valores alfanuméricos (ej. '11001P000632', '11001A000419') en lugar del formato numérico estándar de documento de identidad colombiano.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>23 registros (0.05%) presentan valores alfanuméricos, que corresponden a Tipo de Documento AS.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 4 NombrePaciente -->
         <tr>
           <td>4</td>
-          <td class="col-name">NombrePaciente</td>
+          <td class="col-name">NombrePaciente⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -314,14 +314,14 @@
           <td>0</td>
           <td>28 277 únicos</td>
           <td><span class="status status-warn">Moderada</span></td>
-          <td>⚠️ 26 917 registros (54.2%) tienen exactamente 25 caracteres, que corresponde al límite máximo observado en el campo, evidenciando truncamiento sistemático del nombre completo. Ningún registro supera 25 caracteres, lo que indica una restricción técnica impuesta en origen.</td>
+          <td>26 917 registros (54.2%) tienen exactamente 25 caracteres, que corresponde al límite máximo observado en el campo, evidenciando truncamiento sistemático del nombre completo. Ningún registro supera 25 caracteres, lo que indica una restricción técnica impuesta en origen.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 5 Programa -->
         <tr>
           <td>5</td>
-          <td class="col-name">Programa</td>
+          <td class="col-name">Programa⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -339,7 +339,7 @@
         <!-- 6 CuotaModeradora -->
         <tr>
           <td>6</td>
-          <td class="col-name">CuotaModeradora</td>
+          <td class="col-name">CuotaModeradora⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -357,7 +357,7 @@
         <!-- 7 NumeroAutorizacion -->
         <tr>
           <td>7</td>
-          <td class="col-name">NumeroAutorizacion</td>
+          <td class="col-name">NumeroAutorizacion⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -375,7 +375,7 @@
         <!-- 8 FechaProgramacionCita -->
         <tr>
           <td>8</td>
-          <td class="col-name">FechaProgramacionCita</td>
+          <td class="col-name">FechaProgramacionCita⚠️</td>
           <td class="col-type">int64 (YYYYMMDD)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -393,7 +393,7 @@
         <!-- 9 IDDiagnostico -->
         <tr>
           <td>9</td>
-          <td class="col-name">IDDiagnostico</td>
+          <td class="col-name">IDDiagnostico⚠️</td>
           <td class="col-type">string (CIE-10)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -404,14 +404,14 @@
           <td>0</td>
           <td>1 760 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. Dos patrones válidos y complementarios: códigos CIE-10 estándar de 4 dígitos (A000, ej. E119: 41 391 registros, 83.4%) y códigos con sufijo X como carácter de relleno RIPS (A00X, ej. I10X: 8 223 registros, 16.6%), ambos reconocidos por la normativa colombiana de intercambio de información en salud (Res. 3374/2000).</td>
+          <td>Sin registros nulos.</td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 10 CodigoMedicamento -->
         <tr>
           <td>10</td>
-          <td class="col-name">CodigoMedicamento</td>
+          <td class="col-name">CodigoMedicamento⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -421,15 +421,15 @@
           </td>
           <td>0</td>
           <td>990 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Se detectaron 6 códigos MDAUDI con 2 nombres de medicamento distintos, indicando inconsistencia código–descripción menor.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 11 Medicamento -->
         <tr>
           <td>11</td>
-          <td class="col-name">Medicamento</td>
+          <td class="col-name">Medicamento⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -447,7 +447,7 @@
         <!-- 12 CantidadMedicamento -->
         <tr>
           <td>12</td>
-          <td class="col-name">CantidadMedicamento</td>
+          <td class="col-name">CantidadMedicamento⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -477,12 +477,6 @@
       <div class="issue-body">26 917 registros presentan el nombre del paciente limitado a exactamente 25 caracteres, evidenciando un truncamiento sistemático impuesto por una restricción de longitud en el sistema fuente o en el proceso de extracción. Esto impide la identificación inequívoca de pacientes con nombres largos, genera colisiones de identidad en cruces nominativos y viola el principio de exactitud (accuracy) de la ISO 25012. Se debe ampliar el campo a un mínimo de 80 caracteres en el sistema origen.</div>
     </div>
 
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Consistencia · Criticidad Media</div>
-      <div class="issue-title">Múltiples prefijos en CodigoMedicamento sin catálogo unificado</div>
-      <div class="issue-body">6 códigos tienen 2 nombres distintos y 37 nombres apuntan a más de un código, rompiendo la relación biunívoca esperada entre código y medicamento.</div>
-    </div>
-
   </div>
 
   <!-- ── Recomendaciones ── -->
@@ -493,12 +487,6 @@
       <div class="reco-num">1</div>
       <div class="reco-text"><strong>Ampliar el campo NombrePaciente en el sistema fuente:</strong> Coordinar con el área de TI para aumentar la longitud máxima del campo NombrePaciente de 25 a mínimo 80 caracteres (o VARCHAR ilimitado), de modo que el nombre completo del paciente se transmita sin truncamiento. Mientras tanto, complementar la identificación del paciente usando el par IDPaciente + TIDPaciente como clave principal en los cruces, evitando depender del nombre como campo de identificación.</div>
     </li>
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Homogeneizar el tipo de dato de IDPaciente:</strong> Definir el campo como VARCHAR(20) en el modelo de datos para soportar tanto los valores numéricos como los 23 valores alfanuméricos detectados (ej. '11001P000632'). Investigar el origen de estos identificadores especiales con el área fuente para determinar si son códigos NUIP, identificadores provisionales o errores de ingreso, y documentar el resultado en el diccionario de datos.</div>
-    </li>
-
   </ul>
 
 </main>

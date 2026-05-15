@@ -224,11 +224,6 @@
       <div class="kpi-value c-bad">19 / 25</div>
       <div class="kpi-sub">76% de columnas afectadas</div>
     </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">telefonoPaciente sin dato</div>
-      <div class="kpi-value c-bad">52 762</div>
-      <div class="kpi-sub">55.9% de registros nulos</div>
-    </div>
   </div>
 
   <!-- ── Tabla por Columna ── -->
@@ -253,7 +248,7 @@
         <!-- 1 idEnvio -->
         <tr>
           <td>1</td>
-          <td class="col-name">idEnvio</td>
+          <td class="col-name">idEnvio⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -317,9 +312,9 @@
           </td>
           <td>0</td>
           <td>4 406 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>2 registros contienen el valor alfanumérico '11001A000676' en lugar del formato numérico estándar de documento de identidad colombiano. El tipo de dato mezcla enteros y cadenas en la misma columna.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>2 registros contienen el valor alfanumérico '11001A000676 que corresponden a Tipo Documento AS.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 5 dirPaciente -->
@@ -335,9 +330,9 @@
           </td>
           <td>3</td>
           <td>7 496 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>3 registros nulos (residual, &lt;0.01%). Alta variabilidad de formatos de dirección: abreviaturas inconsistentes (CL, CLL, CALLE), espacios variables entre componentes y falta de estandarización de nomenclatura.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Sin Análisis</span></td>
         </tr>
 
         <!-- 6 regimen -->
@@ -391,7 +386,7 @@
           <td>4 únicos</td>
           <td><span class="status status-good">Alta</span></td>
           <td>121 registros nulos (0.13%) vinculados a registros sin prescriptor identificado. Dominio controlado: CC (91 299, 96.9%), CE (2 834, 3.0%), TI (97, 0.1%), PT (5). Todos los valores corresponden a tipos de documento válidos del catálogo ADRES.</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 9 numIdPrescriptor -->
@@ -407,9 +402,9 @@
           </td>
           <td>121</td>
           <td>1 840 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
+          <td><span class="status status-warn">Moderada</span></td>
           <td>121 registros nulos (0.13%).</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 10 nombresApellidosPaciente -->
@@ -425,9 +420,9 @@
           </td>
           <td>135</td>
           <td>5 025 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
-          <td>135 registros nulos (0.14%). No todos los registros están en mayúsculas, evidenciando una ligera inconsistencia de capitalización.</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>135 registros nulos (0.14%).</td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 11 telefonoPaciente -->
@@ -443,9 +438,9 @@
           </td>
           <td>52 762</td>
           <td>— (ver hallazgos)</td>
-          <td><span class="status status-bad">Baja</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>🔴 52 762 registros nulos (55.9%), el campo de contacto más crítico del dataset. De los 41 594 con valor: 35 152 son celulares válidos (3XXXXXXXXX, 84.5%), 5 427 son fijos de 7 dígitos (13.0%), 656 tienen valor 0 (sustituto de nulo), 196 superan 10 dígitos (posiblemente con indicativo internacional duplicado, ej. '32081344331').</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-info">Sin Análisis</span></td>
         </tr>
 
         <!-- 12 fechaNacimiento -->
@@ -462,8 +457,8 @@
           <td>3 283</td>
           <td>— (continua)</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>3 283 registros nulos (3.48%). </td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td>3 283 registros nulos (3.48%). La Fecha de Nacimiento es requerida para los RIPS. </td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 13 copagoAuto -->
@@ -480,7 +475,7 @@
           <td>1 804</td>
           <td>298 únicos</td>
           <td><span class="status status-warn">Moderada</span></td>
-          <td>1 804 registros nulos (1.91%). El 95.2% de los registros tiene valor 0 (89 920 filas), coherente con la exención de copago del régimen subsidiado. Los 3 690 registros no nulos y no cero incluyen 298 valores distintos, con rango de 3 400 hasta 11 237 700 pesos, lo que requiere validación contra las tarifas oficiales vigentes. Un valor de $11 237 700 es extremadamente alto y podría ser un error de digitación.</td>
+          <td>1 804 registros nulos (1.91%). El 95.2% de los registros tiene valor 0 (89 920 filas), coherente con la exención de copago del régimen subsidiado.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
@@ -498,7 +493,7 @@
           <td>90 517</td>
           <td>3 únicos (no nulos)</td>
           <td><span class="status status-bad">Baja</span></td>
-          <td>🔴 90 517 registros nulos (95.9%). ⚠️ De los 3 839 registros con valor: 3 663 contienen el texto literal 'APICAPITALCUOTA', que es un marcador de integración sin resolver en lugar de un valor numérico real; 170 contienen '0' y 6 contienen '0.000'. El campo mezcla tipos de dato (texto y número), lo que invalida cualquier cálculo financiero sobre él.</td>
+          <td>🔴 90 517 registros nulos (95.9%). ⚠️ De los 3 839 registros con valor: 3 663 contienen el texto literal 'APICAPITALCUOTA', 170 contienen '0'. El campo mezcla tipos de dato (texto y número).</td>
           <td><span class="status status-bad">Crítico</span></td>
         </tr>
 
@@ -533,9 +528,9 @@
           </td>
           <td>3 986</td>
           <td>19 únicos</td>
-          <td><span class="status status-good">Alta</span></td>
+          <td><span class="status status-warn">Moderada</span></td>
           <td>3 986 registros nulos (4.22%). Los 90 370 registros con valor utilizan códigos DIVIPOLA válidos de 5 dígitos.</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 17 diagnosticoPrincipal -->
@@ -552,8 +547,8 @@
           <td>420</td>
           <td>885 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>420 registros nulos (0.45%). De los 93 936 registros con valor, 99.99% cumplen el patrón CIE-10 (estándar 4 dígitos o con relleno X según RIPS).</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td>420 registros nulos (0.45%). El Diagnóstico Principal es requerido para los RIPS. De los 93 936 registros con valor, 99.99% cumplen el patrón CIE-10 (estándar 4 dígitos o con relleno X según RIPS).</td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 18 diagnosticoAsociado1 -->
@@ -624,7 +619,7 @@
           <td>1 512</td>
           <td>3 únicos (0/5/24)</td>
           <td><span class="status status-warn">Moderada</span></td>
-          <td>1 512 registros nulos (1.60%). Tres valores distintos: 0 (92 833, 98.4%), 5 (9 registros) y 24 (2 registros). ⚠️ El 98.4% de los registros tiene frecuencia 0, lo que es inconsistente para un campo que debería indicar la frecuencia de administración del medicamento o servicio. La casi nula variabilidad del campo, combinada con el mismo patrón en dosisMiPres, indica que estos datos provienen de un sistema que no completó esta información.</td>
+          <td>1 512 registros nulos (1.60%). Tres valores distintos: 0 (92 833, 98.4%), 5 (9 registros) y 24 (2 registros). ⚠️ El 98.4% de los registros tiene frecuencia 0, lo que es inconsistente para un campo que debería indicar la frecuencia de administración del medicamento o servicio.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
@@ -641,9 +636,9 @@
           </td>
           <td>128</td>
           <td>1 171 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>128 nulos (0.14%). ⚠️ Se usan valores numéricos en lugar de una descripción.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>128 nulos (0.14%).</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 23 codigoTecnologia -->
@@ -660,7 +655,7 @@
           <td>34</td>
           <td>1 298 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>34 nulos (0.04%). 1 298 códigos de tecnología distintos con alta variabilidad de formatos: numéricos simples (ej. '139', '140'), alfanuméricos con guión (ej. '20094683-01') y otros formatos. Coherente con la diversidad de tecnologías en salud (medicamentos, dispositivos, procedimientos). Sin valores claramente inválidos estructuralmente. Top: 139 (29 503), 140 (4 692), 114 (2 722).</td>
+          <td>34 nulos (0.04%).</td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
@@ -678,7 +673,7 @@
           <td>49</td>
           <td>936 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>49 nulos (0.05%). 936 códigos únicos de servicio con prefijos variados (CA, NSO, ST, A, entre otros), correspondientes al catálogo de servicios y tecnologías ACD (Área de Control y Dispensación). Top: CA63612577 (8 409), CA415713172 (7 661). Sin valores estructuralmente inválidos.</td>
+          <td>49 nulos (0.05%). </td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
@@ -696,7 +691,7 @@
           <td>1 299</td>
           <td>1 093 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>1 299 nulos (1.38%). 1 093 descripciones únicas de servicios ACD con texto libre en formato descriptivo estánda.</td>
+          <td>1 299 nulos (1.38%).</td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
@@ -712,18 +707,6 @@
       <div class="issue-tag">Validez · Criticidad Alta</div>
       <div class="issue-title">cuotaModeradora y categoria con placeholders de API sin resolver</div>
       <div class="issue-body">3 663 registros en ambos campos contienen los textos literales 'APICAPITALCUOTA' y 'APICAPITALCATEGORIA', que son marcadores internos de una integración con el sistema APICAPITAL que no completó la resolución del valor real. Esto evidencia un fallo en el pipeline de integración en el que el campo fue escrito con el nombre del parámetro en lugar del dato. Combinado con el 95.9% de nulos en cuotaModeradora y 96.1% en categoria, ambos campos son prácticamente inutilizables para análisis.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Exactitud · Criticidad Alta</div>
-      <div class="issue-title">descripcionTecnologia poblada con código numérico en el 68.2% de los registros</div>
-      <div class="issue-body">64 336 registros tienen en descripcionTecnologia un valor numérico idéntico al codigoTecnologia (ej. '139', '140', '150101'), en lugar de la descripción textual de la tecnología en salud. Esto indica que el proceso ETL no realizó correctamente el JOIN con la tabla maestra de tecnologías. El campo es funcionalmente equivalente a codigoTecnologia para estos registros, lo que anula su utilidad descriptiva y puede inducir errores en informes de uso de tecnologías.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Completitud · Criticidad Alta</div>
-      <div class="issue-title">telefonoPaciente ausente en 55.9% de los registros</div>
-      <div class="issue-body">52 762 registros no tienen teléfono del paciente, lo que limita drásticamente la capacidad de contacto para seguimiento farmacoterapéutico y gestión de autorizaciones. Adicionalmente, 656 registros tienen el valor 0 (sustituto de nulo no declarado) y 196 presentan números con 11 dígitos (posiblemente con indicativo de país redundante). El tipo float64 implica pérdida potencial de ceros iniciales si existieran. Es el campo de contacto más crítico y el de peor calidad del dataset.</div>
     </div>
 
     <div class="issue-card" style="--issue-color: var(--warn)">
@@ -757,16 +740,11 @@
 
     <li class="reco-item">
       <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Mejorar la captura de telefonoPaciente y tipificarlo como VARCHAR:</strong> Implementar validación en el sistema fuente que rechace el valor 0 como teléfono y lo trate como nulo explícito. Aplicar limpieza de teléfonos con longitud ≠ 10 dígitos (celular) o ≠ 7 dígitos (fijo). Cambiar el tipo del campo de float64 a VARCHAR(15) para preservar ceros iniciales y soportar formatos internacionales. Evaluar la posibilidad de enriquecer el campo con datos de otras fuentes (BD de afiliados, BDUA).</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">3</div>
       <div class="reco-text"><strong>Normalizar el campo regimen a un catálogo controlado:</strong> Aplicar la transformación <code>UPPER(TRIM(regimen))</code> en el ETL destino para unificar 'Subsidiado'/'SUBSIDIADO' y 'Contributivo'/'CONTRIBUTIVO' en un único valor por régimen. Definir en el diccionario de datos los valores canónicos ('S' y 'C', o 'SUBSIDIADO' y 'CONTRIBUTIVO') y rechazar cualquier variante no prevista en cargas futuras.</div>
     </li>
 
     <li class="reco-item">
-      <div class="reco-num">4</div>
+      <div class="reco-num">3</div>
       <div class="reco-text"><strong>Clarificar la semántica de dosisMiPres y frecuencia:</strong> Solicitar al área funcional la definición precisa de ambos campos. Si dosisMiPres es un indicador booleano (¿prescripción de Mi-Prés?), convertirlo a tipo BOOLEAN. Si frecuencia debe reflejar la periodicidad real de administración, revisar el proceso de captura en el sistema origen e identificar por qué el 98.4% de los valores es 0. Documentar el resultado en el diccionario de datos y el glosario de negocio.</div>
     </li>
 

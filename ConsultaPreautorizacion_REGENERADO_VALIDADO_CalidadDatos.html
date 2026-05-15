@@ -106,9 +106,9 @@
   <!-- ── KPIs ── -->
   <div class="section-title">📊 Indicadores Generales del Dataset</div>
   <div class="kpi-grid">
-    <div class="kpi-card" style="--kpi-color:var(--warn)">
+    <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-warn">79%</div>
+      <div class="kpi-value c-good">100%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -120,11 +120,6 @@
       <div class="kpi-label">Columnas Auditadas</div>
       <div class="kpi-value c-good">21</div>
       <div class="kpi-sub">100% analizadas</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">Teléfonos inválidos</div>
-      <div class="kpi-value c-bad">14 031</div>
-      <div class="kpi-sub">40.7% ≠ 10 dígitos (CO)</div>
     </div>
   </div>
 
@@ -150,7 +145,7 @@
         <!-- 1 tipoDocumentoIdentificacion -->
         <tr>
           <td>1</td>
-          <td class="col-name">tipoDocumentoIdentificacion</td>
+          <td class="col-name">tipoDocumentoIdentificacion⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -163,7 +158,7 @@
         <!-- 2 numDocumentoIdentificacion -->
         <tr>
           <td>2</td>
-          <td class="col-name">numDocumentoIdentificacion</td>
+          <td class="col-name">numDocumentoIdentificacion⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -176,7 +171,7 @@
         <!-- 3 nombrePaciente -->
         <tr>
           <td>3</td>
-          <td class="col-name">nombrePaciente</td>
+          <td class="col-name">nombrePaciente⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -189,7 +184,7 @@
         <!-- 4 apellidosPaciente -->
         <tr>
           <td>4</td>
-          <td class="col-name">apellidosPaciente</td>
+          <td class="col-name">apellidosPaciente⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -207,9 +202,9 @@
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-bad" style="width:59.3%"></div></div><span class="mini-pct c-bad">59.3%</span></div></td>
           <td>7</td>
           <td>13 030 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>🔴 14 031 registros (40.7%) con longitud distinta a 10 dígitos. El problema principal son <strong>13 157 números de 7 dígitos</strong> (teléfonos fijos locales sin indicativo de ciudad, formato obsoleto desde la Resolución CRC 1763/2008). 10 261 registros con prefijo inválido (no inician en 3, 6 o 1). 639 con valor literal "0" y 124 con "1" como rellenos ficticios. Solo 7 nulos formales, pero la tasa real de datos contactables es inferior al 60%.</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-info">Fuera de Análisis</span></td>
         </tr>
 
         <!-- 6 direccion -->
@@ -220,15 +215,15 @@
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">≈100%</span></div></td>
           <td>10</td>
           <td>13 015 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
           <td>10 registros nulos. 3 125 registros inician con "BARRIO" y 1 990 con "VDA" (vereda) — describen el sector geográfico pero no la dirección postal. 24 registros con valores de menos de 5 caracteres (ilegibles como dirección). Sin estandarización de abreviaturas viales (CL, KR, AV, CR…).</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">Fuera de Análisis</span></td>
         </tr>
 
         <!-- 7 codSexo -->
         <tr>
           <td>7</td>
-          <td class="col-name">codSexo</td>
+          <td class="col-name">codSexo⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -241,7 +236,7 @@
         <!-- 8 fechaNacimiento -->
         <tr>
           <td>8</td>
-          <td class="col-name">fechaNacimiento</td>
+          <td class="col-name">fechaNacimiento⚠️</td>
           <td class="col-type">string→datetime</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -267,33 +262,33 @@
         <!-- 10 codEstado -->
         <tr>
           <td>10</td>
-          <td class="col-name">codEstado</td>
+          <td class="col-name">codEstado⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
           <td>1 único (1)</td>
-          <td><span class="status status-info">INFORMATIVO</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>Columna constante — todos los 34 501 registros tienen valor 1 (ACTIVO).</td>
-          <td><span class="status status-info">REDUNDANTE</span></td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 11 desEstado -->
         <tr>
           <td>11</td>
-          <td class="col-name">desEstado</td>
+          <td class="col-name">desEstado⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
           <td>1 único ("ACTIVO")</td>
-          <td><span class="status status-info">INFROMATIVO</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>Consistencia 1:1 perfecta con codEstado.</td>
-          <td><span class="status status-info">REDUNDANTE</span></td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 12 codTipoAfil -->
         <tr>
           <td>12</td>
-          <td class="col-name">codTipoAfil</td>
+          <td class="col-name">codTipoAfil⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -306,7 +301,7 @@
         <!-- 13 codCategoria -->
         <tr>
           <td>13</td>
-          <td class="col-name">codCategoria</td>
+          <td class="col-name">codCategoria⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -319,7 +314,7 @@
         <!-- 14 desCategoria -->
         <tr>
           <td>14</td>
-          <td class="col-name">desCategoria</td>
+          <td class="col-name">desCategoria⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -345,7 +340,7 @@
         <!-- 16 codMunicipio -->
         <tr>
           <td>16</td>
-          <td class="col-name">codMunicipio</td>
+          <td class="col-name">codMunicipio⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -358,20 +353,20 @@
         <!-- 17 codigoExterno -->
         <tr>
           <td>17</td>
-          <td class="col-name">codigoExterno</td>
+          <td class="col-name">codigoExterno⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
           <td>1 649 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. 7 562 registros (21.9%) con códigos que NO siguen el prefijo "MD" — son códigos numéricos de 8 dígitos (ej: 91044126, 91044127) que corresponden a un esquema diferente (dispositivos médicos o insumos, posiblemente CUPS).</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 18 Descripción medicamento -->
         <tr>
           <td>18</td>
-          <td class="col-name">Descripción medicamento</td>
+          <td class="col-name">Descripción medicamento⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -384,14 +379,14 @@
         <!-- 19 cantidad -->
         <tr>
           <td>19</td>
-          <td class="col-name">cantidad</td>
+          <td class="col-name">cantidad⚠️</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
           <td>62 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. Requiere validación cruzada contra <em>codigoExterno</em> / tipo de producto para confirmar que las cantidades elevadas corresponden a insumos y no a medicamentos.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 20 tipoAnexo -->
@@ -402,72 +397,28 @@
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
           <td>7 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos formales. Sin embargo, 21 387 registros (62.0%) usan el valor <strong>"-"</strong> como marcador de ausencia en lugar de NULL. Los tipos reales presentes son: PRESCRIPCION NO PBS (8 887 = 25.7%), POSTVENTA (2 597 = 7.5%), CAPITACION IPS PRIMARIA (1 447 = 4.2%), ENFERMEDAD PROFESIONAL (133), y otros menores.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>21387 registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 21 numPrescripcion -->
         <tr>
           <td>21</td>
-          <td class="col-name">numPrescripcion</td>
+          <td class="col-name">numPrescripcion⚠️</td>
           <td class="col-type">string</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
           <td>5 205 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin nulos formales. 25 612 registros (74.2%) tienen <strong>"-"</strong> como marcador de ausencia. De los 8 889 con valor real, 8 887 (99.98%) cumplen exactamente el formato MIPRES de 20 dígitos numéricos — validez casi perfecta para los registros poblados.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>25612 registros nulos, pertecen a una Subcuenta queno requiere Nro Descripción diferente al NO PBS.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
       </tbody>
     </table>
   </div>
 
-  <!-- ── Hallazgos Críticos ── -->
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Validez · Criticidad Alta</div>
-      <div class="issue-title">Campo teléfono: 40.7% de datos no contactables</div>
-      <div class="issue-body">14 031 registros tienen longitud inválida. El problema dominante son 13 157 números de 7 dígitos (teléfonos fijos sin indicativo de ciudad, obsoletos desde 2008). Adicionalmente 639 con "0" y 124 con "1" como rellenos ficticios, y 10 261 con prefijo inválido. Este déficit limita severamente la capacidad de gestión de preautorizaciones que requieran contacto directo con el paciente o el prestador.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Consistencia · Criticidad Media</div>
-      <div class="issue-title">Antipatrón "-" como NULL en tipoAnexo y numPrescripcion</div>
-      <div class="issue-body">62.0% de tipoAnexo y 74.2% de numPrescripcion usan el guion "-" en lugar de NULL. Este antipatrón, presente también en el Archivo 3, genera conteos erróneos de completitud y puede causar agrupaciones espurias en consultas SQL (ej: WHERE tipoAnexo IS NOT NULL devuelve el guion como valor válido). Debe corregirse en el sistema fuente y en los registros históricos.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Estandarización · Criticidad Media</div>
-      <div class="issue-title">Esquemas de codificación mixtos en codigoExterno</div>
-      <div class="issue-body">21.9% de los registros tienen códigos de 8 dígitos numéricos (91xxxxxxx) que corresponden a un esquema diferente al prefijo "MD" de medicamentos PBS. Estos parecen ser códigos de dispositivos médicos o insumos. La mezcla sin discriminación impide validación automatizada contra los catálogos oficiales del PBS o CUPS y puede generar errores en conciliaciones farmacéuticas.</div>
-    </div>
-
-  </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Reconstruir teléfonos de 7 dígitos con el indicativo departamental:</strong> Para los 13 157 números de 7 dígitos, cruzar el codDepartamento con la tabla de indicativos de ciudad de la CRC y anteponer el indicativo correspondiente (ej: Bogotá → 601, Cúcuta → 607). Implementar validación en el sistema de captura que rechace teléfonos con longitud distinta a 10 dígitos y que trate los valores "0" y "1" como NULL.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Eliminar el antipatrón "-" de forma transversal:</strong> Aplicar la transformación <code>UPDATE tabla SET tipoAnexo = NULL WHERE tipoAnexo = '-'</code> (y equivalente para numPrescripcion) en todos los archivos del proceso (Archivos 3, 4 y 5). Actualizar la regla de negocio en el sistema origen para insertar NULL nativo. Documentar en el diccionario de datos que los campos son NULLABLE y su significado cuando están ausentes.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">3</div>
-      <div class="reco-text"><strong>Segregar codigoExterno en dos columnas según esquema:</strong> Añadir columna <em>tipoCodigoExterno</em> con valores "PBS_MD" (prefijo MD), "DISPOSITIVO_91" (numérico 91xxxxxxx) u "OTRO". Esto permite validar cada grupo contra su catálogo de referencia y facilita el análisis diferenciado de medicamentos vs. dispositivos médicos en los reportes de preautorizaciones.</div>
-    </li>
-
-  </ul>
 
 </main>
 

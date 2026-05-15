@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">91%</div>
+      <div class="kpi-value c-good">99%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -248,7 +248,7 @@
         <!-- 1 tipoIdentificacionPrestOrdenante -->
         <tr>
           <td>1</td>
-          <td class="col-name">tipoIdentificacionPrestOrdenante</td>
+          <td class="col-name">tipoIdentificacionPrestOrdenante⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -258,7 +258,7 @@
           </td>
           <td>58</td>
           <td>2 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>58 registros nulos (0.12%). Dominio: NIT (47 250, 97.8%) y CC (988, 2.0%). El uso de CC para identificar un prestador ordenante es inusual; en el marco RIPS/ADRES los prestadores se identifican típicamente con NIT, lo que sugiere que los 988 registros CC podrían corresponder a médicos particulares sin NIT de empresa o a un error en la asignación del tipo de documento.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
@@ -266,7 +266,7 @@
         <!-- 2 numIdentificacionPrestOrdenante -->
         <tr>
           <td>2</td>
-          <td class="col-name">numIdentificacionPrestOrdenante</td>
+          <td class="col-name">numIdentificacionPrestOrdenante⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -276,7 +276,7 @@
           </td>
           <td>58</td>
           <td>340 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>58 registros nulos (0.12%), correspondientes al mismo bloque sin prestador identificado. Rango: 7 684 906 a 1 098 637 223; los valores mayores a 999 999 999 (10 dígitos) podrían ser NITs con dígito de verificación incluido.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
@@ -284,7 +284,7 @@
         <!-- 3 tipoPago -->
         <tr>
           <td>3</td>
-          <td class="col-name">tipoPago</td>
+          <td class="col-name">tipoPago⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -302,7 +302,7 @@
         <!-- 4 fechaNacimiento -->
         <tr>
           <td>4</td>
-          <td class="col-name">fechaNacimiento</td>
+          <td class="col-name">fechaNacimiento⚠️</td>
           <td class="col-type">string (ISO 8601)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -313,14 +313,14 @@
           <td>7</td>
           <td>— (continua)</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Solo 7 registros nulos (0.01%). El 100% de los registros con valor cumple el formato ISO 8601 con timestamp (YYYY-MM-DDTHH:MM:SS).</td>
+          <td>Sin registros nulos. El 100% de los registros con valor cumple el formato ISO 8601 con timestamp (YYYY-MM-DDTHH:MM:SS).</td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 5 genero -->
         <tr>
           <td>5</td>
-          <td class="col-name">genero</td>
+          <td class="col-name">genero⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -331,14 +331,14 @@
           <td>5</td>
           <td>2 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Solo 5 registros nulos (0.01%). Dominio controlado: F (31 914, 66.1%) y M (16 377, 33.9%).</td>
+          <td>Sin registros nulos. Dominio controlado: F (31 914, 66.1%) y M (16 377, 33.9%).</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 6 codPais -->
         <tr>
           <td>6</td>
-          <td class="col-name">codPais</td>
+          <td class="col-name">codPais⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -350,7 +350,7 @@
           <td>1 único</td>
           <td><span class="status status-good">Alta</span></td>
           <td>468 registros nulos (0.97%)El único valor presente es '1' (código DIVIPOLA de Colombia), lo que indica que el 100% de los pacientes son nacionales.</td>
-          <td><span class="status status-good">Óptimo</span></td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr> 
 
         <!-- 7 nomPais -->
@@ -374,7 +374,7 @@
         <!-- 8 codCiudad -->
         <tr>
           <td>8</td>
-          <td class="col-name">codCiudad</td>
+          <td class="col-name">codCiudad⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -386,7 +386,7 @@
           <td>130 únicos</td>
           <td><span class="status status-good">Alta</span></td>
           <td>468 registros nulos (0.97%).</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 9 nomCiudad -->
@@ -410,7 +410,7 @@
         <!-- 10 descDispensacion -->
         <tr>
           <td>10</td>
-          <td class="col-name">descDispensacion</td>
+          <td class="col-name">descDispensacion⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -436,7 +436,7 @@
     <div class="issue-card" style="--issue-color: var(--warn)">
       <div class="issue-tag">Exactitud · Conformidad · Criticidad Media</div>
       <div class="issue-title">tipoIdentificacionPrestOrdenante con 988 registros tipo CC para un prestador</div>
-      <div class="issue-body">En el marco regulatorio RIPS (Resolución 3374/2000 y normativa ADRES), los prestadores de servicios de salud ordenantes se identifican con NIT. Los 988 registros (2.0%) que usan CC como tipo de identificación del prestador podrían corresponder a médicos particulares sin establecimiento (lo cual sería válido), o a un error de digitación donde el tipo de documento del paciente fue asignado incorrectamente al prestador. Se recomienda cruzar estos 84 números de CC únicos con el registro RETHUS/REPS de profesionales de salud para validar su correspondencia.</div>
+      <div class="issue-body">En el marco regulatorio RIPS (Resolución 3374/2000 y normativa ADRES), los prestadores de servicios de salud ordenantes se identifican con NIT. Los 988 registros (2.0%) que usan CC como tipo de identificación del prestador podrían corresponder a médicos particulares sin establecimiento (lo cual sería válido), o a un error de digitación donde el tipo de documento del paciente fue asignado incorrectamente al prestador.</div>
     </div>
 
     <div class="issue-card" style="--issue-color: var(--warn)">

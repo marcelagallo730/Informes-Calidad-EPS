@@ -220,7 +220,7 @@
   <div class="kpi-grid" >
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">92%</div>
+      <div class="kpi-value c-good">94%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -236,11 +236,6 @@
       <div class="kpi-label">Columnas con Nulos</div>
       <div class="kpi-value c-warn">12 / 26</div>
       <div class="kpi-sub">41% de columnas afectadas</div>
-    </div>
-    <div class="kpi-card" style="--kpi-color:var(--bad)">
-      <div class="kpi-label">Teléfonos = 0</div>
-      <div class="kpi-value c-bad">49 358</div>
-      <div class="kpi-sub">48.9% inválidos</div>
     </div>
   </div>
 
@@ -268,7 +263,7 @@
         <!-- 1 dociden -->
         <tr>
           <td>1</td>
-          <td class="col-name">dociden</td>
+          <td class="col-name">dociden⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -279,14 +274,14 @@
           <td>0</td>
           <td>16 573 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. Rango coherente con cédulas colombianas.</td>
+          <td>Sin registros nulos. Rango coherente con cédulas colombianas.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 2 Tipodoc -->
         <tr>
           <td>2</td>
-          <td class="col-name">Tipodoc</td>
+          <td class="col-name">Tipodoc⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -304,7 +299,7 @@
         <!-- 3 Nombre -->
         <tr>
           <td>3</td>
-          <td class="col-name">Nombre</td>
+          <td class="col-name">Nombre⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -315,14 +310,14 @@
           <td>0</td>
           <td>9 423 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. 77 477 registros con doble espacio (nombre compuesto sin separador estándar).</td>
+          <td>Sin registros nulos. 77 477 registros con doble espacio (nombre compuesto sin separador estándar).</td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 4 Apellidos -->
         <tr>
           <td>4</td>
-          <td class="col-name">Apellidos</td>
+          <td class="col-name">Apellidos⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -333,14 +328,14 @@
           <td>0</td>
           <td>14 828 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. Formato aparentemente consistente.</td>
+          <td>Sin registros nulos. Formato aparentemente consistente.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 5 FecNacimiento -->
         <tr>
           <td>5</td>
-          <td class="col-name">FecNacimiento</td>
+          <td class="col-name">FecNacimiento⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -386,9 +381,9 @@
           </td>
           <td>108</td>
           <td>16 154 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>108 nulos. Sin estandarización de abreviaturas (CL, CRA, CR, CALLE). Sin validación contra base geográfica oficial.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
+          <td>108 registros nulos. Sin estandarización de abreviaturas (CL, CRA, CR, CALLE). Sin validación contra base geográfica oficial.</td>
+          <td><span class="status status-info">Fuera del Análisis</span></td>
         </tr>
 
         <!-- 8 Telefono -->
@@ -404,15 +399,15 @@
           </td>
           <td>842</td>
           <td>5 786 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
-          <td>🔴 49 358 registros con valor = 0 (48.9% del campo es inútil). 11 311 teléfonos con más de 10 dígitos (inválidos según estándar colombiano).</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-info">No Aplica</span></td>
+          <td>49 358 registros con valor = 0 (48.9% del campo es inútil). 11 311 teléfonos con más de 10 dígitos (inválidos según estándar colombiano).</td>
+          <td><span class="status status-info">Fuera del Análisis</span></td>
         </tr>
 
         <!-- 9 sexo -->
         <tr>
           <td>9</td>
-          <td class="col-name">sexo</td>
+          <td class="col-name">sexo⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -430,7 +425,7 @@
         <!-- 10 RangoSalarial -->
         <tr>
           <td>10</td>
-          <td class="col-name">RangoSalarial</td>
+          <td class="col-name">RangoSalarial⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -448,7 +443,7 @@
         <!-- 11 TipoAfiliado -->
         <tr>
           <td>11</td>
-          <td class="col-name">TipoAfiliado</td>
+          <td class="col-name">TipoAfiliado⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -466,7 +461,7 @@
         <!-- 12 NumEntregaMed -->
         <tr>
           <td>12</td>
-          <td class="col-name">NumEntregaMed</td>
+          <td class="col-name">NumEntregaMed⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -495,14 +490,14 @@
           <td>0</td>
           <td>76 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. 76 valores distintos. Rango aparentemente válido.</td>
+          <td>Sin registros nulos. 76 valores distintos. Rango aparentemente válido.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 14 codigoIT -->
         <tr>
           <td>14</td>
-          <td class="col-name">codigoIT</td>
+          <td class="col-name">codigoIT⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -520,7 +515,7 @@
         <!-- 15 nombreServicio -->
         <tr>
           <td>15</td>
-          <td class="col-name">nombreServicio</td>
+          <td class="col-name">nombreServicio⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -531,14 +526,14 @@
           <td>0</td>
           <td>1 872 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>Sin nulos. </td>
+          <td>Sin registros nulos. </td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 16 fecha_uso -->
         <tr>
           <td>16</td>
-          <td class="col-name">fecha_uso</td>
+          <td class="col-name">fecha_uso⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -556,7 +551,7 @@
         <!-- 17 fecha_vto -->
         <tr>
           <td>17</td>
-          <td class="col-name">fecha_vto</td>
+          <td class="col-name">fecha_vto⚠️</td>
           <td class="col-type">string→datetime</td>
           <td>
             <div class="mini-bar-wrap">
@@ -574,7 +569,7 @@
         <!-- 18 pago_final -->
         <tr>
           <td>18</td>
-          <td class="col-name">pago_final</td>
+          <td class="col-name">pago_final⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -592,7 +587,7 @@
         <!-- 19 DocumentoSolicitante -->
         <tr>
           <td>19</td>
-          <td class="col-name">DocumentoSolicitante</td>
+          <td class="col-name">DocumentoSolicitante⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -603,14 +598,14 @@
           <td>10 611</td>
           <td>2 836 únicos</td>
           <td><span class="status status-warn">Moderada</span></td>
-          <td>10 611 nulos (10.5%). Mezcla el literal "Ninguno" con números de documento reales.</td>
+          <td>10 611 registros nulos (10.5%).</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 20 CantidadDosis -->
         <tr>
           <td>20</td>
-          <td class="col-name">CantidadDosis</td>
+          <td class="col-name">CantidadDosis⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -628,7 +623,7 @@
         <!-- 21 MedidaDosis -->
         <tr>
           <td>21</td>
-          <td class="col-name">MedidaDosis</td>
+          <td class="col-name">MedidaDosis⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -646,7 +641,7 @@
         <!-- 22 Frecuencia -->
         <tr>
           <td>22</td>
-          <td class="col-name">Frecuencia</td>
+          <td class="col-name">Frecuencia⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -674,15 +669,15 @@
           </td>
           <td>23 808</td>
           <td>6 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>23 808 nulos (23.6%).</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 24 ID_DireccionamientoMipres -->
         <tr>
           <td>24</td>
-          <td class="col-name">ID_DireccionamientoMipres</td>
+          <td class="col-name">ID_DireccionamientoMipres⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -692,15 +687,15 @@
           </td>
           <td>18</td>
           <td>864 únicos</td>
-          <td><span class="status status-bad">Baja</span></td>
-          <td>🔴 99 257 registros tienen valor "0" 98.4% del campo.</td>
-          <td><span class="status status-bad">Crítico</span></td>
+          <td><span class="status status-warn">Moderada</span></td>
+          <td>99 257 registros tienen valor "0" 98.4% del campo.</td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 25 TipoUsuario -->
         <tr>
           <td>25</td>
-          <td class="col-name">TipoUsuario</td>
+          <td class="col-name">TipoUsuario⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -711,14 +706,14 @@
           <td>18</td>
           <td>2 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>18 nulos.</td>
+          <td>18 registros nulos.</td>
           <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 26 ModContratacionPago -->
         <tr>
           <td>26</td>
-          <td class="col-name">ModContratacionPago</td>
+          <td class="col-name">ModContratacionPago⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -741,12 +736,6 @@
   <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
   <div class="issues-grid">
 
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Validez · Criticidad Alta</div>
-      <div class="issue-title">Campo Teléfono masivamente inválido</div>
-      <div class="issue-body">49 358 registros (48.9%) tienen Teléfono = 0. Adicionalmente, 11 311 registros superan los 10 dígitos. Patrón idéntico al archivo 1, lo que confirma un problema sistémico en el proceso de extracción desde la fuente de datos.</div>
-    </div>
-
 
     <div class="issue-card" style="--issue-color: var(--bad)">
       <div class="issue-tag">Consistencia · Criticidad Alta</div>
@@ -765,24 +754,6 @@
       <div class="reco-num">1</div>
       <div class="reco-text"><strong>Rehabilitar el campo ID_DireccionamientoMipres:</strong> El 98.4% de valores "0" hace este campo inútil. Verificar con el equipo de MIPRES si el ID debe poblarse para todos los registros o solo para algunos tipos de servicio. Si es obligatorio, implementar validación en origen que rechace registros sin ID MIPRES válido cuando aplique.</div>
     </li>
-
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Estandarizar el campo Teléfono a nivel de sistema:</strong> El patrón de 48-49% de teléfonos = 0 se llena con "0" como placeholder en ausencia del dato real. Implementar NULL en lugar de 0, agregar validación de longitud (7 o 10 dígitos) y formato colombiano (3XX para celular, local de 7 dígitos) en el formulario de ingreso.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">3</div>
-      <div class="reco-text"><strong>Estandarizar DocumentoSolicitante:</strong> Reemplazar el literal "Ninguno" por NULL en el campo. Definir si el documento del solicitante es obligatorio o voluntario según el tipo de servicio. Implementar validación de formato (número de cédula válido) para los valores que sí se ingresan.</div>
-    </li>
-
-
-    <li class="reco-item">
-      <div class="reco-num">4</div>
-      <div class="reco-text"><strong>Aumentar la completitud de MedidaDosis y MedidaTiempo:</strong> Con 23.6% de nulos, se requiere revisar si la ausencia es sistemática para ciertos tipos de servicio (ej: insumos sin dosis definida). Si aplica, marcar el campo como obligatorio condicionalmente en el sistema de origen según el tipo de codigoIT.</div>
-    </li>
-
 
   </ul>
 

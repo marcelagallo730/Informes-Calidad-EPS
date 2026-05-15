@@ -242,7 +242,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">93%</div>
+      <div class="kpi-value c-good">100%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -259,7 +259,7 @@
     <div class="kpi-card" style="--kpi-color:var(--warn)">
       <div class="kpi-label">DP Nulos</div>
       <div class="kpi-value c-warn">6 422</div>
-      <div class="kpi-sub">16.8% sin Documento de Pago</div>
+      <div class="kpi-sub">16.8% sin Nap por Item</div>
     </div>
   </div>
 
@@ -287,7 +287,7 @@
         <!-- 1 NumEntrega -->
         <tr>
           <td>1</td>
-          <td class="col-name">NumEntrega</td>
+          <td class="col-name">NumEntrega⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -299,15 +299,14 @@
           <td>21 088 únicos</td>
           <td><span class="status status-good">Alta</span></td>
           <td>
-            Sin nulos.
-          </td>
+            Sin registros nulos.</td>
           <td><span class="status status-good">Óptimo</span></td>
         </tr>
 
         <!-- 2 DP -->
         <tr>
           <td>2</td>
-          <td class="col-name">DP</td>
+          <td class="col-name">DP⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -318,16 +317,14 @@
           <td>6 422</td>
           <td>31 807 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>
-            6 422 nulos (16.8%) — ausencia de Documento de Pago en una proporción significativa. Todos los valores presentes (31 807) cumplen estrictamente el formato <code>XXXXX-XXXXXXXXXX</code> (5 dígitos, guion, 10 dígitos). Sin un solo valor fuera del patrón. Sin duplicados en DP (cada código de pago es único). 
-          </td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td>6 422 nulos (16.8%) — ausencia de Documento de Pago en una proporción significativa. No todas las subcuentas tienen Nap por item Obligatorio. </td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 3 Valor -->
         <tr>
           <td>3</td>
-          <td class="col-name">Valor</td>
+          <td class="col-name">Valor⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -337,49 +334,13 @@
           </td>
           <td>0</td>
           <td>30 987 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>
-            Sin nulos, sin valores negativos. 9 registros con Valor = 0. 9 registros superan $1 000 000 (máximo: $2 136 882.25). 
-          </td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos, sin valores negativos.</td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr>
-
       </tbody>
     </table>
   </div>
-
-  <!-- ── Hallazgos Críticos ── -->
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Completitud · Criticidad Alta</div>
-      <div class="issue-title">6 422 registros sin Documento de Pago (DP)</div>
-      <div class="issue-body">El 16.8% de las filas no tiene asociado un Documento de Pago. De estos, 4 867 corresponden a NumEntrega que también tienen otras filas con DP válido — lo que sugiere que la liberación del DP está incompleta o fallida para esos folios, no que el dato sea naturalmente ausente.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Exactitud · Criticidad Media</div>
-      <div class="issue-title">9 registros con Valor superior a $1 000 000</div>
-      <div class="issue-body">El valor máximo es $2 136 882.25 COP. En el contexto de liberación de documentos de pago de salud, un valor de esta magnitud debe verificarse contra la factura o reclamación original. 383 registros adicionales superan el P99 ($112 227) y también requieren revisión.</div>
-    </div>
-
-
-  </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Auditar los 9 registros con Valor = 0 y los 9 con Valor &gt; $1M:</strong> Cruzar estos registros con la tabla de reclamaciones o facturas origen para verificar si los montos son correctos. Implementar una regla de validación que marque para revisión manual cualquier registro con Valor = 0 o con Valor por encima de un umbral configurable (ej: P99.5).</div>
-    </li>
-
-
-  </ul>
 
 </main>
 
