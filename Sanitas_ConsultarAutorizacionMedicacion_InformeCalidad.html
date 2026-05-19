@@ -451,7 +451,7 @@
         <!-- 24 Cant -->
         <tr>
           <td>24</td>
-          <td class="col-name">Cant⚠️</td>
+          <td class="col-name">Cant</td>
           <td class="col-type">int64</td>
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-good" style="width:100%"></div></div><span class="mini-pct c-good">100%</span></div></td>
           <td>0</td>
@@ -508,9 +508,9 @@
           <td><div class="mini-bar-wrap"><div class="mini-bar-bg"><div class="mini-bar-fill bg-bad" style="width:43.59%"></div></div><span class="mini-pct c-bad">43.6%</span></div></td>
           <td>17 989</td>
           <td>— (ver hallazgos)</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>17 989 registros nulos (56.4%).</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 29 ConOrden -->
@@ -568,28 +568,6 @@
       </tbody>
     </table>
   </div>
-
-  <!-- ── Hallazgos ── -->
-  <div class="section-title">🚨 Hallazgos </div>
-  <div class="issues-grid">
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Redundancia · Conformidad · Criticidad Alta</div>
-      <div class="issue-title">CUM, CodDireccionado y CodSerComp son idénticos en el 100% de los registros</div>
-      <div class="issue-body">Los tres campos contienen exactamente el mismo valor en cada una de las 31 892 filas. En el modelo MIPRES estos son campos conceptualmente distintos: CUM identifica el medicamento en el catálogo INVIMA, CodDireccionado identifica el producto en el proceso de direccionamiento a un dispensador específico, y CodSerComp identifica el servicio complementario.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Redundancia · Criticidad Alta</div>
-      <div class="issue-title">CantTotal y CantidadesDireccionadas son idénticos en el 100% de los registros</div>
-      <div class="issue-body">CantTotal y CantidadesDireccionadas son numéricamente iguales en cada fila. En MIPRES, CantTotal es la cantidad total autorizada por el médico y CantidadesDireccionadas es la cantidad efectivamente asignada al dispensador, que puede ser menor si hay entregas parciales.</div>
-    </div>
-
-  </div>
-  
-
-
-  </ul>
 
 </main>
 

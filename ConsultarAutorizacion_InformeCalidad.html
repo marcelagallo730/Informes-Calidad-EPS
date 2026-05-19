@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--bad)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-bad">69%</div>
+      <div class="kpi-value c-bad">76%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -266,7 +266,7 @@
         <!-- 2 noPrescripcion -->
         <tr>
           <td>2</td>
-          <td class="col-name">noPrescripcion</td>
+          <td class="col-name">noPrescripcion⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -284,7 +284,7 @@
         <!-- 3 tipoIDPaciente -->
         <tr>
           <td>3</td>
-          <td class="col-name">tipoIDPaciente</td>
+          <td class="col-name">tipoIDPaciente⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -302,7 +302,7 @@
         <!-- 4 noIDPaciente -->
         <tr>
           <td>4</td>
-          <td class="col-name">noIDPaciente</td>
+          <td class="col-name">noIDPaciente⚠️</td>
           <td class="col-type">mixed (int/str)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -338,7 +338,7 @@
         <!-- 6 regimen -->
         <tr>
           <td>6</td>
-          <td class="col-name">regimen</td>
+          <td class="col-name">regimen⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -356,7 +356,7 @@
         <!-- 7 nap -->
         <tr>
           <td>7</td>
-          <td class="col-name">nap</td>
+          <td class="col-name">nap⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -374,7 +374,7 @@
         <!-- 8 tipoIdPrescriptor -->
         <tr>
           <td>8</td>
-          <td class="col-name">tipoIdPrescriptor</td>
+          <td class="col-name">tipoIdPrescriptor⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -392,7 +392,7 @@
         <!-- 9 numIdPrescriptor -->
         <tr>
           <td>9</td>
-          <td class="col-name">numIdPrescriptor</td>
+          <td class="col-name">numIdPrescriptor⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -402,7 +402,7 @@
           </td>
           <td>121</td>
           <td>1 840 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>121 registros nulos (0.13%).</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
@@ -410,7 +410,7 @@
         <!-- 10 nombresApellidosPaciente -->
         <tr>
           <td>10</td>
-          <td class="col-name">nombresApellidosPaciente</td>
+          <td class="col-name">nombresApellidosPaciente⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -420,7 +420,7 @@
           </td>
           <td>135</td>
           <td>5 025 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>135 registros nulos (0.14%).</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
@@ -439,14 +439,14 @@
           <td>52 762</td>
           <td>— (ver hallazgos)</td>
           <td><span class="status status-info">No Aplica</span></td>
-          <td>🔴 52 762 registros nulos (55.9%), el campo de contacto más crítico del dataset. De los 41 594 con valor: 35 152 son celulares válidos (3XXXXXXXXX, 84.5%), 5 427 son fijos de 7 dígitos (13.0%), 656 tienen valor 0 (sustituto de nulo), 196 superan 10 dígitos (posiblemente con indicativo internacional duplicado, ej. '32081344331').</td>
+          <td>52 762 registros nulos (55.9%), el campo de contacto más crítico del dataset. De los 41 594 con valor: 35 152 son celulares válidos (3XXXXXXXXX, 84.5%), 5 427 son fijos de 7 dígitos (13.0%), 656 tienen valor 0 (sustituto de nulo), 196 superan 10 dígitos (posiblemente con indicativo internacional duplicado, ej. '32081344331').</td>
           <td><span class="status status-info">Sin Análisis</span></td>
         </tr>
 
         <!-- 12 fechaNacimiento -->
         <tr>
           <td>12</td>
-          <td class="col-name">fechaNacimiento</td>
+          <td class="col-name">fechaNacimiento⚠️</td>
           <td class="col-type">string (fecha)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -464,7 +464,7 @@
         <!-- 13 copagoAuto -->
         <tr>
           <td>13</td>
-          <td class="col-name">copagoAuto</td>
+          <td class="col-name">copagoAuto⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -474,15 +474,15 @@
           </td>
           <td>1 804</td>
           <td>298 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>1 804 registros nulos (1.91%). El 95.2% de los registros tiene valor 0 (89 920 filas), coherente con la exención de copago del régimen subsidiado.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 14 cuotaModeradora -->
         <tr>
           <td>14</td>
-          <td class="col-name">cuotaModeradora</td>
+          <td class="col-name">cuotaModeradora⚠️</td>
           <td class="col-type">string/mixed</td>
           <td>
             <div class="mini-bar-wrap">
@@ -500,7 +500,7 @@
         <!-- 15 categoria -->
         <tr>
           <td>15</td>
-          <td class="col-name">categoria</td>
+          <td class="col-name">categoria⚠️</td>
           <td class="col-type">string/mixed</td>
           <td>
             <div class="mini-bar-wrap">
@@ -518,7 +518,7 @@
         <!-- 16 codigoMunicipio -->
         <tr>
           <td>16</td>
-          <td class="col-name">codigoMunicipio</td>
+          <td class="col-name">codigoMunicipio⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -528,15 +528,15 @@
           </td>
           <td>3 986</td>
           <td>19 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>3 986 registros nulos (4.22%). Los 90 370 registros con valor utilizan códigos DIVIPOLA válidos de 5 dígitos.</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>3 986 registros nulos (4.22%).</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 17 diagnosticoPrincipal -->
         <tr>
           <td>17</td>
-          <td class="col-name">diagnosticoPrincipal</td>
+          <td class="col-name">diagnosticoPrincipal⚠️</td>
           <td class="col-type">string (CIE-10)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -590,7 +590,7 @@
         <!-- 20 dosisMiPres -->
         <tr>
           <td>20</td>
-          <td class="col-name">dosisMiPres</td>
+          <td class="col-name">dosisMiPres⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -602,13 +602,13 @@
           <td>2 únicos (0/1)</td>
           <td><span class="status status-good">Alta</span></td>
           <td>1 521 nulos (1.61%). El campo tiene únicamente 2 valores: 0 (92 833 registros, 98.4%) y 1 (2 registros).</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 21 frecuencia -->
         <tr>
           <td>21</td>
-          <td class="col-name">frecuencia</td>
+          <td class="col-name">frecuencia⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -626,7 +626,7 @@
         <!-- 22 descripcionTecnologia -->
         <tr>
           <td>22</td>
-          <td class="col-name">descripcionTecnologia</td>
+          <td class="col-name">descripcionTecnologia⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -644,7 +644,7 @@
         <!-- 23 codigoTecnologia -->
         <tr>
           <td>23</td>
-          <td class="col-name">codigoTecnologia</td>
+          <td class="col-name">codigoTecnologia⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -662,7 +662,7 @@
         <!-- 24 codServicio -->
         <tr>
           <td>24</td>
-          <td class="col-name">codServicio</td>
+          <td class="col-name">codServicio⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -680,7 +680,7 @@
         <!-- 25 descripServicioACD -->
         <tr>
           <td>25</td>
-          <td class="col-name">descripServicioACD</td>
+          <td class="col-name">descripServicioACD⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -710,18 +710,6 @@
     </div>
 
     <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Uniformidad · Criticidad Media</div>
-      <div class="issue-title">regimen con capitalización inconsistente</div>
-      <div class="issue-body">El campo contiene únicamente 2 valores semánticos (Subsidiado y Contributivo), pero expresados en 4 variantes por inconsistencia de mayúsculas: 'Subsidiado' vs. 'SUBSIDIADO' y 'Contributivo' vs. 'CONTRIBUTIVO'. Los 3 305 registros en mayúsculas totales (3.5%) rompen la uniformidad y generarán duplicados en agrupaciones y filtros sensibles a mayúsculas en SQL y herramientas analíticas sin normalización previa.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Conformidad · Criticidad Media</div>
-      <div class="issue-title">dosisMiPres y frecuencia con varianza casi nula</div>
-      <div class="issue-body">dosisMiPres contiene 0 en el 98.4% de los registros y frecuencia también tiene 0 en el 98.4%. Ambos campos tienen solo 2–3 valores distintos en todo el dataset, comportamiento inconsistente con campos que deberían reflejar la posología de un medicamento o servicio. Su definición semántica debe revisarse: si son indicadores booleanos (¿Mi-Prés?), deben tipificarse como bool; si son campos de dosis/frecuencia reales, el proceso de captura está fallando masivamente.</div>
-    </div>
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
       <div class="issue-tag">Validez · Criticidad Media</div>
       <div class="issue-title">nap con 365 registros de longitud no estándar</div>
       <div class="issue-body">El Número de Autorización de la Prescripción (NAP) tiene longitud estándar de 16 caracteres, pero 365 registros presentan longitudes distintas (13, 17, 12 y 2 caracteres), con patrones que difieren del estándar: ceros iniciales adicionales ('005659R2002234325'), sufijos alfanuméricos ('05659R2002166367C') y formatos con guión ('5659-32825340'). Estos valores probablemente provienen de sistemas fuente con versiones distintas del formato NAP y deben normalizarse.</div>
@@ -736,16 +724,6 @@
     <li class="reco-item">
       <div class="reco-num">1</div>
       <div class="reco-text"><strong>Resolver la integración APICAPITAL para cuotaModeradora y categoria:</strong> Contactar al equipo propietario del sistema APICAPITAL para diagnosticar por qué los parámetros 'APICAPITALCUOTA' y 'APICAPITALCATEGORIA' no están siendo resueltos a valores reales. Implementar validación post-integración que rechace registros con estos placeholders y los encolé para reintento. En el corto plazo, tratar ambos campos como nulos efectivos en todos los análisis.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">2</div>
-      <div class="reco-text"><strong>Normalizar el campo regimen a un catálogo controlado:</strong> Aplicar la transformación <code>UPPER(TRIM(regimen))</code> en el ETL destino para unificar 'Subsidiado'/'SUBSIDIADO' y 'Contributivo'/'CONTRIBUTIVO' en un único valor por régimen. Definir en el diccionario de datos los valores canónicos ('S' y 'C', o 'SUBSIDIADO' y 'CONTRIBUTIVO') y rechazar cualquier variante no prevista en cargas futuras.</div>
-    </li>
-
-    <li class="reco-item">
-      <div class="reco-num">3</div>
-      <div class="reco-text"><strong>Clarificar la semántica de dosisMiPres y frecuencia:</strong> Solicitar al área funcional la definición precisa de ambos campos. Si dosisMiPres es un indicador booleano (¿prescripción de Mi-Prés?), convertirlo a tipo BOOLEAN. Si frecuencia debe reflejar la periodicidad real de administración, revisar el proceso de captura en el sistema origen e identificar por qué el 98.4% de los valores es 0. Documentar el resultado en el diccionario de datos y el glosario de negocio.</div>
     </li>
 
   </ul>

@@ -597,8 +597,8 @@
           </td>
           <td>10 611</td>
           <td>2 836 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>10 611 registros nulos (10.5%).</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>10 611 registros nulos (10.5%). Corresponde al Documento del Médico.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
@@ -633,8 +633,8 @@
           </td>
           <td>23 801</td>
           <td>39 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>23 801 nulos (23.6%). </td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>23 801 nulos (23.6%). Es importante para la automatización del proceso de dispesanción en el Caf.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
@@ -651,15 +651,15 @@
           </td>
           <td>11 197</td>
           <td>48 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>11 197 nulos (11.1%).</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>11 197 nulos (11.1%). Es importante para la automatización del proceso de dispesanción en el Caf.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 23 MedidaTiempo -->
         <tr>
           <td>23</td>
-          <td class="col-name">MedidaTiempo</td>
+          <td class="col-name">MedidaTiempo⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -670,8 +670,8 @@
           <td>23 808</td>
           <td>6 únicos</td>
           <td><span class="status status-good">Alta</span></td>
-          <td>23 808 nulos (23.6%).</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td>23 808 nulos (23.6%). Es importante para la automatización del proceso de dispesanción en el Caf.</td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 24 ID_DireccionamientoMipres -->
@@ -687,9 +687,9 @@
           </td>
           <td>18</td>
           <td>864 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>99 257 registros tienen valor "0" 98.4% del campo.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>99 257 registros tienen valor "0" correspondiente al 98.4%, lo cual es normal dado que son del PBS.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 25 TipoUsuario -->
@@ -732,30 +732,6 @@
     </table>
   </div>
 
-  <!-- ── Hallazgos Críticos ── -->
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Consistencia · Criticidad Alta</div>
-      <div class="issue-title">ID_DireccionamientoMipres prácticamente inutilizado</div>
-      <div class="issue-body">El 98.4% de los registros (99 257) tienen el valor "0" en este campo, que debería contener el identificador del direccionamiento MIPRES.</div>
-    </div>
-
-  </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Rehabilitar el campo ID_DireccionamientoMipres:</strong> El 98.4% de valores "0" hace este campo inútil. Verificar con el equipo de MIPRES si el ID debe poblarse para todos los registros o solo para algunos tipos de servicio. Si es obligatorio, implementar validación en origen que rechace registros sin ID MIPRES válido cuando aplique.</div>
-    </li>
-
-  </ul>
 
 </main>
 

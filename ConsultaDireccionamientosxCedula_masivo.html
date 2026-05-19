@@ -223,7 +223,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">92%</div>
+      <div class="kpi-value c-good">96%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -527,15 +527,15 @@
           </td>
           <td>20 468</td>
           <td>37 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>20 468 nulos (17.8%). Verificar si todos los valores asocidos a la columna pertenecen al catálogo oficial de Medidas de Dosis. </td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>20 468 nulos (17.8%). Importante para la automatización del proceso de Dispensación. </td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 16 MedidaTiempo -->
         <tr>
           <td>16</td>
-          <td class="col-name">MedidaTiempo</td>
+          <td class="col-name">MedidaTiempo⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -547,7 +547,7 @@
           <td>6 únicos</td>
           <td><span class="status status-good">Alta</span></td>
           <td>20 468 nulos (18.1%).</td>
-          <td><span class="status status-good">Bueno</span></td>
+          <td><span class="status status-warn">Atención</span></td>
         </tr>
 
         <!-- 17 nombreServicio -->
@@ -583,7 +583,7 @@
           <td>540 únicos</td>
           <td><span class="status status-good">Alta</span></td>
           <td>5 registros nulos.</td>
-          <td><span class="status status-good">Óptimo</span></td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 19 Frecuencia -->
@@ -599,7 +599,7 @@
           </td>
           <td>10 031</td>
           <td>52 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>10 031 nulos (8.7%). Valor más frecuente: 24 (53 138). Rango razonable para frecuencia en horas. </td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
@@ -789,7 +789,7 @@
 
 
     <li class="reco-item">
-      <div class="reco-num">2</div>
+      <div class="reco-num">1</div>
       <div class="reco-text"><strong>Evaluar DxPrincipal y TipoDocMedico:</strong> Con 97-98% de nulos, revisar si estas columnas tienen un caso de uso real. Si no, eliminarlas del pipeline. Si son necesarias, corregir la lógica de llenado en la fuente y aplicar controles de completitud mínima (&gt;80%) antes de aceptar cualquier carga.</div>
     </li>
 

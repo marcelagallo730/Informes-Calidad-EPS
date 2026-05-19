@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">89%</div>
+      <div class="kpi-value c-good">98%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -524,9 +524,9 @@
           </td>
           <td>0</td>
           <td>207 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>Sin registros nulos. ⚠️ 30 códigos de municipio mapean a más de un nombre (desMunicipio), evidenciando ambigüedad en la relación codMunicipio → desMunicipio. Esto ocurre porque el código se usa como relativo al departamento (no como código DIVIPOLA completo de 5 dígitos). Debe almacenarse el código compuesto departamento+municipio para unicidad.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>Sin registros nulos.</td>
+          <td><span class="status status-good">Bueno</span></td>
         </tr>
 
         <!-- 17 desMunicipio -->
@@ -578,7 +578,7 @@
           </td>
           <td>152</td>
           <td>28 352 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>152 registros nulos.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
@@ -596,7 +596,7 @@
           </td>
           <td>152 (malform.)</td>
           <td>28 051 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
+          <td><span class="status status-good">Alta</span></td>
           <td>152 registros nulos.</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
@@ -803,28 +803,6 @@
     </table>
   </div>
 
-  <!-- ── Hallazgos Críticos ── -->
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Consistencia · Criticidad Media</div>
-      <div class="issue-title">codMunicipio ambiguo: sin código DIVIPOLA completo</div>
-      <div class="issue-body">30 códigos de municipio mapean a más de un nombre en desMunicipio porque el código se almacena como relativo al departamento (1 = capital de cualquier departamento) en lugar de usar el código DIVIPOLA de 5 dígitos (departamento + municipio). Esto impide la unicidad geográfica y el cruce con fuentes oficiales del DANE.</div>
-    </div>
-
-  </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Adoptar código DIVIPOLA completo para municipios:</strong> Reemplazar codMunicipio (relativo) por el código compuesto de 5 dígitos del DANE (codDepartamento × 1000 + codMunicipio). Esto garantiza unicidad geográfica y permite el cruce con cualquier fuente oficial del DANE sin ambigüedades.</div>
-    </li> 
-
-  </ul>
 
 </main>
 

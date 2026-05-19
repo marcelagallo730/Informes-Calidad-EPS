@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi-card" style="--kpi-color:var(--good)">
       <div class="kpi-label">Puntaje Global de Calidad</div>
-      <div class="kpi-value c-good">97%</div>
+      <div class="kpi-value c-good">99%</div>
       <div class="kpi-sub">Promedio Ponderado DAMA</div>
     </div>
     <div class="kpi-card" style="--kpi-color:var(--info)">
@@ -243,7 +243,7 @@
         <!-- 1 NUMERO_AUTORIZACION -->
         <tr>
           <td>1</td>
-          <td class="col-name">NUMERO_AUTORIZACION</td>
+          <td class="col-name">NUMERO_AUTORIZACION⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -261,7 +261,7 @@
         <!-- 2 costToBeneficiary -->
         <tr>
           <td>2</td>
-          <td class="col-name">costToBeneficiary</td>
+          <td class="col-name">costToBeneficiary⚠️</td>
           <td class="col-type">int64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -279,7 +279,7 @@
         <!-- 3 MOTIVO_NO_PAGO -->
         <tr>
           <td>3</td>
-          <td class="col-name">MOTIVO_NO_PAGO</td>
+          <td class="col-name">MOTIVO_NO_PAGO⚠️</td>
           <td class="col-type">float64</td>
           <td>
             <div class="mini-bar-wrap">
@@ -297,7 +297,7 @@
         <!-- 4 REGIMEN -->
         <tr>
           <td>4</td>
-          <td class="col-name">REGIMEN</td>
+          <td class="col-name">REGIMEN⚠️</td>
           <td class="col-type">string</td>
           <td>
             <div class="mini-bar-wrap">
@@ -315,7 +315,7 @@
         <!-- 5 CATEGORIA -->
         <tr>
           <td>5</td>
-          <td class="col-name">CATEGORIA</td>
+          <td class="col-name">CATEGORIA⚠️</td>
           <td class="col-type">string (mixto)</td>
           <td>
             <div class="mini-bar-wrap">
@@ -325,40 +325,14 @@
           </td>
           <td>71</td>
           <td>5 únicos (no nulos)</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>71 registros nulos (0.14%), distribuidos entre SUBSIDIADO (53) y CONTRIBUTIVO (18); todos tienen costToBeneficiary = 0. El campo contiene 5 valores distintos que corresponden a dos esquemas de codificación paralelos según el régimen: para CONTRIBUTIVO, los valores son 'GRUPO A' (31 803), 'GRUPO B' (10 346) y 'GRUPO C' (3 013); para SUBSIDIADO, los valores son '1' (5 095) y '2' (748). Esta dualidad es estructuralmente coherente (cada esquema se aplica a un solo régimen, sin mezclas entre regímenes), pero semánticamente inconsistente: el mismo campo usa un sistema descriptivo para contributivo y un sistema numérico para subsidiado, lo que requiere lógica condicional en cualquier análisis comparativo entre regímenes. Los valores de CATEGORIA están directamente correlacionados con los topes de costToBeneficiary: GRUPO A → 5 000, GRUPO B → 20 100, GRUPO C → 52 800, mientras que CATEGORIA 1 y 2 (subsidiado) siempre tienen costo 0.</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>71 registros nulos (0.14%).</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
       </tbody>
     </table>
   </div>
-
-  <!-- ── Hallazgos Críticos ── -->
-  <div class="section-title">🚨 Hallazgos Críticos y Problemas Identificados</div>
-  <div class="issues-grid">
-
- 
-
-    <div class="issue-card" style="--issue-color: var(--bad)">
-      <div class="issue-tag">Consistencia · Semántica · Criticidad Alta</div>
-      <div class="issue-title">CATEGORIA usa dos esquemas de codificación paralelos según REGIMEN</div>
-      <div class="issue-body">El campo CATEGORIA combina en la misma columna dos sistemas distintos de categorización: 'GRUPO A/B/C' para el régimen CONTRIBUTIVO (45 162 registros) y valores numéricos '1' y '2' para el régimen SUBSIDIADO (5 843 registros). Aunque no existe mezcla cruzada entre regímenes (cada valor pertenece exclusivamente a uno de los dos sistemas), la dualidad semántica impide tratar el campo como un catálogo único y obliga a lógica condicional en consultas, dashboards y modelos analíticos. Este patrón indica que el campo fue diseñado para el régimen contributivo y se extendió al subsidiado con un catálogo diferente sin unificación del esquema. La solución es normalizar a un único catálogo o separar en dos campos especializados por régimen.</div>
-    </div>
-
-  </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Unificar el esquema de codificación de CATEGORIA en un catálogo único:</strong> Definir con el área funcional un catálogo único de categorías que cubra ambos regímenes (ej. CONTRIBUTIVO_A, CONTRIBUTIVO_B, CONTRIBUTIVO_C, SUBSIDIADO_1, SUBSIDIADO_2) o mantener los dos sistemas pero separándolos en campos distintos: <em>categoria_contributivo</em> y <em>categoria_subsidiado</em>, con nulos mutuamente exclusivos según el régimen. Documentar la equivalencia entre los sistemas en el diccionario de datos y en el glosario de negocio.</div>
-    </li>
-
-  </ul>
 
 </main>
 

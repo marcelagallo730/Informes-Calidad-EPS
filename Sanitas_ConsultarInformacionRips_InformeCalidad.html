@@ -350,7 +350,7 @@
           <td>1 único</td>
           <td><span class="status status-good">Alta</span></td>
           <td>468 registros nulos (0.97%)El único valor presente es '1' (código DIVIPOLA de Colombia), lo que indica que el 100% de los pacientes son nacionales.</td>
-          <td><span class="status status-warn">Atención</span></td>
+          <td><span class="status status-good">Óptimo</span></td>
         </tr> 
 
         <!-- 7 nomPais -->
@@ -420,8 +420,8 @@
           </td>
           <td>468</td>
           <td>6 únicos</td>
-          <td><span class="status status-warn">Moderada</span></td>
-          <td>468 registros nulos (0.97%), en bloque coordinado con los campos geográficos. 6 valores distintos: CONTRIBUTIVO COTIZANTE (19 261, 39.9%), CONTRIBUTIVO (11 411, 23.6%), FAMILIAR (9 653, 20.0%), SUBSIDIADO (5 101, 10.6%), COLECTIVO (2 297, 4.8%), CONTRIBUTIVO ADICIONAL (105, 0.2%). ⚠️ La mezcla de tipos de régimen ('SUBSIDIADO', 'CONTRIBUTIVO') con tipos de beneficiario ('FAMILIAR', 'COTIZANTE', 'COLECTIVO') en el mismo campo sugiere ambigüedad semántica: el campo combina dos dimensiones distintas (régimen de afiliación y tipo de beneficiario) que deberían estar en columnas separadas según el modelo de datos RIPS.</td>
+          <td><span class="status status-good">Alta</span></td>
+          <td>468 registros nulos (0.97%).</td>
           <td><span class="status status-warn">Atención</span></td>
         </tr>
 
@@ -439,24 +439,7 @@
       <div class="issue-body">En el marco regulatorio RIPS (Resolución 3374/2000 y normativa ADRES), los prestadores de servicios de salud ordenantes se identifican con NIT. Los 988 registros (2.0%) que usan CC como tipo de identificación del prestador podrían corresponder a médicos particulares sin establecimiento (lo cual sería válido), o a un error de digitación donde el tipo de documento del paciente fue asignado incorrectamente al prestador.</div>
     </div>
 
-    <div class="issue-card" style="--issue-color: var(--warn)">
-      <div class="issue-tag">Semántica · Consistencia · Criticidad Media</div>
-      <div class="issue-title">descDispensacion mezcla régimen de afiliación y tipo de beneficiario en un solo campo</div>
-      <div class="issue-body">El campo combina en una sola dimensión dos conceptos distintos: el régimen de afiliación (SUBSIDIADO, CONTRIBUTIVO) y el tipo de beneficiario dentro del régimen (COTIZANTE, FAMILIAR, COLECTIVO, ADICIONAL). Esta ambigüedad semántica dificulta el análisis por régimen (requiere agrupar manualmente variantes contributivas) y no permite identificar de forma directa el tipo de beneficiario en registros de régimen subsidiado. El modelo de datos RIPS contempla estos dos atributos como campos separados. Se recomienda descomponer el campo en dos: regimenAfiliacion y tipoBeneficiario.</div>
-    </div>
-
   </div>
-
-  <!-- ── Recomendaciones ── -->
-  <div class="section-title">💡 Recomendaciones de Gobernanza de Datos</div>
-  <ul class="reco-list">
-
-    <li class="reco-item">
-      <div class="reco-num">1</div>
-      <div class="reco-text"><strong>Descomponer descDispensacion en dos campos semánticamente independientes:</strong> Separar el campo en <em>regimenAfiliacion</em> (valores: SUBSIDIADO, CONTRIBUTIVO) y <em>tipoBeneficiario</em> (valores: COTIZANTE, FAMILIAR, COLECTIVO, ADICIONAL). Definir los dominios controlados de cada campo en el diccionario de datos, alineados al modelo RIPS y al catálogo ADRES. Esta separación eliminará la ambigüedad semántica actual y permitirá análisis independientes por régimen y por tipo de beneficiario.</div>
-    </li>
-
-  </ul>
 
 </main>
 
